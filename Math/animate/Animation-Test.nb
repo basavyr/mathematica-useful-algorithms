@@ -1,0 +1,156 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4939,        148]
+NotebookOptionsPosition[      4244,        129]
+NotebookOutlinePosition[      4583,        144]
+CellTagsIndexPosition[      4540,        141]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Source for documentation: \
+https://mathematica.stackexchange.com/questions/13024/how-can-i-completely-\
+remove-the-listanimate-controls\
+\>", "Text",
+ CellChangeTimes->{{3.8251678082606497`*^9, 
+  3.8251678221679983`*^9}},ExpressionUUID->"7c4c6304-9a93-48f9-a8f7-\
+914d6d822efc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Transpose", "[", 
+   RowBox[{"RotationMatrix", "[", 
+    RowBox[{"\[Gamma]", ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.825167135159438*^9, 3.825167159203006*^9}},
+ CellLabel->
+  "In[189]:=",ExpressionUUID->"23bbb65a-a057-405b-8d7f-28b0eb46aa1f"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"Cos", "[", "\[Gamma]", "]"}], 
+      RowBox[{"Sin", "[", "\[Gamma]", "]"}], "0"},
+     {
+      RowBox[{"-", 
+       RowBox[{"Sin", "[", "\[Gamma]", "]"}]}], 
+      RowBox[{"Cos", "[", "\[Gamma]", "]"}], "0"},
+     {"0", "0", "1"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.825167148569906*^9, 3.825167159427485*^9}},
+ CellLabel->
+  "Out[189]//MatrixForm=",ExpressionUUID->"6084fb6e-3875-45e1-ac4b-\
+03eec2a757e9"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p", "=", 
+   RowBox[{"Animate", "[", 
+    RowBox[{
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{"a", "*", 
+         RowBox[{"x", "^", "2"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "1", ",", "3"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1", ",", "10", ",", "1"}], "}"}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Bottom"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pp", "=", 
+   RowBox[{
+    RowBox[{"ListAnimate", "[", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"a", "*", 
+           RowBox[{"x", "^", "2"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "1", ",", "3"}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "1", ",", "10", ",", "1"}], "}"}]}], "]"}], "]"}], "/.", 
+    RowBox[{
+     RowBox[{"HoldPattern", "[", 
+      RowBox[{"AppearanceElements", "\[Rule]", "_"}], "]"}], "\[Rule]", 
+     RowBox[{"(", 
+      RowBox[{"AppearanceElements", "\[Rule]", "None"}], ")"}]}]}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.8251671896747503`*^9, 3.825167228601959*^9}, {
+  3.825167273337185*^9, 3.8251673025300207`*^9}, {3.8251674339433804`*^9, 
+  3.825167456879141*^9}, {3.825167574761077*^9, 3.825167577324905*^9}, {
+  3.8251676530116243`*^9, 3.825167654343306*^9}},
+ CellLabel->
+  "In[206]:=",ExpressionUUID->"114f6381-1eb2-467f-aa01-e0c669a2f39c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "\"\</Users/robertpoenaru/Library/Mobile \
+Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/physics-code-\
+collection/Code-Collection/Rotation-Transformations/test.avi\>\"", ",", 
+    "pp"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.825167167953034*^9, 3.825167188381618*^9}, {
+  3.825167305628121*^9, 3.825167331336267*^9}, {3.8251676602398863`*^9, 
+  3.825167679363894*^9}},
+ CellLabel->
+  "In[210]:=",ExpressionUUID->"c3ffa3ed-2ad8-46f6-8a1a-27fabf99c697"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{692, Automatic}, {Automatic, 132}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 290, 7, 58, "Text",ExpressionUUID->"7c4c6304-9a93-48f9-a8f7-914d6d822efc"],
+Cell[CellGroupData[{
+Cell[873, 31, 384, 10, 30, "Input",ExpressionUUID->"23bbb65a-a057-405b-8d7f-28b0eb46aa1f"],
+Cell[1260, 43, 864, 25, 78, "Output",ExpressionUUID->"6084fb6e-3875-45e1-ac4b-03eec2a757e9"]
+}, Open  ]],
+Cell[2139, 71, 1554, 42, 73, "Input",ExpressionUUID->"114f6381-1eb2-467f-aa01-e0c669a2f39c"],
+Cell[3696, 115, 544, 12, 94, "Input",ExpressionUUID->"c3ffa3ed-2ad8-46f6-8a1a-27fabf99c697"]
+}
+]
+*)
+
