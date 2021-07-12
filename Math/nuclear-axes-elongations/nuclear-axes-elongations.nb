@@ -1,0 +1,157 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4959,        149]
+NotebookOptionsPosition[      4192,        126]
+NotebookOutlinePosition[      4530,        141]
+CellTagsIndexPosition[      4487,        138]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Calculate the elongation of the nuclear axes", "Section",
+ CellChangeTimes->{{3.83508561151138*^9, 
+  3.835085621290525*^9}},ExpressionUUID->"6483c157-a227-4739-bd36-\
+485ef6100cd8"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The elongation is considered along one of the tree ",
+ StyleBox["principal axes ",
+  FontWeight->"Bold"],
+ "of the rotational ellipsoid."
+}], "Subsection",
+ CellChangeTimes->{{3.835085622772315*^9, 
+  3.835085646450417*^9}},ExpressionUUID->"1db930c2-09ac-4c22-8f09-\
+8f057dadaf76"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"rk", "[", 
+    RowBox[{"beta_", ",", "gamma_", ",", "k_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Sqrt", "[", 
+     FractionBox["5", 
+      RowBox[{"4", "\[Pi]"}]], "]"}], "beta", "*", 
+    RowBox[{"Cos", "[", 
+     RowBox[{
+      RowBox[{"gamma", "*", 
+       FractionBox["\[Pi]", "180"]}], "-", 
+      FractionBox[
+       RowBox[{"2", "\[Pi]", "*", "k"}], "3"]}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8350856521716547`*^9, 3.8350857093709593`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"7bc80e5b-cd91-4cca-b450-b1440d77231b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"t1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"rk", "[", 
+        RowBox[{"0.3", ",", "x", ",", "1"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "360", ",", "10"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", "t1", "]"}]}], "Input",
+ CellChangeTimes->{{3.8350861440090857`*^9, 3.835086182552329*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"049b81fb-a97d-4077-8040-a490574828c9"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJxTTMoPSmViYGBQBWIQDQMKnqU7b1rs2A/hqTjIGN5bs3DiBijfxOGy4a7j
+ApcXQPl2DgwowAUmbw/he8L0Q/l+DlDzIfyGQIc/d1c/XqG8Hyof4sCger1N
+oe8QVD7MYeOVNGGJX0eg8pEOJRuP7nhy6BhUPtqhh93VY+mt41D5OKj5JyB8
+hwRU+YZEVP0HktDMT0G13yEV1X0NaajuP5CO5r9MVP87ZKGGT0M2avgdyEEL
+3zwHlPB3yIfZD+UXwNwH4T8ogLkfwm8ohPkPwlcogvkfal8RLHwg/IRiVHmG
+ElT9C0pQzXcoRbO/FNV9DWVw9wMAkw687g==
+      "]]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6]}, {}}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6]}, {}}}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 360.}, {-0.18923493915151202`, 0.18923493915151202`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.83508617901302*^9, 3.8350861829296293`*^9}},
+ CellLabel->"Out[5]=",ExpressionUUID->"8c38d080-8972-4764-9c4e-2654dba1500e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 189}, {53, Automatic}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 188, 3, 67, "Section",ExpressionUUID->"6483c157-a227-4739-bd36-485ef6100cd8"],
+Cell[CellGroupData[{
+Cell[793, 29, 299, 8, 81, "Subsection",ExpressionUUID->"1db930c2-09ac-4c22-8f09-8f057dadaf76"],
+Cell[1095, 39, 589, 16, 49, "Input",ExpressionUUID->"7bc80e5b-cd91-4cca-b450-b1440d77231b"],
+Cell[CellGroupData[{
+Cell[1709, 59, 544, 14, 52, "Input",ExpressionUUID->"049b81fb-a97d-4077-8040-a490574828c9"],
+Cell[2256, 75, 1896, 46, 232, "Output",ExpressionUUID->"8c38d080-8972-4764-9c4e-2654dba1500e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
