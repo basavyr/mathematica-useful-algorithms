@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     33185,        721]
-NotebookOptionsPosition[     32413,        698]
-NotebookOutlinePosition[     32751,        713]
-CellTagsIndexPosition[     32708,        710]
+NotebookDataLength[     33559,        735]
+NotebookOptionsPosition[     32787,        712]
+NotebookOutlinePosition[     33125,        727]
+CellTagsIndexPosition[     33082,        724]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -60,13 +60,15 @@ Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
+  RowBox[{"\[Beta]", "=", "0.3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"t1", "=", 
    RowBox[{"Table", "[", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{"x", ",", 
        RowBox[{"rk", "[", 
-        RowBox[{"0.3", ",", "x", ",", "1"}], "]"}]}], "}"}], ",", 
+        RowBox[{"\[Beta]", ",", "x", ",", "1"}], "]"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"x", ",", "0", ",", "360", ",", "1"}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
@@ -77,7 +79,7 @@ Cell[BoxData[{
      RowBox[{"{", 
       RowBox[{"x", ",", 
        RowBox[{"rk", "[", 
-        RowBox[{"0.3", ",", "x", ",", "2"}], "]"}]}], "}"}], ",", 
+        RowBox[{"\[Beta]", ",", "x", ",", "2"}], "]"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"x", ",", "0", ",", "360", ",", "1"}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
@@ -88,7 +90,7 @@ Cell[BoxData[{
      RowBox[{"{", 
       RowBox[{"x", ",", 
        RowBox[{"rk", "[", 
-        RowBox[{"0.3", ",", "x", ",", "3"}], "]"}]}], "}"}], ",", 
+        RowBox[{"\[Beta]", ",", "x", ",", "3"}], "]"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"x", ",", "0", ",", "360", ",", "1"}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
@@ -121,7 +123,18 @@ Cell[BoxData[{
        RowBox[{
         RowBox[{"{", 
          RowBox[{"\"\<k=1\>\"", ",", "\"\<k=2\>\"", ",", "\"\<k=3\>\""}], 
-         "}"}], ",", "Right"}], "]"}]}]}], "]"}]}], 
+         "}"}], ",", "Right"}], "]"}]}], ",", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"Inset", "[", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"StringTemplate", "[", "\"\<\[Beta]=``\>\"", "]"}], "[", 
+           "\[Beta]", "]"}], ",", "13", ",", "Italic"}], "]"}], ",", 
+        RowBox[{"Scaled", "[", 
+         RowBox[{"{", 
+          RowBox[{"0.2", ",", "0.2"}], "}"}], "]"}]}], "]"}]}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"Show", "[", "lp", "]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -137,9 +150,10 @@ useful-algorithms/Math/nuclear-axes-elongations/plot.pdf\>\"", ",",
   3.83509556015823*^9, 3.83509565193102*^9}, {3.8350956853364897`*^9, 
   3.835095803877344*^9}, {3.835095856346806*^9, 3.835095894436246*^9}, {
   3.835095964858108*^9, 3.835095972455925*^9}, {3.835096073232093*^9, 
-  3.835096140036604*^9}, {3.83509619586519*^9, 3.8350962578471203`*^9}},
- CellLabel->
-  "In[108]:=",ExpressionUUID->"049b81fb-a97d-4077-8040-a490574828c9"],
+  3.835096140036604*^9}, {3.83509619586519*^9, 3.835096420133535*^9}, {
+  3.835096703633913*^9, 
+  3.8350967057334213`*^9}},ExpressionUUID->"049b81fb-a97d-4077-8040-\
+a490574828c9"],
 
 Cell[BoxData[
  TemplateBox[{GraphicsBox[{{}, {{{}, {}, {
@@ -345,8 +359,13 @@ rCUJ8mUzKf658L/YCmC7
          GrayLevel[0]]}, {}, {}, {}, {}, {}, {}, {}}}, {{}, {}}}, {
     DisplayFunction -> Identity, DisplayFunction -> Identity, AspectRatio -> 
      0.7, Axes -> {False, False}, AxesLabel -> {None, None}, 
-     AxesOrigin -> {0, 0}, DisplayFunction :> Identity, 
-     Frame -> {{True, True}, {True, True}}, FrameLabel -> {{
+     AxesOrigin -> {0, 0}, DisplayFunction :> Identity, Epilog -> InsetBox[
+       BoxData[
+        FormBox[
+         StyleBox["\"\[Beta]=0.3\"", 13, Italic, StripOnInput -> False], 
+         TraditionalForm]], 
+       Scaled[{0.2, 0.2}]], Frame -> {{True, True}, {True, True}}, 
+     FrameLabel -> {{
         FormBox["\"cos(\[Gamma]-2\[Pi]k/3)\"", TraditionalForm], None}, {
         FormBox[
         "\"\\!\\(\\*SuperscriptBox[\\(\[Gamma]\\), \\(o\\)]\\)\"", 
@@ -684,14 +703,9 @@ rCUJ8mUzKf658L/YCmC7
      RowBox[{#, ",", 
        RowBox[{"Placed", "[", 
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
- CellChangeTimes->{{3.83508617901302*^9, 3.8350861829296293`*^9}, {
-   3.835095570462521*^9, 3.835095652440119*^9}, 3.835095698028385*^9, 
-   3.835095728791955*^9, {3.835095772555731*^9, 3.835095804098198*^9}, {
-   3.8350958806032553`*^9, 3.835095894689085*^9}, 3.83509597268487*^9, {
-   3.8350960958234997`*^9, 3.835096125659824*^9}, {3.835096190766214*^9, 
-   3.8350961965131493`*^9}, 3.835096258617531*^9},
+ CellChangeTimes->{{3.835096383678462*^9, 3.835096420414122*^9}},
  CellLabel->
-  "Out[112]=",ExpressionUUID->"fb68dc47-c077-411f-936b-e3c4d16afb2d"]
+  "Out[170]=",ExpressionUUID->"d752a531-04b2-4c04-ba30-54089f9771a7"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -718,8 +732,8 @@ Cell[CellGroupData[{
 Cell[793, 29, 299, 8, 81, "Subsection",ExpressionUUID->"1db930c2-09ac-4c22-8f09-8f057dadaf76"],
 Cell[1095, 39, 638, 17, 49, "Input",ExpressionUUID->"7bc80e5b-cd91-4cca-b450-b1440d77231b"],
 Cell[CellGroupData[{
-Cell[1758, 60, 3084, 81, 268, "Input",ExpressionUUID->"049b81fb-a97d-4077-8040-a490574828c9"],
-Cell[4845, 143, 27528, 550, 312, "Output",ExpressionUUID->"fb68dc47-c077-411f-936b-e3c4d16afb2d"]
+Cell[1758, 60, 3618, 95, 310, "Input",ExpressionUUID->"049b81fb-a97d-4077-8040-a490574828c9"],
+Cell[5379, 157, 27368, 550, 277, "Output",ExpressionUUID->"d752a531-04b2-4c04-ba30-54089f9771a7"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
