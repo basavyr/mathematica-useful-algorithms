@@ -1,0 +1,173 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5278,        165]
+NotebookOptionsPosition[      4286,        138]
+NotebookOutlinePosition[      4624,        153]
+CellTagsIndexPosition[      4581,        150]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Nuclear potentials with spherical symmetry ", "Chapter",
+ CellChangeTimes->{{3.83704279145507*^9, 
+  3.837042797974267*^9}},ExpressionUUID->"2412ec9e-491d-44e3-8127-\
+c843af11ec02"],
+
+Cell[CellGroupData[{
+
+Cell["Woods-Saxon Potential", "Subsection",
+ CellChangeTimes->{{3.837042834120788*^9, 3.837042840195204*^9}, {
+  3.837042883542212*^9, 
+  3.837042885064885*^9}},ExpressionUUID->"7a36dbc6-0f74-4def-835a-\
+5b4026c8e1b8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"vWS", "[", 
+    RowBox[{"r_", ",", "a_", ",", "v0_", ",", "R_"}], "]"}], ":=", 
+   FractionBox[
+    RowBox[{"-", "v0"}], 
+    RowBox[{"1", "+", 
+     RowBox[{"Exp", "[", 
+      FractionBox[
+       RowBox[{"r", "-", "R"}], "a"], "]"}]}]]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8370429053189383`*^9, 3.837042938873757*^9}, {
+  3.83704306820015*^9, 
+  3.83704310708191*^9}},ExpressionUUID->"0956b782-d3cc-4419-9b6d-\
+f86b247c359d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Harmonic oscillator potential", "Subsection",
+ CellChangeTimes->{{3.837043109508363*^9, 
+  3.8370431151422577`*^9}},ExpressionUUID->"055a7b16-0c4d-4da7-84c0-\
+9c7509a1d035"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"vHO", "[", 
+    RowBox[{"r_", ",", "\[Omega]0_", ",", "M_"}], "]"}], ":=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"M", "*", 
+      SuperscriptBox["\[Omega]0", "2"]}], "2"], 
+    SuperscriptBox["r", "2"]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.837043118425288*^9, 
+  3.837043163911949*^9}},ExpressionUUID->"3251bca6-2881-4f9d-a2bb-\
+dfb3c57587d6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Finite square-well", "Subsection",
+ CellChangeTimes->{{3.837043171225033*^9, 
+  3.837043175810364*^9}},ExpressionUUID->"93ebc4ac-5fe2-443f-8f44-\
+e1c7c333d003"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"vFSQ", "[", 
+    RowBox[{"r_", ",", "v0_", ",", "R_"}], "]"}], ":=", 
+   TagBox[GridBox[{
+      {"\[Piecewise]", GridBox[{
+         {
+          RowBox[{"-", "v0"}], 
+          RowBox[{"r", "\[LessEqual]", "R"}]},
+         {"0", 
+          RowBox[{"r", ">", "R"}]}
+        },
+        AllowedDimensions->{2, Automatic},
+        Editable->True,
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
+           "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.84]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}},
+        Selectable->True]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.35]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    "Piecewise",
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False,
+    StripWrapperBoxes->True]}], ";"}]], "Input",
+ CellChangeTimes->{{3.837043179064911*^9, 3.837043180553693*^9}, {
+  3.837043423417938*^9, 3.837043453441649*^9}, {3.8370435625895853`*^9, 
+  3.837043650965397*^9}},ExpressionUUID->"8b863fc5-0f08-404c-8c85-\
+8ec625ab8cbf"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 118}, {59, Automatic}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 187, 3, 69, "Chapter",ExpressionUUID->"2412ec9e-491d-44e3-8127-c843af11ec02"],
+Cell[CellGroupData[{
+Cell[792, 29, 218, 4, 54, "Subsection",ExpressionUUID->"7a36dbc6-0f74-4def-835a-5b4026c8e1b8"],
+Cell[1013, 35, 478, 14, 56, "Input",ExpressionUUID->"0956b782-d3cc-4419-9b6d-f86b247c359d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1528, 54, 179, 3, 54, "Subsection",ExpressionUUID->"055a7b16-0c4d-4da7-84c0-9c7509a1d035"],
+Cell[1710, 59, 401, 12, 50, "Input",ExpressionUUID->"3251bca6-2881-4f9d-a2bb-dfb3c57587d6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2148, 76, 166, 3, 54, "Subsection",ExpressionUUID->"93ebc4ac-5fe2-443f-8f44-e1c7c333d003"],
+Cell[2317, 81, 1941, 53, 45, "Input",ExpressionUUID->"8b863fc5-0f08-404c-8c85-8ec625ab8cbf"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
