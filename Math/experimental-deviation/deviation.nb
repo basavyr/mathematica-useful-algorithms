@@ -10,20 +10,129 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      1079,         40]
-NotebookOptionsPosition[       788,         27]
-NotebookOutlinePosition[      1126,         42]
-CellTagsIndexPosition[      1083,         39]
+NotebookDataLength[      5515,        156]
+NotebookOptionsPosition[      4876,        136]
+NotebookOutlinePosition[      5214,        151]
+CellTagsIndexPosition[      5171,        148]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell["\<\
 Study of the deviation of a theoretical value from the experimental value\
 \>", "Chapter",
  CellChangeTimes->{{3.837585403509779*^9, 
   3.837585416915402*^9}},ExpressionUUID->"33bce0af-0e18-4830-b1da-\
-08ba7c25c37f"]
+08ba7c25c37f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"allowedValues", "[", 
+    RowBox[{"x0_", ",", "dev_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"RandomReal", "[", 
+      RowBox[{"{", 
+       RowBox[{"x0", ",", 
+        RowBox[{"x0", "+", 
+         RowBox[{
+          RowBox[{"RandomChoice", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "1"}], "}"}], "]"}], "*", "dev"}]}]}], 
+       "}"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "n", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rPlot", "[", 
+   RowBox[{"x0_", ",", "dev_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+    RowBox[{"allowedValues", "[", 
+     RowBox[{"x0", ",", "dev", ",", "n"}], "]"}], ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+    RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+    RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+    RowBox[{"PlotMarkers", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Automatic", ",", " ", "Medium"}], "}"}]}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.8376001343361607`*^9, 3.837600268302713*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"6b3a8a63-4c52-4c9b-9eef-d5d03d31fcd6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"rPlot", "[", 
+  RowBox[{"3", ",", "1", ",", "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.83760024593574*^9, 3.8376002634923553`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"b5ab8415-4039-469e-862d-a7f1a4809eb4"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{{}, {}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6], 
+      LineBox[{{1., 3.14655690108091}, {2., 3.600791297914506}, {3., 
+       3.691171561901127}, {4., 3.981252873355211}, {5., 
+       3.790267973056584}}]}}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       FormBox[
+        StyleBox[
+         GraphicsBox[
+          {EdgeForm[None], DiskBox[{0, 0}]}],
+         StripOnInput->False,
+         GraphicsBoxOptions->{DefaultBaseStyle->Directive[
+           PointSize[0.012833333333333334`], 
+           RGBColor[0.368417, 0.506779, 0.709798], 
+           AbsoluteThickness[1.6]]}],
+        TraditionalForm], {0., 0.}, Automatic, Offset[10]], {{{1., 
+      3.14655690108091}}, {{2., 3.600791297914506}}, {{3., 
+      3.691171561901127}}, {{4., 3.981252873355211}}, {{5., 
+      3.790267973056584}}}]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6]}, {}}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6]}, {}}}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.916666666666667, 3.100184902621227},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0.916666666666667, 5.}, {3.100184902621227, 3.981252873355211}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.837600253963374*^9, 3.837600270022974*^9}},
+ CellLabel->"Out[11]=",ExpressionUUID->"8288f587-29fa-407d-8bc4-16724f0ed22f"]
+}, Open  ]]
+}, Open  ]]
 },
 WindowSize->{808, 911},
 WindowMargins->{{340, Automatic}, {Automatic, 51}},
@@ -41,7 +150,14 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 226, 5, 117, "Chapter",ExpressionUUID->"33bce0af-0e18-4830-b1da-08ba7c25c37f"]
+Cell[CellGroupData[{
+Cell[580, 22, 226, 5, 117, "Chapter",ExpressionUUID->"33bce0af-0e18-4830-b1da-08ba7c25c37f"],
+Cell[809, 29, 1359, 36, 115, "Input",ExpressionUUID->"6b3a8a63-4c52-4c9b-9eef-d5d03d31fcd6"],
+Cell[CellGroupData[{
+Cell[2193, 69, 237, 4, 30, "Input",ExpressionUUID->"b5ab8415-4039-469e-862d-a7f1a4809eb4"],
+Cell[2433, 75, 2415, 57, 281, "Output",ExpressionUUID->"8288f587-29fa-407d-8bc4-16724f0ed22f"]
+}, Open  ]]
+}, Open  ]]
 }
 ]
 *)
