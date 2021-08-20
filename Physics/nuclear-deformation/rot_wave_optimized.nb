@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11046,        216]
-NotebookOptionsPosition[     10575,        199]
-NotebookOutlinePosition[     10967,        215]
-CellTagsIndexPosition[     10924,        212]
+NotebookDataLength[     13166,        274]
+NotebookOptionsPosition[     12414,        254]
+NotebookOutlinePosition[     12806,        270]
+CellTagsIndexPosition[     12763,        267]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,6 +24,11 @@ Cell["Rotational wave function ", "Chapter",
  CellChangeTimes->{{3.838433916705134*^9, 
   3.838433919833205*^9}},ExpressionUUID->"6fe41ec5-b231-4373-8847-\
 b6776c9ee9e9"],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8384352502815847`*^9, 3.8384352826632643`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"525c3118-f9cd-4d82-832e-e44a0ae1223f"],
 
 Cell[TextData[{
  "The study for a rotational wave function (its shape and evolution with the \
@@ -194,7 +199,57 @@ kiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJktxa
 }], "Text",
  CellChangeTimes->{{3.838433925255657*^9, 
   3.8384339777047157`*^9}},ExpressionUUID->"4898e8f8-3652-48b3-af46-\
-cc7f67b3b762"]
+cc7f67b3b762"],
+
+Cell["\<\
+-> Define the expression of the wave function
+-> Create a list of projections M for a given spin\
+\>", "Text",
+ CellChangeTimes->{{3.838434149735825*^9, 3.838434174161886*^9}, {
+  3.838434221106995*^9, 
+  3.838434224078424*^9}},ExpressionUUID->"7421ef74-ebe7-4eb7-8b55-\
+b2664bc3c16b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"phiM", "[", 
+    RowBox[{"phi_", ",", "M_"}], "]"}], ":=", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"2", "\[Pi]"}], "]"}]], 
+    RowBox[{"Exp", "[", 
+     RowBox[{"\[ImaginaryI]", "*", "M", "*", "phi"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"projections", "[", "I_", "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"i", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"-", "I"}], ",", "I", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rephi", "[", 
+    RowBox[{"phi_", ",", "M_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Im", "[", 
+       RowBox[{"phiM", "[", 
+        RowBox[{"phi", ",", "M"}], "]"}], "]"}], "==", "0"}], ",", 
+     RowBox[{"phiM", "[", 
+      RowBox[{"phi", ",", "M"}], "]"}], ",", 
+     RowBox[{"Re", "[", 
+      RowBox[{"phiM", "[", 
+       RowBox[{"phi", ",", "M"}], "]"}], "]"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.838434075057385*^9, 3.8384341717079268`*^9}, 
+   3.838434277486679*^9, 3.838435243439179*^9, {3.838435333831172*^9, 
+   3.838435368647784*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"a5020ad1-4a12-4a20-b65c-4d2f251cbd82"]
 }, Open  ]]
 },
 WindowSize->{808, 911},
@@ -216,11 +271,12 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 170, 3, 69, "Chapter",ExpressionUUID->"6fe41ec5-b231-4373-8847-b6776c9ee9e9"],
-Cell[753, 27, 9806, 169, 111, "Text",ExpressionUUID->"4898e8f8-3652-48b3-af46-cc7f67b3b762"]
+Cell[753, 27, 224, 3, 30, "Input",ExpressionUUID->"525c3118-f9cd-4d82-832e-e44a0ae1223f"],
+Cell[980, 32, 9806, 169, 111, "Text",ExpressionUUID->"4898e8f8-3652-48b3-af46-cc7f67b3b762"],
+Cell[10789, 203, 295, 7, 58, "Text",ExpressionUUID->"7421ef74-ebe7-4eb7-8b55-b2664bc3c16b"],
+Cell[11087, 212, 1311, 39, 124, "Input",ExpressionUUID->"a5020ad1-4a12-4a20-b65c-4d2f251cbd82"]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
