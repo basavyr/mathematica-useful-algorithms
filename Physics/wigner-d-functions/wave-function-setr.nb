@@ -1,0 +1,123 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3538,        115]
+NotebookOptionsPosition[      2707,         91]
+NotebookOutlinePosition[      3102,        107]
+CellTagsIndexPosition[      3059,        104]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Create the wave function set", "Section",
+ CellChangeTimes->{{3.838974345404307*^9, 
+  3.8389743522648897`*^9}},ExpressionUUID->"01d77aa6-bf6a-4dc9-bcaf-\
+62880e8d43c0"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "For a given set of {spin, M} values, generate a set of wave-functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CurlyPhi]", "IMj"], "=", 
+    RowBox[{"|", 
+     RowBox[{
+      SubscriptBox["IMK", "j"], ">"}]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f33d5016-4203-436a-8b85-37308b329c3a"]
+}], "Subsubsection",
+ CellChangeTimes->{{3.838974355709633*^9, 
+  3.838974404229529*^9}},ExpressionUUID->"3652b8cc-573f-47bd-8c65-\
+51dbb0f1e138"],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global*`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.838974439454801*^9, 3.838974454986451*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"2f63c0dd-69cc-4907-b2cb-408ebc423eee"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Create the set of states with the same M, and the same K, respectively\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.838974532950985*^9, 
+  3.8389745486374483`*^9}},ExpressionUUID->"51645b94-b298-4320-900e-\
+02c9516a8137"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Kstates", "[", 
+    RowBox[{"spin_", ",", "m_"}], "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"spin", ",", "m", ",", "k"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", 
+       RowBox[{"-", "spin"}], ",", "spin"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Mstates", "[", 
+    RowBox[{"spin_", ",", "k_"}], "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"spin", ",", "m", ",", "k"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"m", ",", 
+       RowBox[{"-", "spin"}], ",", "spin"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.83897442191882*^9, 3.8389744246364727`*^9}, {
+  3.838974459667161*^9, 3.838974505968628*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"32e11fd9-eacf-43be-9c4a-c72b7509b4c1"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{455, Automatic}, {-219, Automatic}},
+FrontEndVersion->"12.3 for Mac OS X x86 (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"25e5e3d9-b5ca-464c-8b53-9ef2d8eb348a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 175, 3, 67, "Section",ExpressionUUID->"01d77aa6-bf6a-4dc9-bcaf-62880e8d43c0"],
+Cell[CellGroupData[{
+Cell[780, 29, 504, 14, 48, "Subsubsection",ExpressionUUID->"3652b8cc-573f-47bd-8c65-51dbb0f1e138"],
+Cell[1287, 45, 220, 3, 30, "Input",ExpressionUUID->"2f63c0dd-69cc-4907-b2cb-408ebc423eee"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1544, 53, 231, 5, 45, "Subsubsection",ExpressionUUID->"51645b94-b298-4320-900e-02c9516a8137"],
+Cell[1778, 60, 901, 27, 52, "Input",ExpressionUUID->"32e11fd9-eacf-43be-9c4a-c72b7509b4c1"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
