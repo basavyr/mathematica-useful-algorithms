@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    163836,       3569]
-NotebookOptionsPosition[    162262,       3534]
-NotebookOutlinePosition[    162658,       3550]
-CellTagsIndexPosition[    162615,       3547]
+NotebookDataLength[    163642,       3564]
+NotebookOptionsPosition[    162164,       3530]
+NotebookOutlinePosition[    162560,       3546]
+CellTagsIndexPosition[    162517,       3543]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2365,6 +2365,23 @@ Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{
+   RowBox[{"makelegends", "[", "spin_", "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Style", "[", 
+      RowBox[{
+       RowBox[{"StringTemplate", "[", "\"\<K=``\>\"", "]"}], "[", 
+       RowBox[{
+        RowBox[{"-", "spin"}], "+", 
+        RowBox[{"(", 
+         RowBox[{"i", "-", "1"}], ")"}]}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"2", "*", "spin"}], "+", "1"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
    RowBox[{"dataPlot", "[", 
     RowBox[{"spin_", ",", "angles_"}], "]"}], ":=", 
    RowBox[{"ListPlot", "[", 
@@ -2411,14 +2428,16 @@ Cell[BoxData[{
           RowBox[{"0.1", ",", "0.91"}], "}"}], "]"}]}], "]"}]}], ",", 
      RowBox[{"PlotLegends", "\[Rule]", 
       RowBox[{"Placed", "[", 
-       RowBox[{"Automatic", ",", "Right"}], "]"}]}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"makelegends", "[", "spin", "]"}], ",", "Right"}], "]"}]}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"dataPlot", "[", 
   RowBox[{"3", ",", "angles"}], "]"}]}], "Input",
  CellChangeTimes->{{3.839069965392764*^9, 3.839070134359254*^9}, {
-  3.839070299351015*^9, 3.839070363523658*^9}},
+  3.839070299351015*^9, 3.839070363523658*^9}, {3.8390704213013363`*^9, 
+  3.839070574145678*^9}},
  CellLabel->
-  "In[109]:=",ExpressionUUID->"9b799944-031a-4949-9356-ba35518964aa"],
+  "In[115]:=",ExpressionUUID->"9b799944-031a-4949-9356-ba35518964aa"],
 
 Cell[BoxData[
  TemplateBox[{
@@ -2688,28 +2707,14 @@ Cell[BoxData[
    FormBox[
     FormBox[
      TemplateBox[{
-       TagBox[
-        FrameBox[
-         StyleBox["1", Smaller, StripOnInput -> False]], "Placeholder"], 
-       TagBox[
-        FrameBox[
-         StyleBox["2", Smaller, StripOnInput -> False]], "Placeholder"], 
-       TagBox[
-        FrameBox[
-         StyleBox["3", Smaller, StripOnInput -> False]], "Placeholder"], 
-       TagBox[
-        FrameBox[
-         StyleBox["4", Smaller, StripOnInput -> False]], "Placeholder"], 
-       TagBox[
-        FrameBox[
-         StyleBox["5", Smaller, StripOnInput -> False]], "Placeholder"], 
-       TagBox[
-        FrameBox[
-         StyleBox["6", Smaller, StripOnInput -> False]], "Placeholder"], 
-       TagBox[
-        FrameBox[
-         StyleBox["7", Smaller, StripOnInput -> False]], "Placeholder"]}, 
-      "PointLegend", DisplayFunction -> (FormBox[
+       StyleBox["\"K=-3\"", StripOnInput -> False], 
+       StyleBox["\"K=-2\"", StripOnInput -> False], 
+       StyleBox["\"K=-1\"", StripOnInput -> False], 
+       StyleBox["\"K=0\"", StripOnInput -> False], 
+       StyleBox["\"K=1\"", StripOnInput -> False], 
+       StyleBox["\"K=2\"", StripOnInput -> False], 
+       StyleBox["\"K=3\"", StripOnInput -> False]}, "PointLegend", 
+      DisplayFunction -> (FormBox[
         StyleBox[
          StyleBox[
           PaneBox[
@@ -3384,14 +3389,9 @@ Cell[BoxData[
                    RowBox[{"AbsoluteThickness", "[", "1.6`", "]"}]}], "]"}]}],
               "}"}], ",", 
            RowBox[{"{", 
-             RowBox[{
-               TagBox[#, HoldForm], ",", 
-               TagBox[#2, HoldForm], ",", 
-               TagBox[#3, HoldForm], ",", 
-               TagBox[#4, HoldForm], ",", 
-               TagBox[#5, HoldForm], ",", 
-               TagBox[#6, HoldForm], ",", 
-               TagBox[#7, HoldForm]}], "}"}], ",", 
+             
+             RowBox[{#, ",", #2, ",", #3, ",", #4, ",", #5, ",", #6, 
+               ",", #7}], "}"}], ",", 
            RowBox[{"LegendMarkers", "\[Rule]", 
              RowBox[{"{", 
                RowBox[{
@@ -3520,15 +3520,11 @@ Cell[BoxData[
      RowBox[{#, ",", 
        RowBox[{"Placed", "[", 
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
- CellChangeTimes->{{3.839070344250359*^9, 3.839070364022641*^9}},
+ CellChangeTimes->{{3.839070344250359*^9, 3.839070364022641*^9}, {
+  3.839070550469297*^9, 3.8390705749385977`*^9}},
  CellLabel->
-  "Out[110]=",ExpressionUUID->"8643fa28-65da-44e6-b22d-7fc1fe9cd50e"]
-}, Open  ]],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.839070036441874*^9, 3.8390700454872723`*^9}},
- EmphasizeSyntaxErrors->
-  True,ExpressionUUID->"ea7eee2d-9665-45c7-8947-ac440b05e350"]
+  "Out[117]=",ExpressionUUID->"c74c4e98-4bbd-4f1d-8b04-002d06d186e2"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
@@ -3565,10 +3561,9 @@ Cell[6848, 194, 101352, 2155, 749, "Output",ExpressionUUID->"6a17c324-7e1f-48f9-
 Cell[CellGroupData[{
 Cell[108237, 2354, 260, 6, 54, "Subsection",ExpressionUUID->"eda4447b-abe8-460a-848a-c52ae1cf7ac0"],
 Cell[CellGroupData[{
-Cell[108522, 2364, 2210, 56, 100, "Input",ExpressionUUID->"9b799944-031a-4949-9356-ba35518964aa"],
-Cell[110735, 2422, 51302, 1102, 380, "Output",ExpressionUUID->"8643fa28-65da-44e6-b22d-7fc1fe9cd50e"]
-}, Open  ]],
-Cell[162052, 3527, 182, 3, 30, "Input",ExpressionUUID->"ea7eee2d-9665-45c7-8947-ac440b05e350"]
+Cell[108522, 2364, 2836, 75, 121, "Input",ExpressionUUID->"9b799944-031a-4949-9356-ba35518964aa"],
+Cell[111361, 2441, 50763, 1084, 380, "Output",ExpressionUUID->"c74c4e98-4bbd-4f1d-8b04-002d06d186e2"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
