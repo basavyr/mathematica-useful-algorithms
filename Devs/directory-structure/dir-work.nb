@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      3960,        116]
-NotebookOptionsPosition[      3012,         89]
-NotebookOutlinePosition[      3404,        105]
-CellTagsIndexPosition[      3361,        102]
+NotebookDataLength[      6655,        200]
+NotebookOptionsPosition[      5702,        173]
+NotebookOutlinePosition[      6094,        189]
+CellTagsIndexPosition[      6051,        186]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -62,26 +62,110 @@ fa813cd641aa"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"myfiles", "=", 
-  RowBox[{"files", "[", 
-   RowBox[{"currentPath", ",", "\"\<*\>\""}], "]"}]}]], "Input",
- CellChangeTimes->{{3.840616853610355*^9, 3.8406168631411877`*^9}},
- CellLabel->"In[5]:=",ExpressionUUID->"4a874125-3894-4777-9e96-9feca690f25c"],
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"myfiles", "=", 
+   RowBox[{"files", "[", 
+    RowBox[{"currentPath", ",", "\"\<*\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fileLister", "[", "filelist_", "]"}], ":=", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"StringTemplate", "[", "\"\<\|01f4c1-> ``\>\"", "]"}], 
+            "[", "i", "]"}], ",", "20", ",", "Bold", ",", 
+           RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"filelist", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], ",", "14", ",", "Bold", ",", 
+           "Red", ",", "Italic", ",", 
+           RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "filelist", "]"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"fileLister", "[", "myfiles", "]"}]}], "Input",
+ CellChangeTimes->{{3.840616853610355*^9, 3.8406168631411877`*^9}, {
+  3.840617005361414*^9, 3.840617226983259*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"4a874125-3894-4777-9e96-9feca690f25c"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\<\"/Users/robertpoenaru/Library/Mobile \
+ TagBox[GridBox[{
+    {
+     StyleBox["\<\"\|01f4c1-> 1\"\>",
+      StripOnInput->False,
+      FontFamily->"Times",
+      FontSize->20,
+      FontWeight->Bold], 
+     StyleBox["\<\"/Users/robertpoenaru/Library/Mobile \
 Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/mathematica-\
-useful-algorithms/Devs/binary-conversion\"\>", 
-   ",", "\<\"/Users/robertpoenaru/Library/Mobile \
+useful-algorithms/Devs/binary-conversion\"\>",
+      StripOnInput->False,
+      LineColor->RGBColor[1, 0, 0],
+      FrontFaceColor->RGBColor[1, 0, 0],
+      BackFaceColor->RGBColor[1, 0, 0],
+      GraphicsColor->RGBColor[1, 0, 0],
+      FontFamily->"Times",
+      FontSize->14,
+      FontWeight->Bold,
+      FontSlant->Italic,
+      FontColor->RGBColor[1, 0, 0]]},
+    {
+     StyleBox["\<\"\|01f4c1-> 2\"\>",
+      StripOnInput->False,
+      FontFamily->"Times",
+      FontSize->20,
+      FontWeight->Bold], 
+     StyleBox["\<\"/Users/robertpoenaru/Library/Mobile \
 Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/mathematica-\
-useful-algorithms/Devs/directory-structure\"\>", 
-   ",", "\<\"/Users/robertpoenaru/Library/Mobile \
+useful-algorithms/Devs/directory-structure\"\>",
+      StripOnInput->False,
+      LineColor->RGBColor[1, 0, 0],
+      FrontFaceColor->RGBColor[1, 0, 0],
+      BackFaceColor->RGBColor[1, 0, 0],
+      GraphicsColor->RGBColor[1, 0, 0],
+      FontFamily->"Times",
+      FontSize->14,
+      FontWeight->Bold,
+      FontSlant->Italic,
+      FontColor->RGBColor[1, 0, 0]]},
+    {
+     StyleBox["\<\"\|01f4c1-> 3\"\>",
+      StripOnInput->False,
+      FontFamily->"Times",
+      FontSize->20,
+      FontWeight->Bold], 
+     StyleBox["\<\"/Users/robertpoenaru/Library/Mobile \
 Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/mathematica-\
-useful-algorithms/Devs/.DS_Store\"\>"}], "}"}]], "Output",
- CellChangeTimes->{{3.840616872238269*^9, 3.840616877646099*^9}},
- CellLabel->"Out[5]=",ExpressionUUID->"880454ba-0351-48cd-81f8-cd950cda3a71"]
+useful-algorithms/Devs/.DS_Store\"\>",
+      StripOnInput->False,
+      LineColor->RGBColor[1, 0, 0],
+      FrontFaceColor->RGBColor[1, 0, 0],
+      BackFaceColor->RGBColor[1, 0, 0],
+      GraphicsColor->RGBColor[1, 0, 0],
+      FontFamily->"Times",
+      FontSize->14,
+      FontWeight->Bold,
+      FontSlant->Italic,
+      FontColor->RGBColor[1, 0, 0]]}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.840617227265942*^9},
+ CellLabel->"Out[38]=",ExpressionUUID->"064dd0c2-ab8c-46fd-a409-080dee6f589f"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -112,8 +196,8 @@ Cell[1055, 38, 663, 15, 52, "Input",ExpressionUUID->"54cfef2a-652d-425a-b9c1-bdd
 Cell[CellGroupData[{
 Cell[1743, 57, 196, 3, 54, "Subsection",ExpressionUUID->"71c354af-f11f-406c-a5ed-fa813cd641aa"],
 Cell[CellGroupData[{
-Cell[1964, 64, 275, 5, 30, "Input",ExpressionUUID->"4a874125-3894-4777-9e96-9feca690f25c"],
-Cell[2242, 71, 718, 12, 226, "Output",ExpressionUUID->"880454ba-0351-48cd-81f8-cd950cda3a71"]
+Cell[1964, 64, 1418, 36, 136, "Input",ExpressionUUID->"4a874125-3894-4777-9e96-9feca690f25c"],
+Cell[3385, 102, 2265, 65, 228, "Output",ExpressionUUID->"064dd0c2-ab8c-46fd-a409-080dee6f589f"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
