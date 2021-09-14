@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      1518,         54]
-NotebookOptionsPosition[      1046,         37]
-NotebookOutlinePosition[      1438,         53]
-CellTagsIndexPosition[      1395,         50]
+NotebookDataLength[      3960,        116]
+NotebookOptionsPosition[      3012,         89]
+NotebookOutlinePosition[      3404,        105]
+CellTagsIndexPosition[      3361,        102]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -27,12 +27,64 @@ Experimenting the directory structure within Mathematica (M1)\
   3.8406157511501913`*^9}},ExpressionUUID->"bc46d24f-c72c-4210-9c0c-\
 7ede2758362d"],
 
+Cell[CellGroupData[{
+
 Cell["\<\
 Working with files and directories at system level from a Mathematica notebook\
 \>", "Section",
  CellChangeTimes->{{3.840615755616735*^9, 
   3.840615777772346*^9}},ExpressionUUID->"fdae6d4d-213d-4624-8860-\
-3dd4bf897e56"]
+3dd4bf897e56"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"currentPath", "=", 
+   RowBox[{"ParentDirectory", "[", 
+    RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"files", "[", 
+    RowBox[{"path_", ",", "match_"}], "]"}], ":=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"match", ",", "path"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.840616141566742*^9, 3.8406162097547283`*^9}, {
+  3.8406164870859127`*^9, 3.840616512112091*^9}, {3.840616545185788*^9, 
+  3.840616547006928*^9}, {3.840616786901863*^9, 3.840616851527007*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"54cfef2a-652d-425a-b9c1-bdd8e939dcda"],
+
+Cell[CellGroupData[{
+
+Cell["Function for printing the files at a given path", "Subsection",
+ CellChangeTimes->{{3.84061681257859*^9, 
+  3.8406168279967012`*^9}},ExpressionUUID->"71c354af-f11f-406c-a5ed-\
+fa813cd641aa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"myfiles", "=", 
+  RowBox[{"files", "[", 
+   RowBox[{"currentPath", ",", "\"\<*\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.840616853610355*^9, 3.8406168631411877`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"4a874125-3894-4777-9e96-9feca690f25c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"/Users/robertpoenaru/Library/Mobile \
+Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/mathematica-\
+useful-algorithms/Devs/binary-conversion\"\>", 
+   ",", "\<\"/Users/robertpoenaru/Library/Mobile \
+Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/mathematica-\
+useful-algorithms/Devs/directory-structure\"\>", 
+   ",", "\<\"/Users/robertpoenaru/Library/Mobile \
+Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/mathematica-\
+useful-algorithms/Devs/.DS_Store\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.840616872238269*^9, 3.840616877646099*^9}},
+ CellLabel->"Out[5]=",ExpressionUUID->"880454ba-0351-48cd-81f8-cd950cda3a71"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 747},
@@ -54,11 +106,19 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 216, 5, 117, "Chapter",ExpressionUUID->"bc46d24f-c72c-4210-9c0c-7ede2758362d"],
-Cell[799, 29, 231, 5, 105, "Section",ExpressionUUID->"fdae6d4d-213d-4624-8860-3dd4bf897e56"]
+Cell[CellGroupData[{
+Cell[821, 31, 231, 5, 105, "Section",ExpressionUUID->"fdae6d4d-213d-4624-8860-3dd4bf897e56"],
+Cell[1055, 38, 663, 15, 52, "Input",ExpressionUUID->"54cfef2a-652d-425a-b9c1-bdd8e939dcda"],
+Cell[CellGroupData[{
+Cell[1743, 57, 196, 3, 54, "Subsection",ExpressionUUID->"71c354af-f11f-406c-a5ed-fa813cd641aa"],
+Cell[CellGroupData[{
+Cell[1964, 64, 275, 5, 30, "Input",ExpressionUUID->"4a874125-3894-4777-9e96-9feca690f25c"],
+Cell[2242, 71, 718, 12, 226, "Output",ExpressionUUID->"880454ba-0351-48cd-81f8-cd950cda3a71"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
