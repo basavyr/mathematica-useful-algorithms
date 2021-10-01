@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      3687,        115]
-NotebookOptionsPosition[      2866,         93]
-NotebookOutlinePosition[      3205,        108]
-CellTagsIndexPosition[      3162,        105]
+NotebookDataLength[      5155,        156]
+NotebookOptionsPosition[      4015,        129]
+NotebookOutlinePosition[      4354,        144]
+CellTagsIndexPosition[      4311,        141]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -88,8 +88,44 @@ Cell[BoxData[{
  CellChangeTimes->{{3.842076594341914*^9, 3.842076615613213*^9}, {
   3.842076665171281*^9, 3.842076762384366*^9}},
  CellLabel->"In[4]:=",ExpressionUUID->"5414274e-c073-4e59-baed-1e58260e3411"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generate a sampled data with fixed size ", "Subsection",
+ CellChangeTimes->{{3.842076792939546*^9, 
+  3.842076807362728*^9}},ExpressionUUID->"c1256b0d-db04-42bd-8630-\
+5d5ab5a3350c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"xdataRaw", "[", "N_", "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"deg", ",", 
+     RowBox[{"{", 
+      RowBox[{"deg", ",", 
+       RowBox[{"60", "/", "N"}], ",", "60", ",", 
+       RowBox[{"60", "/", "N"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"xdata", "[", "N_", "]"}], ":=", 
+   RowBox[{"mapper", "[", 
+    RowBox[{"rad", ",", 
+     RowBox[{"xdataRaw", "[", "N", "]"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.842076812717867*^9, 3.842076892178259*^9}, {
+  3.842076990948542*^9, 3.842077014448594*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"2e8d9b03-c3cb-4958-8575-d1c1ed232e62"]
 }, Open  ]]
-}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+Generate the function data points from the function method itself\
+\>", "Section",
+ CellChangeTimes->{{3.842077118646022*^9, 
+  3.842077133736162*^9}},ExpressionUUID->"861ec45a-4f6f-4065-92b2-\
+9965e62b2c01"]
 },
 WindowSize->{808, 911},
 WindowMargins->{{523, Automatic}, {293, Automatic}},
@@ -115,8 +151,13 @@ Cell[CellGroupData[{
 Cell[1450, 48, 170, 3, 54, "Subsection",ExpressionUUID->"fd05cd28-33e4-489b-81e6-1f6927e0b1ce"],
 Cell[1623, 53, 387, 12, 58, "Text",ExpressionUUID->"7b019d1d-1216-47bd-8bde-0d1f1550ce71"],
 Cell[2013, 67, 825, 22, 94, "Input",ExpressionUUID->"5414274e-c073-4e59-baed-1e58260e3411"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2875, 94, 188, 3, 54, "Subsection",ExpressionUUID->"c1256b0d-db04-42bd-8630-5d5ab5a3350c"],
+Cell[3066, 99, 700, 19, 52, "Input",ExpressionUUID->"2e8d9b03-c3cb-4958-8575-d1c1ed232e62"]
 }, Open  ]]
-}, Open  ]]
+}, Open  ]],
+Cell[3793, 122, 218, 5, 105, "Section",ExpressionUUID->"861ec45a-4f6f-4065-92b2-9965e62b2c01"]
 }
 ]
 *)
