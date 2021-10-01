@@ -1,0 +1,123 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3687,        115]
+NotebookOptionsPosition[      2866,         93]
+NotebookOutlinePosition[      3205,        108]
+CellTagsIndexPosition[      3162,        105]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Discrete Fourier Transform (Test)", "Section",
+ CellChangeTimes->{{3.842076438534433*^9, 
+  3.842076446623762*^9}},ExpressionUUID->"32a2793c-a1fe-427c-a221-\
+ff247b8b30f3"],
+
+Cell["Implement function for transforming degrees to radians", "Text",
+ CellChangeTimes->{{3.8420764600479507`*^9, 
+  3.842076494638329*^9}},ExpressionUUID->"2cc6f130-a47e-4814-9bbd-\
+ac5c6d77ac34"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"rad", "[", "deg_", "]"}], ":=", 
+   RowBox[{"deg", "*", 
+    FractionBox["\[Pi]", "180"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"deg", "[", "rad_", "]"}], ":=", 
+   RowBox[{"rad", "*", 
+    FractionBox["180", "\[Pi]"]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8420764969913893`*^9, 3.842076530573127*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"06e76bda-7645-4774-bf86-76aa8c27cb3b"],
+
+Cell[CellGroupData[{
+
+Cell["Create mapper function", "Subsection",
+ CellChangeTimes->{{3.842076539878186*^9, 
+  3.842076546334445*^9}},ExpressionUUID->"fd05cd28-33e4-489b-81e6-\
+1f6927e0b1ce"],
+
+Cell[TextData[{
+ "The mapper function takes a pure function ",
+ StyleBox["f",
+  FontWeight->"Bold"],
+ " that depends on one argument and applies it to an entire list of \
+sampled-data points (",
+ StyleBox["N",
+  FontWeight->"Bold"],
+ "-data points)"
+}], "Text",
+ CellChangeTimes->{{3.842076549087997*^9, 
+  3.842076590818348*^9}},ExpressionUUID->"7b019d1d-1216-47bd-8bde-\
+0d1f1550ce71"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"mapper", "[", 
+    RowBox[{"function_", ",", "data_"}], "]"}], ":=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"function", ",", "data"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"export", "[", 
+    RowBox[{"path_", ",", "object_"}], "]"}], ":=", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"StringTemplate", "[", "\"\<````.pdf\>\"", "]"}], "[", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "path"}], "]"}], ",", 
+     "object", ",", 
+     RowBox[{"ImageSize", "->", "Large"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.842076594341914*^9, 3.842076615613213*^9}, {
+  3.842076665171281*^9, 3.842076762384366*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"5414274e-c073-4e59-baed-1e58260e3411"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{523, Automatic}, {293, Automatic}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 178, 3, 67, "Section",ExpressionUUID->"32a2793c-a1fe-427c-a221-ff247b8b30f3"],
+Cell[761, 27, 198, 3, 35, "Text",ExpressionUUID->"2cc6f130-a47e-4814-9bbd-ac5c6d77ac34"],
+Cell[962, 32, 463, 12, 85, "Input",ExpressionUUID->"06e76bda-7645-4774-bf86-76aa8c27cb3b"],
+Cell[CellGroupData[{
+Cell[1450, 48, 170, 3, 54, "Subsection",ExpressionUUID->"fd05cd28-33e4-489b-81e6-1f6927e0b1ce"],
+Cell[1623, 53, 387, 12, 58, "Text",ExpressionUUID->"7b019d1d-1216-47bd-8bde-0d1f1550ce71"],
+Cell[2013, 67, 825, 22, 94, "Input",ExpressionUUID->"5414274e-c073-4e59-baed-1e58260e3411"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
