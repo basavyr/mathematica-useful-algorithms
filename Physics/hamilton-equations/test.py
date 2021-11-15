@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def w3(n, y):
@@ -17,3 +18,15 @@ for x in x_values:
 
 for id in range(len(x_values)):
     print(x_values[id], y_values[id])
+
+
+def plot_data(xdata, ydata, file):
+    plt.plot(xdata, ydata, label=f'n={set_n}')
+    plt.xlabel('y')
+    plt.ylabel(r'$w_3(n;y)$')
+    plt.legend(loc='best')
+    plt.savefig(file, bbox_inches='tight')
+    plt.close()
+
+
+plot_data(x_values, y_values, 'w3.pdf')
