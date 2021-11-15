@@ -5,10 +5,16 @@ import matplotlib.pyplot as plt
 
 
 def w3(n, y):
-    return (n + 0.5) * np.pi * np.sqrt(y)
+    try:
+        assert y > 0
+    except AssertionError as err:
+        pass
+    else:
+        rez = (n + 0.5) * np.pi * np.sqrt(y)
+        return rez
 
 
-x_values = np.arange(-1, 1, 0.0001)
+x_values = np.arange(-1, 1, 0.01)
 y_values = []
 
 set_n = 1
@@ -16,11 +22,13 @@ set_n = 1
 for x in x_values:
     y_values.append(w3(1, x))
 
-for id in range(len(x_values)):
-    print(x_values[id], y_values[id])
+# for id in range(len(x_values)):
+#     print(x_values[id], y_values[id])
 
 dx_values = [abs(x_values[id]) - abs(x_values[id - 1])
              for id in range(1, len(x_values))]
+
+print(np.mean(dx_values))
 
 with open('w3.dat', 'w+') as file:
     for dx in dx_values:
