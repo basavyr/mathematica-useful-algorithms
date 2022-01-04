@@ -40,3 +40,7 @@ The `/math` folder contains the Mathematica code, the `/src` folder contains the
 ## Data output
 
 The data generated from Mathematica will be saved in the appropriate files, within `/data` folder. Moreover, Python will use that directory as a data source (*input*).
+
+## Repository
+
+The repository is hosted on my [GitHub](https://github.com/basavyr/mathematica-useful-algorithms) profile.
