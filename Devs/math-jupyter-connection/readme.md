@@ -10,21 +10,33 @@ Implementation for a consistent workflow between Mathematica and a Jupyter Noteb
 
 The structure of the current implementation works as follows:
 
-``` shell
-total 8
-robertpoenaru  staff  160 Jan  4 03:10 .
-robertpoenaru  staff  256 Jan  4 03:10 ..
-robertpoenaru  staff   64 Jan  4 03:08 math
-robertpoenaru  staff  414 Jan  4 03:10 readme.md
-robertpoenaru  staff   64 Jan  4 03:08 src
-```
+📁
 
 ``` shell
+total 8
+robertpoenaru  staff   192 Jan  4 03:47 .
+robertpoenaru  staff   256 Jan  4 03:47 ..
+robertpoenaru  staff    64 Jan  4 03:47 data
+robertpoenaru  staff    64 Jan  4 03:08 math
+robertpoenaru  staff  1159 Jan  4 03:47 readme.md
+robertpoenaru  staff    64 Jan  4 03:08 src
+```
+
+📁
+
+``` shell
+.
+├── data
 ├── math
 ├── readme.md
 └── src
 
-2 directories, 1 file
+3 directories, 1 file
+
 ```
 
 The `/math` folder contains the Mathematica code, the `/src` folder contains the Python code, and the `/readme.md` file contains the documentation.
+
+## Data output
+
+The data generated from Mathematica will be saved in the appropriate files, within `/data` folder. Moreover, Python will use that directory as a data source (*input*).
