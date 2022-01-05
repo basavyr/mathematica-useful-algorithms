@@ -1,0 +1,132 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4328,        124]
+NotebookOptionsPosition[      3791,        108]
+NotebookOutlinePosition[      4189,        124]
+CellTagsIndexPosition[      4146,        121]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pathtodata", "=", 
+   RowBox[{"StringDrop", "[", 
+    RowBox[{
+     RowBox[{"ToString", "[", 
+      RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+     RowBox[{"-", "5"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pather", "[", "name_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"StringTemplate", "[", "\"\<``data/``.pdf\>\"", "]"}], "[", 
+    RowBox[{"pathtodata", ",", "name"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"exportPlot", "[", 
+      RowBox[{"obj_", ",", "path_"}], "]"}], ":=", 
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{"pather", "[", "path", "]"}], ",", "obj"}], "]"}]}], ";"}], 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.850365528938697*^9, 3.850365539240759*^9}, 
+   3.850365970401018*^9, 3.850366132132621*^9, {3.8503664177951736`*^9, 
+   3.850366425523568*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"cd99ea39-6475-4905-95ef-fcd8227737a0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"paths", "[", "n_", "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"pather", "[", 
+      RowBox[{
+       RowBox[{"StringTemplate", "[", "\"\<gfx``\>\"", "]"}], "[", "id", 
+       "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"id", ",", "1", ",", "n"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"testpaths", "=", 
+   RowBox[{"paths", "[", "10", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.850366141741851*^9, 3.8503661445201607`*^9}, {
+  3.850366407264913*^9, 3.850366413665331*^9}, {3.8503664453469477`*^9, 
+  3.850366479153232*^9}, {3.850366572427869*^9, 3.850366668851511*^9}, {
+  3.850367126355238*^9, 3.850367155929697*^9}, {3.8503675149359503`*^9, 
+  3.8503675151942596`*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"24449199-4c6f-4a47-93df-225408cdca5d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"gfxTest", "[", "color_", "]"}], ":=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"color", ",", "Thick", ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", "2"}], "]"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{"testpaths", "[", 
+      RowBox[{"[", "id", "]"}], "]"}], ",", 
+     RowBox[{"gfxTest", "[", 
+      RowBox[{"RandomColor", "[", "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"id", ",", "1", ",", 
+     RowBox[{"Length", "[", "testpaths", "]"}]}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.850366183209223*^9, 3.850366285820622*^9}, {
+   3.8503663719176064`*^9, 3.8503663727835197`*^9}, {3.85036649005339*^9, 
+   3.8503665204291487`*^9}, 3.850366686035359*^9, {3.8503672020232277`*^9, 
+   3.850367209884597*^9}, {3.850367366613291*^9, 3.850367372946711*^9}, {
+   3.850367444259427*^9, 3.8503674933931513`*^9}, {3.850367554087262*^9, 
+   3.8503675556747007`*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"6dde3a2d-3fe3-4bb8-b542-e6bdd1b94f02"]
+},
+WindowSize->{858, 938},
+WindowMargins->{{840, Automatic}, {109, Automatic}},
+FrontEndVersion->"13.0 for Mac OS X x86 (64-bit) (December 2, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6775f577-6718-404c-85d7-ff9b1bf44732"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1021, 28, 73, "Input",ExpressionUUID->"cd99ea39-6475-4905-95ef-fcd8227737a0"],
+Cell[1582, 50, 869, 21, 52, "Input",ExpressionUUID->"24449199-4c6f-4a47-93df-225408cdca5d"],
+Cell[2454, 73, 1333, 33, 82, "Input",ExpressionUUID->"6dde3a2d-3fe3-4bb8-b542-e6bdd1b94f02"]
+}
+]
+*)
+
