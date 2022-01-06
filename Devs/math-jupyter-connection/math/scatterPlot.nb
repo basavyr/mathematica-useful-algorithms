@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11959,        345]
-NotebookOptionsPosition[     10410,        310]
-NotebookOutlinePosition[     10809,        326]
-CellTagsIndexPosition[     10766,        323]
+NotebookDataLength[     11730,        339]
+NotebookOptionsPosition[     10398,        308]
+NotebookOutlinePosition[     10797,        324]
+CellTagsIndexPosition[     10754,        321]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -71,7 +71,7 @@ Cell[BoxData[
    3.850249875842805*^9, 3.850249905786031*^9}, 3.850249960756206*^9, {
    3.85025014089438*^9, 3.850250164382435*^9}},
  CellLabel->
-  "In[127]:=",ExpressionUUID->"e3ecffbd-2e88-4060-8183-a6f475f2b501"]
+  "In[152]:=",ExpressionUUID->"e3ecffbd-2e88-4060-8183-a6f475f2b501"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -183,7 +183,7 @@ u5kguiDj4AEQfTZK4QiIZtux++wFID1D4TyYXiLxwvQvSH8fgxmIblt90gNE
 u7DcANPWRwxMjTYA9duag+kPs18dB9GnTL6eANEAvTi41w==
   "],
  CellLabel->
-  "In[128]:=",ExpressionUUID->"5bc995a4-6ab8-4c98-816f-770753c6349f"]
+  "In[153]:=",ExpressionUUID->"5bc995a4-6ab8-4c98-816f-770753c6349f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -240,7 +240,7 @@ Cell[BoxData[{
   3.850473725881216*^9, 3.8504738639863787`*^9}, {3.850475224607738*^9, 
   3.8504752574143467`*^9}, {3.850475289463958*^9, 3.850475293501511*^9}},
  CellLabel->
-  "In[133]:=",ExpressionUUID->"a081cdfe-0a25-443b-9ff0-3c4b1e98dd23"],
+  "In[158]:=",ExpressionUUID->"a081cdfe-0a25-443b-9ff0-3c4b1e98dd23"],
 
 Cell[BoxData[{
  RowBox[{
@@ -255,56 +255,54 @@ Cell[BoxData[{
    RowBox[{"datapath", "[", "name_", "]"}], ":=", 
    RowBox[{
     RowBox[{"StringTemplate", "[", "\"\<``data/``\>\"", "]"}], "[", 
-    RowBox[{"localpath", ",", "name"}], "]"}]}], ";"}]}], "Input",
+    RowBox[{"localpath", ",", "name"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"gfxpaths", "[", "n_", "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"datapath", "[", 
+      RowBox[{
+       RowBox[{"StringTemplate", "[", "\"\<gfxPlot_``.pdf\>\"", "]"}], "[", 
+       "id", "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"id", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.850475596005548*^9, 3.850475606736823*^9}, {
-  3.850475651216465*^9, 3.850475767249608*^9}},
+  3.850475651216465*^9, 3.850475767249608*^9}, {3.850475920243782*^9, 
+  3.850475929038447*^9}, {3.850476049078479*^9, 3.850476049262269*^9}},
  CellLabel->
-  "In[137]:=",ExpressionUUID->"63e7b416-1ef8-408d-953b-ae8a62f1409c"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"datapath", "[", "\"\<gfx1.pdf\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.850475768941414*^9, 3.850475777344431*^9}},
- CellLabel->
-  "In[139]:=",ExpressionUUID->"9a299639-086a-4caa-8390-b8178eee5f82"],
-
-Cell[BoxData["\<\"/Users/robertpoenaru/Library/Mobile \
-Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/mathematica-\
-useful-algorithms/Devs/math-jupyter-connection/data/gfx1.pdf\"\>"], "Output",
- CellChangeTimes->{{3.850475772349907*^9, 3.850475804626308*^9}, 
-   3.850475871659728*^9},
- CellLabel->
-  "Out[139]=",ExpressionUUID->"1ecc8a47-6fc4-4c51-8840-035a65daab71"]
-}, Open  ]],
+  "In[162]:=",ExpressionUUID->"63e7b416-1ef8-408d-953b-ae8a62f1409c"],
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{
-   RowBox[{"localList", "=", 
-    RowBox[{"gfxObjects", "[", "1", "]"}]}], ";"}], 
+  RowBox[{"localpaths", "=", 
+   RowBox[{"gfxpaths", "[", "10", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"localList", "=", 
+   RowBox[{"gfxObjects", "[", "10", "]"}]}], ";", 
   RowBox[{"(*", 
    RowBox[{
    "create", " ", "a", " ", "local", " ", "list", " ", "of", " ", "plots", 
     " ", "to", " ", "be", " ", "exported", " ", "as", " ", "graphs", " ", 
     RowBox[{"(", 
-     RowBox[{"pdf", " ", "files"}], ")"}]}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"Do", "[", 
-  RowBox[{
-   RowBox[{"Export", "[", 
-    RowBox[{
-     RowBox[{"datapath", "[", "\"\<gfx1.pdf\>\"", "]"}], ",", 
-     RowBox[{"localList", "[", 
-      RowBox[{"[", "id", "]"}], "]"}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"id", ",", "1", ",", 
-     RowBox[{"Length", "[", "localList", "]"}]}], "}"}]}], "]"}]}], "Input",
+     RowBox[{"pdf", " ", "files"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"localpaths", "[", 
+       RowBox[{"[", "id", "]"}], "]"}], ",", 
+      RowBox[{"localList", "[", 
+       RowBox[{"[", "id", "]"}], "]"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"id", ",", "1", ",", 
+      RowBox[{"Length", "[", "localList", "]"}]}], "}"}]}], "]"}]}]}], "Input",\
+
  CellChangeTimes->{{3.850475312788198*^9, 3.850475347321213*^9}, {
   3.8504754307745028`*^9, 3.850475477867062*^9}, {3.850475795422769*^9, 
-  3.850475858939177*^9}},
+  3.850475858939177*^9}, {3.850476032980744*^9, 3.850476085639854*^9}},
  CellLabel->
-  "In[140]:=",ExpressionUUID->"4bf04c69-fc98-4d0b-b52a-7c0358e78b02"]
+  "In[165]:=",ExpressionUUID->"4bf04c69-fc98-4d0b-b52a-7c0358e78b02"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -339,12 +337,8 @@ Cell[2534, 83, 3658, 102, 178, "Input",ExpressionUUID->"5bc995a4-6ab8-4c98-816f-
 Cell[CellGroupData[{
 Cell[6229, 190, 188, 3, 67, "Section",ExpressionUUID->"3a9ff9f8-287e-4e13-a293-fb6665a6594d"],
 Cell[6420, 195, 1635, 47, 115, "Input",ExpressionUUID->"a081cdfe-0a25-443b-9ff0-3c4b1e98dd23"],
-Cell[8058, 244, 673, 17, 52, "Input",ExpressionUUID->"63e7b416-1ef8-408d-953b-ae8a62f1409c"],
-Cell[CellGroupData[{
-Cell[8756, 265, 225, 4, 30, "Input",ExpressionUUID->"9a299639-086a-4caa-8390-b8178eee5f82"],
-Cell[8984, 271, 386, 6, 77, "Output",ExpressionUUID->"1ecc8a47-6fc4-4c51-8840-035a65daab71"]
-}, Open  ]],
-Cell[9385, 280, 997, 26, 82, "Input",ExpressionUUID->"4bf04c69-fc98-4d0b-b52a-7c0358e78b02"]
+Cell[8058, 244, 1142, 29, 73, "Input",ExpressionUUID->"63e7b416-1ef8-408d-953b-ae8a62f1409c"],
+Cell[9203, 275, 1167, 29, 128, "Input",ExpressionUUID->"4bf04c69-fc98-4d0b-b52a-7c0358e78b02"]
 }, Open  ]]
 }, Open  ]]
 }
