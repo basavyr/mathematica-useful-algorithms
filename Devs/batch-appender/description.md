@@ -17,3 +17,7 @@
 
 *Schematic showing the structure of the table*
 ![Schematic](2022-01-12-09-44-41.png)
+
+## Resources and documentation
+
+1. [append to a list](https://stackoverflow.com/questions/44502493/mathematica-appendto-a-list-in-a-function-which-is-handed-the-list)
