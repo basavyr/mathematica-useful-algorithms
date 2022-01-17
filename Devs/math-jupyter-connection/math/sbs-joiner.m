@@ -18,13 +18,22 @@ exportCSV[table_,id_]:=exporter[filepath["table","csv",id],tabular[table]];
 (* join the header with the numerical data for a single set of params *)
 joiner[header_, data_] := Join[header, data];
 (* create the headers that will pe added at the front of the csv tables *)
-header = {{"x", "f(x;a,b)"}};
+header0 = {{"x", "f(x;a,b)"}};
 paramHeader[params_] := {{"a", "b"}, {params[[1]], params[[2]]}};
 specialHeader[h1_, h2_] := Join[h2, h1];
 
 
 (* testing *)
 rdpars=randomParams[5];
-T=createTable[rdpars,5,0.1];
-sj1=joiner[specialHeader[header,paramHeader[rdpars[[1]]]],T[[1]]];
-exportCSV[sj1,1]
+xlimit=5;
+dx=0.1;
+(* T=createTable[rdpars,xlimit,dx];
+sj1=joiner[specialHeader[header0,paramHeader[rdpars[[1]]]],T[[1]]];
+exportCSV[sj1,1]; *)
+
+(* Create a joint table (header+ numerical data) for a single set of parameters (a,b) *)
+generateTable[params_,xlimit_,dx_]:=joiner[specialHeader[header0,paramHeader[params]],generateData[params,xlimit,dx]];
+batchTableGenerator[paramsList_,xlimit_,dx_]:=Table[joiner[specialHeader[header0,paramHeader[ paramsList[[idx]] ] ],generateData[paramsList[[idx]],xlimit,dx] ],{idx,1,Length[paramsList]} ];
+T=batchTableGenerator[rdpars,xlimit,dx];
+
+Do[exportCSV[T[[id]],id],{id,1,Length[T]}]
