@@ -5,7 +5,7 @@ ClearAll["Global`*"]
 
 (* get the current path of the file using a function that works within the script executables*)
 (* source: https://mathematica.stackexchange.com/questions/133276/how-to-find-source-of-frontendobjectnotavail-warning *)
-parentPath = ToString[$InputFileName];
+parentPath=ToString[$InputFileName];
 dataPath=StringJoin[StringDrop[parentPath,-15],"data/"];
 filename[name_,idx_,type_]:=StringJoin[dataPath,StringTemplate["``_``.``"][name,idx,type]];
 (* Export[filename["circle",1,".pdf"],Graphics[Circle[]]] *)
