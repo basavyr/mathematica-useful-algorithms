@@ -1,14 +1,30 @@
 #!/usr/bin/env wolframscript
 
 (* Create a list of random parameters *)
-randomParams[n_]:=Table[{RandomInteger[{1,5},{-8,8}]},{i,1,n}];
+randomParams[n_]:=Table[{RandomInteger[{1,5}],RandomInteger[{-8,8}]},{i,1,n}];
 (* construct the mathematical function that takes one argument and two random parameters *)
-mfunc[arg_,params_]:=If[arg == 0, 1, pars[[1]]*1/arg - arg^2*pars[[2]]];
+mfunc[arg_,params_]:=If[arg == 0, 1, params[[1]]*1/arg - arg^2*params[[2]]];
 (* generate a table with numerical data based on the mathematical function *)
-generateData[params_,xlimit_,dx_]:=Table[{x,mfunc[x,params]},{x,-limit,limit,dx}];
+generateData[params_,xlimit_,dx_]:=Table[{SetPrecision[x,4],SetPrecision[mfunc[x,params],4]},{x,-xlimit,xlimit,dx}];
 (* create a set with multiple data tables based on the numerical data generated from the set of parameters *)
-createTable[paramsList_,xlimit_,dx_]:=Table[generateData[paramList[[idx]],xlimit,dx],{idx,1,Length[paramList]}];
-
-dataPath=StringDrop[ToString[$InputFileName],-12];
+createTable[paramsList_,xlimit_,dx_]:=Table[generateData[paramsList[[idx]],xlimit,dx],{idx,1,Length[paramsList]}];
+(* get the current path of the `.m` script and change the final path *)
+dataPath=StringJoin[StringDrop[ToString[$InputFileName],-17],"data/"];
+(* create a function *)
 filepath[name_,type_,idx_]:=StringTemplate["````_``.``"][dataPath,name,idx,type];
-Print[filepath["table","csv",1]]
+tabular[table_]:=TableForm[table];
+exporter[path_,object_]:=Export[path,object];
+exportCSV[table_,id_]:=exporter[filepath["table","csv",id],tabular[table]];
+(* join the header with the numerical data for a single set of params *)
+joiner[header_, data_] := Join[header, data];
+(* create the headers that will pe added at the front of the csv tables *)
+header = {{"x", "f(x;a,b)"}};
+paramHeader[params_] := {{"a", "b"}, {params[[1]], params[[2]]}};
+specialHeader[h1_, h2_] := Join[h2, h1];
+
+
+(* testing *)
+rdpars=randomParams[5];
+T=createTable[rdpars,5,0.1];
+sj1=joiner[specialHeader[header,paramHeader[rdpars[[1]]]],T[[1]]];
+exportCSV[sj1,1]
