@@ -2,15 +2,22 @@
 
 (* ::Input:: *)
 ClearAll["Global`*"]
-data=Table[{x,2*x+1},{x,0,10}];
-staticpath="/Users/robertpoenaru/Library/Mobile\ Documents/com~apple~CloudDocs/Work/Pipeline/DevWorkspace/Github/mathematica-useful-algorithms/Devs/math-jupyter-connection/math";
-finalpath=StringJoin[staticpath,"/data.csv"];
-Export[finalpath,TableForm[data]];
-
 
 (* get the current path of the file using a function that works within the script executables*)
 (* source: https://mathematica.stackexchange.com/questions/133276/how-to-find-source-of-frontendobjectnotavail-warning *)
-parentPath = $InputFileName;
+parentPath = ToString[$InputFileName];
+dataPath=StringJoin[StringDrop[parentPath,-15],"data/"];
+filename[name_,idx_,type_]:=StringJoin[dataPath,StringTemplate["``_``.``"][name,idx,type]];
+(* Export[filename["circle",1,".pdf"],Graphics[Circle[]]] *)
 
-cleanpath=StringDrop[parentPath,-11];
-Print[cleanpath]
+(* test the joining process of two tables
+limit=5;
+dx=0.1;
+t1=Table[{x,2*x+1},{x,-limit,limit}];
+t2=Table[{x,2*x-1},{x,-limit,limit}];
+createTables[n_]:=Table[Table[{x,2*x+RandomReal[{1,10}]},{x,-limit,limit}],{i,1,n}];
+(* function that joins two tables side-by-side *)
+lateralJoiner[table1_,table2_]:=Join[table1,table2,2];
+
+T4=createTables[4];
+Print[T4] *)
