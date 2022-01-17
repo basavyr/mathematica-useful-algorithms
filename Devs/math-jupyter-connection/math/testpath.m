@@ -15,19 +15,24 @@ limit=5;
 dx=0.1;
 
 (* test the joining process of two tables *)
-createTables[n_]:=Table[Table[{x,2*x+RandomReal[{1,10}]},{x,-limit,limit}],{i,1,n}];
+createTables[n_]:=Table[Table[{SetPrecision[x,4],SetPrecision[2*x+RandomReal[{1,10}],4]},{x,-limit,limit,dx}],{i,1,n}];
 
 (* function that joins two tables side-by-side *)
 lateralJoiner[table1_,table2_]:=Join[table1,table2,2];
 
+(* export an object to a custom path *)
+tabular[table_]:=TableForm[table];
+export[object_,id_]:=Export[filename["table",id,"csv"],object];
 
 
-T4=createTables[4];
-t1=T4[[1]];
-t2=T4[[2]];
-(* Print[TableForm[t1]]
-Print[t2] *)
+(* Module that joins the list of tables T_i={x,f(x}} where i>=2 to an initial table component T_1={x,f(x)} *)
+procedure[T_]:=Module[{localT=T},
+temp=localT[[1]];
+For[i=2,i<=Length[localT],i++,temp=Join[temp,localT[[i]],2]];
+temp
+];
 
-tt={};
-tt=Do[lateralJoiner[t1,T4[[idx]]],{idx,2,Length[T4]}]
-Print[tt]
+
+T=createTables[5];
+result=procedure[T];
+export[result,1];
