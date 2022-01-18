@@ -39,7 +39,7 @@ batchTableGenerator[paramsList_,xlimit_,dx_]:=Table[joiner[specialHeader[header0
 sbsProcedure[T_]:=Module[{localT=T},
 temp=localT[[1]];
 (* create the for loop in which the temp object gets a new table with each iteration*)
-For[idx=2,idx<=Length[localT],idx++,temp=Join[temp,localT[[idx]]]]
+For[idx=2,idx<=Length[localT],idx++,temp=Join[temp,localT[[idx]],2]]
 temp
 ];
 
