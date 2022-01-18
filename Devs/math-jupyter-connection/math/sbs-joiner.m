@@ -1,11 +1,13 @@
 #!/usr/bin/env wolframscript
 ClearAll["Global`*"];
+(* Create a pair of random parameters *)
+rdPair[]:={RandomInteger[{1,5}],RandomInteger[{-8,8}]};
 (* Create a list of random parameters *)
-randomParams[n_]:=Table[{RandomInteger[{1,5}],RandomInteger[{-8,8}]},{i,1,n}];
+randomParams[n_]:=Table[rdPair[],{i,1,n}];
 (* construct the mathematical function that takes one argument and two random parameters *)
 mfunc[arg_,params_]:=If[arg == 0, 1, params[[1]]*1/arg - arg^2*params[[2]]];
 (* generate a table with numerical data based on the mathematical function *)
-generateData[params_,xlimit_,dx_]:=Table[{SetPrecision[x,2],SetPrecision[mfunc[x,params],2]},{x,-xlimit,xlimit,dx}];
+generateData[params_,xlimit_,dx_]:=Table[{SetPrecision[x,4],SetPrecision[mfunc[x,params],4]},{x,-xlimit,xlimit,dx}];
 (* create a set with multiple data tables based on the numerical data generated from the set of parameters *)
 createTable[paramsList_,xlimit_,dx_]:=Table[generateData[paramsList[[idx]],xlimit,dx],{idx,1,Length[paramsList]}];
 (* get the current path of the `.m` script and change the final path *)
@@ -21,6 +23,7 @@ joiner[header_, data_] := Join[header, data];
 header0 = {{"x", "f(x;a,b)"}};
 paramHeader[params_] := {{"a", "b"}, {params[[1]], params[[2]]}};
 specialHeader[h1_, h2_] := Join[h2, h1];
+
 
 
 (* testing the implementation *)
@@ -39,13 +42,11 @@ batchTableGenerator[paramsList_,xlimit_,dx_]:=Table[joiner[specialHeader[header0
 sbsProcedure[T_]:=Module[{localT=T},
 temp=localT[[1]];
 (* create the for loop in which the temp object gets a new table with each iteration*)
-For[idx=2,idx<=Length[localT],idx++,temp=Join[temp,localT[[idx]],2]]
+For[idx=2,idx<=Length[localT],idx++,temp=Join[temp,localT[[idx]],2]];
 temp
 ];
 
 (* Testing the batch table generator and the export *)
 T=generateTable[rdpars[[1]],xlimit,dx];
-ST=sbsProcedure[{T,T}];
-Print[T]
+ST=sbsProcedure[Table[generateData[rdPair[],xlimit,dx],{i,1,10}]];
 exportCSV[ST,1]
-exporter[filepath["table","csv",0],ST]              
