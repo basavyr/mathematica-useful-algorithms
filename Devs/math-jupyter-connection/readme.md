@@ -3,8 +3,7 @@
 Implementation for a consistent workflow between Mathematica and a Jupyter Notebook.
 
 > In the following example, a scatter plot done within Mathematica will be saved as a `.csv`. file.
-> The generated output file will be used within a Python script for some manipulation, then, by using Jupyter Notebook, more data wil be analyzed and plotted.
-
+> The generated output file will be used within a Python script for some manipulation, then, by using Jupyter Notebook, more data will be analyzed and plotted.
 
 ## Project structure
 
@@ -12,7 +11,7 @@ The structure of the current implementation works as follows:
 
 📁
 
-``` shell
+```shell
 total 8
 robertpoenaru  staff   192 Jan  4 03:47 .
 robertpoenaru  staff   256 Jan  4 03:47 ..
@@ -24,7 +23,7 @@ robertpoenaru  staff    64 Jan  4 03:08 src
 
 📁
 
-``` shell
+```shell
 .
 ├── data
 ├── math
@@ -32,7 +31,6 @@ robertpoenaru  staff    64 Jan  4 03:08 src
 └── src
 
 3 directories, 1 file
-
 ```
 
 The `/math` folder contains the Mathematica code, the `/src` folder contains the Python code, and the `/readme.md` file contains the documentation.
