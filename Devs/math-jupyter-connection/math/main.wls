@@ -34,4 +34,6 @@ XLIMIT=5;
 DX=0.1;
 PARAMLIST=paramList[NPARAMS];
 FILEID=1
-Export[FILEPATH[FILEID],joinProcedure[fullTable[PARAMLIST,XLIMIT,DX]]];
+(* create a full table from a list of parameters*)
+T=fullTable[PARAMLIST,XLIMIT,DX];
+Export[FILEPATH[FILEID],joinProcedure[T]];
