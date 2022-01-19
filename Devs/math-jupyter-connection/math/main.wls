@@ -19,12 +19,16 @@ mfunc[arg_,params_]:=If[arg == 0, 1, params[[1]]*1/arg - arg^2*params[[2]]];
 oneTable[params_,xlimit_,dx_]:=Join[fullHeader[params],Table[{SetPrecision[x,4],SetPrecision[mfunc[x,params],4]},{x,-xlimit,xlimit,dx}],1];
 (* generate a full table for an entire list of parameters (list of random pairs rdPair[]) *)
 fullTable[paramList_,xlimit_,dx_]:=Table[oneTable[paramList[[idx]],xlimit,dx],{idx,1,Length[paramList]}];
-
+joinProcedure[fullTable_]:=Module[{localT=fullTable},
+temp=localT[[1]];
+For[i=2,i<=Length[localT],i++,temp=Join[temp,localT[[i]],2]];
+temp
+];
 
 (* TESTING PROCEDURE *)
 NPARAMS=5;
 XLIMIT=5;
-DX=1;
+DX=0.1;
 PARAMLIST=paramList[NPARAMS];
 FILEPATH=generateFilePath["csvTable","csv",1];
-Export[FILEPATH,fullTable[PARAMLIST,XLIMIT,DX]];
+Export[FILEPATH,joinProcedure[fullTable[PARAMLIST,XLIMIT,DX]]];
