@@ -47,6 +47,9 @@ temp
 ];
 
 (* Testing the batch table generator and the export *)
-T=generateTable[rdpars[[1]],xlimit,dx];
-ST=sbsProcedure[Table[generateData[rdPair[],xlimit,dx],{i,1,10}]];
-exportCSV[ST,1]
+ST0=sbsProcedure[Table[generateTable[rdPair[],xlimit,dx],{i,1,10}]];
+ST1=sbsProcedure[Table[generateTable[rdPair[],xlimit,dx],{i,1,10}]];
+(* expor the raw tabular data*)
+exportCSV[ST0,0]
+(* expor the joint tabular data in csv format*)
+exportCSV[ST1,1]
