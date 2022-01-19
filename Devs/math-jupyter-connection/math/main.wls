@@ -5,6 +5,8 @@
 dataDirectory=StringJoin[StringDrop[ToString[$InputFileName],-13],"data/"];
 (* generate function that exports csv files to proper location with name and id for each file*)
 generateFilePath[filename_,filetype_,fileid_]:=StringTemplate["````_``.``"][dataDirectory,filename,fileid,filetype];
+(* generate a static file foe every export to csv format *)
+FILEPATH[id_]:=generateFilePath["csvTable","csv",id];
 (* generate a random pair of parameters (a,b) *)
 rdPair[]:={RandomInteger[{1,5}],RandomInteger[{-8,8}]};
 (* generate a list of FIXED length with random pairs*)
@@ -25,10 +27,11 @@ For[i=2,i<=Length[localT],i++,temp=Join[temp,localT[[i]],2]];
 temp
 ];
 
+
 (* TESTING PROCEDURE *)
 NPARAMS=5;
 XLIMIT=5;
 DX=0.1;
 PARAMLIST=paramList[NPARAMS];
-FILEPATH=generateFilePath["csvTable","csv",1];
-Export[FILEPATH,joinProcedure[fullTable[PARAMLIST,XLIMIT,DX]]];
+FILEID=1
+Export[FILEPATH[FILEID],joinProcedure[fullTable[PARAMLIST,XLIMIT,DX]]];
