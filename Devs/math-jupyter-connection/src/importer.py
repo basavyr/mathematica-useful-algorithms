@@ -9,7 +9,7 @@ datapath=str(os.getcwd())[:-4]+"/data/"
 
 #get the csv file from the /data directory
 csvfiles=[x for x in os.listdir(datapath) if ".csv" in x]
-
+csv1=csvfiles[0]
 
 # create the importer function
 def importCSV(csv_file):
@@ -18,5 +18,7 @@ def importCSV(csv_file):
 
     return firstline
 
-nocommas=importCSV(csvfiles[0])
-nocommas[0:3]
+firstline=importCSV(csv1)
+Ncommas=len([x for x in importCSV(csv1) if x==","])
+Nparams=(Ncommas+1)/2
+print(f'There are {Nparams} parameter sets')
