@@ -63,6 +63,23 @@ def getparams(csv_file):
     return parampairs
 
 
+# get the legends for the data set imported from the csv file
+def getlegends(csvfile):
+    with open(csvfile, 'r+') as reader:
+        # store the third line only
+
+        rawlegend = []
+
+        for fx in range(3):
+            line = next(reader).strip()
+            if(fx == 2):
+                rawlegend.append(line)
+
+        legends = rawlegend[0].split(',')
+        legend = [legends[0][1:-1], legends[1][1:-1]]
+        return legend
+
+
 def main():
     # path to the /data directory
     datapath = str(os.getcwd())[:-4] + "/data/"
@@ -77,6 +94,7 @@ def main():
     print(f'There are {nparams} parameters in the csv file')
     for pair in params:
         print(pair)
+    getlegends(csv1)
 
 
 if __name__ == "__main__":
