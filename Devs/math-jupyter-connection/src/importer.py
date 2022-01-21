@@ -129,6 +129,24 @@ def parsedata(rawdata):
     return parsed_data
 
 
+# plot a single pair of columns (representing the `x,f(x)` numerical data corresponding the a parameter set)
+def plotdata(parsed_data, plotfile):
+    column = parsed_data[0]
+
+    x_data = [x[0] for x in column]
+    y_data = [x[1] for x in column]
+
+    plt.plot(x_data, y_data, '-k', label=r'$m_{func}$')
+    plt.legend(loc='best')
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
+    plt.savefig(plotfile, bbox_inches='tight', dpi=300)
+    plt.close()
+
+    # print(x_data)
+    # print(y_data)
+
+
 # the main function which will be called @ script runtime
 def main():
     # path to the /data directory
@@ -139,6 +157,11 @@ def main():
                 for x in os.listdir(datapath) if ".csv" in x]
     csv1 = csvfiles[0]
 
+    # generate a plotfile in pdf format
+    plotfile = lambda idx: f'dataplot_{idx}.pdf'
+
+    plotfile1 = str(datapath) + str(plotfile(1))
+
     nparams = getNparams(csv1)
     params = getparams(csv1)
     # print(f'There are {nparams} parameters in the csv file')
@@ -147,11 +170,12 @@ def main():
     # getlegends(csv1)
     rawT = getrawdata(csv1)
     parsedT = parsedata(rawT)
-    lineid = 1
-    for t_id in parsedT:
-        print(f'line{lineid}')
-        print(t_id)
-        lineid += 1
+    plotdata(parsedT, plotfile1)
+    # lineid = 1
+    # for t_id in parsedT:
+    #     print(f'line{lineid}')
+    #     print(t_id)
+    #     lineid += 1
 
 
 if __name__ == "__main__":
