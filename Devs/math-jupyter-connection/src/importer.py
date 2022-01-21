@@ -109,6 +109,13 @@ def getrawdata(csvfile):
 
 # parse the raw data obtained from the csv file into a proper column-by-column pair `x_i,f(x_i)` with i representing the i-th parameter set
 def parsedata(rawdata):
+    # stop the function if the rawdata is empty
+    try:
+        assert len(rawdata) > 0
+    except AssertionError as err:
+        return -1
+    finally:
+        pass
 
     ncols = len(rawdata[0])
     parsed_data = []
@@ -122,6 +129,29 @@ def parsedata(rawdata):
     return parsed_data
 
 
+# plot a single pair of columns (representing the `x,f(x)` numerical data corresponding the a parameter set)
+def plotdata(parsed_data, params, plotfile):
+    chosen_id = 0
+    column = parsed_data[chosen_id]
+    paramset = params[chosen_id]
+
+    x_data = [x[0] for x in column]
+    y_data = [x[1] for x in column]
+
+    fig, ax = plt.subplots()
+    plt.text(0.25, 0.75, f'(a,b) = ({paramset[0]},{paramset[1]})', horizontalalignment='center',
+             verticalalignment='center', transform=ax.transAxes, fontsize=11)
+    plt.plot(x_data, y_data, '-k', label=r'$m_{func}$')
+    plt.legend(loc='best')
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
+    plt.savefig(plotfile, bbox_inches='tight', dpi=300)
+    plt.close()
+
+    # print(x_data)
+    # print(y_data)
+
+
 # the main function which will be called @ script runtime
 def main():
     # path to the /data directory
@@ -132,6 +162,11 @@ def main():
                 for x in os.listdir(datapath) if ".csv" in x]
     csv1 = csvfiles[0]
 
+    # generate a plotfile in pdf format
+    plotfile = lambda idx: f'dataplot_{idx}.pdf'
+
+    plotfile1 = str(datapath) + str(plotfile(1))
+
     nparams = getNparams(csv1)
     params = getparams(csv1)
     # print(f'There are {nparams} parameters in the csv file')
@@ -139,7 +174,13 @@ def main():
     #     print(pair)
     # getlegends(csv1)
     rawT = getrawdata(csv1)
-    parsedata(rawT)
+    parsedT = parsedata(rawT)
+    plotdata(parsedT, params, plotfile1)
+    # lineid = 1
+    # for t_id in parsedT:
+    #     print(f'line{lineid}')
+    #     print(t_id)
+    #     lineid += 1
 
 
 if __name__ == "__main__":
