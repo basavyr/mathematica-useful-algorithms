@@ -107,19 +107,29 @@ def getrawdata(csvfile):
     return rawlines
 
 
-# parse the raw data obtained from the csv file into a proper column-by-column pair `x_i,f(x_i)` with i representing the i-th parameeter set
+# parse the raw data obtained from the csv file into a proper column-by-column pair `x_i,f(x_i)` with i representing the i-th parameter set
 def parsedata(rawdata):
+    # stop the function if the rawdata is empty
+    try:
+        assert len(rawdata) > 0
+    except AssertionError as err:
+        return -1
+    finally:
+        pass
+
     ncols = len(rawdata[0])
     parsed_data = []
-    col_id = 0
+
     for col_id in range(ncols):
         currentcol = []
         for row_id in range(len(rawdata)):
             currentcol.append(rawdata[row_id][col_id])
         parsed_data.append(currentcol)
-    print(parsed_data)
+
+    return parsed_data
 
 
+# the main function which will be called @ script runtime
 def main():
     # path to the /data directory
     datapath = str(os.getcwd())[:-4] + "/data/"
@@ -136,7 +146,12 @@ def main():
     #     print(pair)
     # getlegends(csv1)
     rawT = getrawdata(csv1)
-    parsedata(rawT)
+    parsedT = parsedata(rawT)
+    lineid = 1
+    for t_id in parsedT:
+        print(f'line{lineid}')
+        print(t_id)
+        lineid += 1
 
 
 if __name__ == "__main__":
