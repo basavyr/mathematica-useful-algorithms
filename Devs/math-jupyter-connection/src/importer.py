@@ -50,34 +50,30 @@ def getparams(csv_file):
     """
     - the function retrieves the numerical values for each pair of parameters given within the csv file
     """
-    params = []
+    rawparams = []
 
     with open(csv_file, 'r+') as reader:
         # get the first two lines of the csv file and store it in memory
         # source: https://stackoverflow.com/questions/1767513/how-to-read-first-n-lines-of-a-file
-        params = []
         for fx in range(2):
             line = next(reader).strip()
             if(fx == 1):
-                params.append(line)
-    return params[0]
+                rawparams.append(line)
 
+    # with the line of parameters stored, extract every integer from the set
+    params = rawparams[0]
+    params = list(map(int, params.split(',')))
 
-# function for extracting the numerical values from the entire line of parameters of the csv file
-def extractparams(paramline):
-    # get only the numerical values
-    params = paramline.split(',')
-
+    # with every integer obtained, create pairs of parameters
     # create pairs from the entire parameter sets
-    ppairs = []
+    # extracting the numerical values from the entire line of parameters of the csv file
+    parampairs = []
     for x in range(0, len(params), 2):
-        ppairs.append([int(params[x]), int(params[x + 1])])
-    # print(ppairs)
-    return ppairs
-    # return [int(p) for p in params]
+        parampairs.append([int(params[x]), int(params[x + 1])])
+    return parampairs
 
 
 print(f'There are {getNparams(csv1)} parameters in the csv file')
-for p in extractparams(getparams(csv1)):
-    print(p)
-# print(getparams(csv1))
+# for p in extractparams(getparams(csv1)):
+# print(p)
+print(getparams(csv1))
