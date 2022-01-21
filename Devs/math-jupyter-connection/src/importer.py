@@ -72,10 +72,12 @@ def extractparams(paramline):
     ppairs = []
     for x in range(0, len(params), 2):
         ppairs.append([int(params[x]), int(params[x + 1])])
-    print(ppairs)
+    # print(ppairs)
+    return ppairs
     # return [int(p) for p in params]
 
 
 print(f'There are {getNparams(csv1)} parameters in the csv file')
-extractparams(getparams(csv1))
+for p in extractparams(getparams(csv1)):
+    print(p)
 # print(getparams(csv1))
