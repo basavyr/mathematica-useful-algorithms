@@ -6,16 +6,6 @@ import os
 import math
 
 
-# path to the /data directory
-datapath = str(os.getcwd())[:-4] + "/data/"
-
-
-# get the csv file from the /data directory
-csvfiles = [(str(datapath) + str(x))
-            for x in os.listdir(datapath) if ".csv" in x]
-csv1 = csvfiles[0]
-
-
 def isodd(number):
     """check if the number is odd"""
     try:
@@ -74,9 +64,20 @@ def getparams(csv_file):
 
 
 def main():
-    print(f'There are {getNparams(csv1)} parameters in the csv file')
-    print(getparams(csv1))
+    # path to the /data directory
+    datapath = str(os.getcwd())[:-4] + "/data/"
+
+    # get the csv file from the /data directory
+    csvfiles = [(str(datapath) + str(x))
+                for x in os.listdir(datapath) if ".csv" in x]
+    csv1 = csvfiles[0]
+
+    nparams = getNparams(csv1)
+    params = getparams(csv1)
+    print(f'There are {nparams} parameters in the csv file')
+    for pair in params:
+        print(pair)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
