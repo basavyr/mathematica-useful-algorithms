@@ -11,13 +11,13 @@ datapath = str(os.getcwd())[:-4] + "/data/"
 
 
 # get the csv file from the /data directory
-csvfiles = [x for x in os.listdir(datapath) if ".csv" in x]
+csvfiles = [(str(datapath) + str(x))
+            for x in os.listdir(datapath) if ".csv" in x]
 csv1 = csvfiles[0]
-
-# check if the number is odd
 
 
 def isodd(number):
+    """check if the number is odd"""
     try:
         assert number % 2 != 0
     except AssertionError as err:
@@ -26,13 +26,13 @@ def isodd(number):
 
 
 # create a function that reads the first line of the csv file and returns the number of parameter sets within the file
-def getParams(csv_file):
+def getNparams(csv_file):
     """
     - the function reads the first line of the csv file
     - the first line is stored in memory, then based on the number of commas, total number of sets is determined
     """
 
-    with open(str(datapath) + str(csv_file), 'r+') as csv_reader:
+    with open(csv_file, 'r+') as csv_reader:
         firstline = csv_reader.readline()
 
     # perform a check for correct number of commas
@@ -45,4 +45,27 @@ def getParams(csv_file):
     return Nparams
 
 
+print(f'There are {getNparams(csv1)} parameters in the csv file')
+
 # create a function that gets the values for all the parameter sets in the csv file
+
+
+def getparams(csv_file):
+    """
+    - the function retrieves the numerical values for each pair of parameters given within the csv file
+    """
+    params = []
+
+    with open(csv_file, 'r+') as reader:
+        # get the first two lines of the csv file and store it in memory
+        # source: https://stackoverflow.com/questions/1767513/how-to-read-first-n-lines-of-a-file
+        params = []
+        for fx in range(2):
+            line = next(reader).strip()
+            if(fx == 1):
+                params.append(line)
+    return params[0]
+
+
+print(getparams(csv1))
+# getparams(csv1)
