@@ -130,12 +130,17 @@ def parsedata(rawdata):
 
 
 # plot a single pair of columns (representing the `x,f(x)` numerical data corresponding the a parameter set)
-def plotdata(parsed_data, plotfile):
-    column = parsed_data[0]
+def plotdata(parsed_data, params, plotfile):
+    chosen_id = 0
+    column = parsed_data[chosen_id]
+    paramset = params[chosen_id]
 
     x_data = [x[0] for x in column]
     y_data = [x[1] for x in column]
 
+    fig, ax = plt.subplots()
+    plt.text(0.25, 0.75, f'(a,b) = ({paramset[0]},{paramset[1]})', horizontalalignment='center',
+             verticalalignment='center', transform=ax.transAxes, fontsize=11)
     plt.plot(x_data, y_data, '-k', label=r'$m_{func}$')
     plt.legend(loc='best')
     plt.xlabel("x")
@@ -170,7 +175,7 @@ def main():
     # getlegends(csv1)
     rawT = getrawdata(csv1)
     parsedT = parsedata(rawT)
-    plotdata(parsedT, plotfile1)
+    plotdata(parsedT, params, plotfile1)
     # lineid = 1
     # for t_id in parsedT:
     #     print(f'line{lineid}')
