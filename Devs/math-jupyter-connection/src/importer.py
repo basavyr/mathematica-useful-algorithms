@@ -73,7 +73,10 @@ def getparams(csv_file):
     return parampairs
 
 
-print(f'There are {getNparams(csv1)} parameters in the csv file')
-# for p in extractparams(getparams(csv1)):
-# print(p)
-print(getparams(csv1))
+def main():
+    print(f'There are {getNparams(csv1)} parameters in the csv file')
+    print(getparams(csv1))
+
+
+if __name__=="__main__":
+    main()
