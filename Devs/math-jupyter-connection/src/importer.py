@@ -107,6 +107,19 @@ def getrawdata(csvfile):
     return rawlines
 
 
+# parse the raw data obtained from the csv file into a proper column-by-column pair `x_i,f(x_i)` with i representing the i-th parameeter set
+def parsedata(rawdata):
+    ncols = len(rawdata[0])
+    parsed_data = []
+    col_id = 0
+    for col_id in range(ncols):
+        currentcol = []
+        for row_id in range(len(rawdata)):
+            currentcol.append(rawdata[row_id][col_id])
+        parsed_data.append(currentcol)
+    print(parsed_data)
+
+
 def main():
     # path to the /data directory
     datapath = str(os.getcwd())[:-4] + "/data/"
@@ -118,12 +131,12 @@ def main():
 
     nparams = getNparams(csv1)
     params = getparams(csv1)
-    print(f'There are {nparams} parameters in the csv file')
+    # print(f'There are {nparams} parameters in the csv file')
     # for pair in params:
     #     print(pair)
     # getlegends(csv1)
     rawT = getrawdata(csv1)
-    print(rawT)
+    parsedata(rawT)
 
 
 if __name__ == "__main__":
