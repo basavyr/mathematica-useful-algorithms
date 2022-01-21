@@ -80,6 +80,29 @@ def getlegends(csvfile):
         return legend
 
 
+# get the numerical data from the csv file
+def getdata(csvfile):
+    rawdata = []
+
+    with open(csvfile, 'r+') as reader:
+        content = reader.readlines()[3:]
+        for c in content:
+            c.strip()
+            c = list(map(float, c.split(',')))
+            rawdata.append(c)
+
+    lines = []
+    for rawline_id in range(0, len(rawdata), 1):
+        line = []
+        for line_id in range(0, len(rawdata[0]), 2):
+            # a line contains pairs of the form `x_i,f(x_i)` for all the parameter sets `p_i`
+            line.append([rawdata[rawline_id][line_id],
+                         rawdata[rawline_id][line_id + 1]])
+        lines.append(line)
+
+    return lines
+
+
 def main():
     # path to the /data directory
     datapath = str(os.getcwd())[:-4] + "/data/"
@@ -92,9 +115,11 @@ def main():
     nparams = getNparams(csv1)
     params = getparams(csv1)
     print(f'There are {nparams} parameters in the csv file')
-    for pair in params:
-        print(pair)
-    getlegends(csv1)
+    # for pair in params:
+    #     print(pair)
+    # getlegends(csv1)
+    T=getdata(csv1)
+    print(T)
 
 
 if __name__ == "__main__":
