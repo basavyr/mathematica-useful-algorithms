@@ -81,7 +81,11 @@ def getlegends(csvfile):
 
 
 # get the numerical data from the csv file
-def getdata(csvfile):
+def getrawdata(csvfile):
+    """ 
+    - the numerical data is retrieved in raw-mode
+    - no parsing & data transformation is performed
+    """
     rawdata = []
 
     with open(csvfile, 'r+') as reader:
@@ -91,16 +95,16 @@ def getdata(csvfile):
             c = list(map(float, c.split(',')))
             rawdata.append(c)
 
-    lines = []
+    rawlines = []
     for rawline_id in range(0, len(rawdata), 1):
-        line = []
+        rawline = []
         for line_id in range(0, len(rawdata[0]), 2):
             # a line contains pairs of the form `x_i,f(x_i)` for all the parameter sets `p_i`
-            line.append([rawdata[rawline_id][line_id],
-                         rawdata[rawline_id][line_id + 1]])
-        lines.append(line)
+            rawline.append([rawdata[rawline_id][line_id],
+                            rawdata[rawline_id][line_id + 1]])
+        rawlines.append(rawline)
 
-    return lines
+    return rawlines
 
 
 def main():
@@ -118,8 +122,8 @@ def main():
     # for pair in params:
     #     print(pair)
     # getlegends(csv1)
-    T=getdata(csv1)
-    print(T)
+    rawT = getrawdata(csv1)
+    print(rawT)
 
 
 if __name__ == "__main__":
