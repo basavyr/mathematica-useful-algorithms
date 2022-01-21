@@ -45,11 +45,7 @@ def getNparams(csv_file):
     return Nparams
 
 
-print(f'There are {getNparams(csv1)} parameters in the csv file')
-
 # create a function that gets the values for all the parameter sets in the csv file
-
-
 def getparams(csv_file):
     """
     - the function retrieves the numerical values for each pair of parameters given within the csv file
@@ -67,5 +63,19 @@ def getparams(csv_file):
     return params[0]
 
 
-print(getparams(csv1))
-# getparams(csv1)
+# function for extracting the numerical values from the entire line of parameters of the csv file
+def extractparams(paramline):
+    # get only the numerical values
+    params = paramline.split(',')
+
+    # create pairs from the entire parameter sets
+    ppairs = []
+    for x in range(0, len(params), 2):
+        ppairs.append([int(params[x]), int(params[x + 1])])
+    print(ppairs)
+    # return [int(p) for p in params]
+
+
+print(f'There are {getNparams(csv1)} parameters in the csv file')
+extractparams(getparams(csv1))
+# print(getparams(csv1))
