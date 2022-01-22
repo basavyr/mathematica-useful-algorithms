@@ -65,9 +65,12 @@ def getparams(csv_file):
 
 # get the legends for the data set imported from the csv file
 def getlegends(csvfile):
+    """
+    - returns a tuple [l1,l2]
+    - contains the first two elements of the third row in the `.csv` file
+    """
     with open(csvfile, 'r+') as reader:
         # store the third line only
-
         rawlegend = []
 
         for fx in range(3):
@@ -142,10 +145,7 @@ def plotdata(parsed_data, params, legends, datadirpath, idx):
     paramset = params[chosen_id]
 
     # generate a plotfile in pdf format
-    plotfile = lambda idx: f'dataplot_{idx}.pdf'
-
-    plotfile1 = str(datapath) + str(plotfile(1))
-
+    plotfile = lambda idx: str(datadirpath) + f'dataplot_{idx}.pdf'
 
     x_data = [x[0] for x in column]
     y_data = [x[1] for x in column]
@@ -157,26 +157,29 @@ def plotdata(parsed_data, params, legends, datadirpath, idx):
     plt.legend(loc='best')
     plt.xlabel(f'{legends[0]}')
     plt.ylabel(f'{legends[1]}')
-    plt.savefig(plotfile, bbox_inches='tight', dpi=300)
+    plt.savefig(plotfile(chosen_id), bbox_inches='tight', dpi=300)
     plt.close()
 
 
 # the main function which will be called @ script runtime
 def main():
+
     # path to the /data directory
-    datapath = str(os.getcwd())[:-4] + "/data/"
+    datadirpath = str(os.getcwd())[:-4] + "/data/"
 
     # get the csv file from the /data directory
-    csvfiles = [(str(datapath) + str(x))
-                for x in os.listdir(datapath) if ".csv" in x]
+    csvfiles = [(str(datadirpath) + str(x))
+                for x in os.listdir(datadirpath) if ".csv" in x]
+
+    csv1 = csvfiles[0]
 
     nparams = getNparams(csv1)
     params = getparams(csv1)
-    # print(f'There are {nparams} parameters in the csv file')
-    # getlegends(csv1)
+    legends = getlegends(csv1)
     rawT = getrawdata(csv1)
     parsedT = parsedata(rawT)
-    # plotdata(parsedT, params, plotfile1)
+    plotdata(parsedT, params, legends, datadirpath, 0)
+    plotdata(parsedT, params, legends, datadirpath, 1)
 
 
 if __name__ == "__main__":
