@@ -157,6 +157,12 @@ def plotdata(parsed_data, params, legends, datadirpath, idx):
     plt.legend(loc='best')
     plt.xlabel(f'{legends[0]}')
     plt.ylabel(f'{legends[1]}')
+
+    # [matplotlib - pad_inches=0 and bbox_inches="tight" makes the plot smaller than declared figsize - Stack Overflow](https://stackoverflow.com/questions/16032389/pad-inches-0-and-bbox-inches-tight-makes-the-plot-smaller-than-declared-figsiz)
+    # [python - Showing text outside the figure limits - Stack Overflow](https://stackoverflow.com/questions/23532036/showing-text-outside-the-figure-limits)
+    # [Tight Layout guide — Matplotlib 2.0.2 documentation](https://matplotlib.org/2.0.2/users/tight_layout_guide.html)
+    plt.tight_layout()
+
     plt.savefig(plotfile(chosen_id), bbox_inches='tight', dpi=300)
     plt.close()
 
@@ -176,10 +182,9 @@ def main():
     nparams = getNparams(csv1)
     params = getparams(csv1)
     legends = getlegends(csv1)
-    rawT = getrawdata(csv1)
-    parsedT = parsedata(rawT)
-    plotdata(parsedT, params, legends, datadirpath, 0)
-    plotdata(parsedT, params, legends, datadirpath, 1)
+    rawtable = getrawdata(csv1)
+    parsedtable = parsedata(rawtable)
+    plotdata(parsedtable, params, legends, datadirpath, 0)
 
 
 if __name__ == "__main__":
