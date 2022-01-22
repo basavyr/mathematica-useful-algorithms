@@ -130,10 +130,22 @@ def parsedata(rawdata):
 
 
 # plot a single pair of columns (representing the `x,f(x)` numerical data corresponding the a parameter set)
-def plotdata(parsed_data, params, plotfile):
-    chosen_id = 0
+def plotdata(parsed_data, params, legends, datadirpath, idx):
+    """
+    - The method creates a graphical representation for the two columns `{[x],[f(x)]}`.
+    - The `idx` argument fixes the i-th column pair of the numerical data and the parameter set `p_i` that corresponds to that particular
+    - the legends are represented by a tuple
+    - the plot is saved as pdf within the `datapath` directory
+    """
+    chosen_id = idx
     column = parsed_data[chosen_id]
     paramset = params[chosen_id]
+
+    # generate a plotfile in pdf format
+    plotfile = lambda idx: f'dataplot_{idx}.pdf'
+
+    plotfile1 = str(datapath) + str(plotfile(1))
+
 
     x_data = [x[0] for x in column]
     y_data = [x[1] for x in column]
@@ -143,13 +155,10 @@ def plotdata(parsed_data, params, plotfile):
              verticalalignment='center', transform=ax.transAxes, fontsize=11)
     plt.plot(x_data, y_data, '-k', label=r'$m_{func}$')
     plt.legend(loc='best')
-    plt.xlabel("x")
-    plt.ylabel("f(x)")
+    plt.xlabel(f'{legends[0]}')
+    plt.ylabel(f'{legends[1]}')
     plt.savefig(plotfile, bbox_inches='tight', dpi=300)
     plt.close()
-
-    # print(x_data)
-    # print(y_data)
 
 
 # the main function which will be called @ script runtime
@@ -160,27 +169,14 @@ def main():
     # get the csv file from the /data directory
     csvfiles = [(str(datapath) + str(x))
                 for x in os.listdir(datapath) if ".csv" in x]
-    csv1 = csvfiles[0]
-
-    # generate a plotfile in pdf format
-    plotfile = lambda idx: f'dataplot_{idx}.pdf'
-
-    plotfile1 = str(datapath) + str(plotfile(1))
 
     nparams = getNparams(csv1)
     params = getparams(csv1)
     # print(f'There are {nparams} parameters in the csv file')
-    # for pair in params:
-    #     print(pair)
     # getlegends(csv1)
     rawT = getrawdata(csv1)
     parsedT = parsedata(rawT)
-    plotdata(parsedT, params, plotfile1)
-    # lineid = 1
-    # for t_id in parsedT:
-    #     print(f'line{lineid}')
-    #     print(t_id)
-    #     lineid += 1
+    # plotdata(parsedT, params, plotfile1)
 
 
 if __name__ == "__main__":
