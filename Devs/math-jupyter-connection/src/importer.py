@@ -65,9 +65,12 @@ def getparams(csv_file):
 
 # get the legends for the data set imported from the csv file
 def getlegends(csvfile):
+    """
+    - returns a tuple [l1,l2]
+    - contains the first two elements of the third row in the `.csv` file
+    """
     with open(csvfile, 'r+') as reader:
         # store the third line only
-
         rawlegend = []
 
         for fx in range(3):
@@ -109,6 +112,13 @@ def getrawdata(csvfile):
 
 # parse the raw data obtained from the csv file into a proper column-by-column pair `x_i,f(x_i)` with i representing the i-th parameter set
 def parsedata(rawdata):
+    # stop the function if the rawdata is empty
+    try:
+        assert len(rawdata) > 0
+    except AssertionError as err:
+        return -1
+    finally:
+        pass
 
     ncols = len(rawdata[0])
     parsed_data = []
@@ -122,24 +132,59 @@ def parsedata(rawdata):
     return parsed_data
 
 
+# plot a single pair of columns (representing the `x,f(x)` numerical data corresponding the a parameter set)
+def plotdata(parsed_data, params, legends, datadirpath, idx):
+    """
+    - The method creates a graphical representation for the two columns `{[x],[f(x)]}`.
+    - The `idx` argument fixes the i-th column pair of the numerical data and the parameter set `p_i` that corresponds to that particular
+    - the legends are represented by a tuple
+    - the plot is saved as pdf within the `datapath` directory
+    """
+    chosen_id = idx
+    column = parsed_data[chosen_id]
+    paramset = params[chosen_id]
+
+    # generate a plotfile in pdf format
+    plotfile = lambda idx: str(datadirpath) + f'dataplot_{idx}.pdf'
+
+    x_data = [x[0] for x in column]
+    y_data = [x[1] for x in column]
+
+    fig, ax = plt.subplots()
+    plt.text(0.25, 0.75, f'(a,b) = ({paramset[0]},{paramset[1]})', horizontalalignment='center',
+             verticalalignment='center', transform=ax.transAxes, fontsize=11)
+    plt.plot(x_data, y_data, '-k', label=r'$m_{func}$')
+    plt.legend(loc='best')
+    plt.xlabel(f'{legends[0]}')
+    plt.ylabel(f'{legends[1]}')
+
+    # [matplotlib - pad_inches=0 and bbox_inches="tight" makes the plot smaller than declared figsize - Stack Overflow](https://stackoverflow.com/questions/16032389/pad-inches-0-and-bbox-inches-tight-makes-the-plot-smaller-than-declared-figsiz)
+    # [python - Showing text outside the figure limits - Stack Overflow](https://stackoverflow.com/questions/23532036/showing-text-outside-the-figure-limits)
+    # [Tight Layout guide — Matplotlib 2.0.2 documentation](https://matplotlib.org/2.0.2/users/tight_layout_guide.html)
+    plt.tight_layout()
+
+    plt.savefig(plotfile(chosen_id), bbox_inches='tight', dpi=300)
+    plt.close()
+
+
 # the main function which will be called @ script runtime
 def main():
+
     # path to the /data directory
-    datapath = str(os.getcwd())[:-4] + "/data/"
+    datadirpath = str(os.getcwd())[:-4] + "/data/"
 
     # get the csv file from the /data directory
-    csvfiles = [(str(datapath) + str(x))
-                for x in os.listdir(datapath) if ".csv" in x]
+    csvfiles = [(str(datadirpath) + str(x))
+                for x in os.listdir(datadirpath) if ".csv" in x]
+
     csv1 = csvfiles[0]
 
     nparams = getNparams(csv1)
     params = getparams(csv1)
-    # print(f'There are {nparams} parameters in the csv file')
-    # for pair in params:
-    #     print(pair)
-    # getlegends(csv1)
-    rawT = getrawdata(csv1)
-    parsedata(rawT)
+    legends = getlegends(csv1)
+    rawtable = getrawdata(csv1)
+    parsedtable = parsedata(rawtable)
+    plotdata(parsedtable, params, legends, datadirpath, 0)
 
 
 if __name__ == "__main__":
