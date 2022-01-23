@@ -19,7 +19,8 @@ def main():
     n_params = file.get_param_number()
     # print(n_params)
     param_values = file.get_param_values()
-    legends = file.get_legends()
+    # legends = file.get_legends()
+    raw_data = file.get_numerical_data()
 
 
 if __name__ == "__main__":
