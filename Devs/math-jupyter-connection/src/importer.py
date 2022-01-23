@@ -75,15 +75,26 @@ class CSVImporter:
         with open(self.csv_file_path, 'r+') as reader:
             raw_lines = reader.readlines()[3:]
 
+        # perform some cleaning of the extracted data
+        # no parsing
+        cleaned_data = [raw_line.strip().split(',')
+                        for raw_line in raw_lines]
+
+        return cleaned_data
+
+    def parse_raw_data(self):
+        """
+        - perform parsing of the extracted raw data to float
+        - restructure the numerical data in such a way that each pair of elements from a sub-array corresponds to a single parameter set: x,f(x)
+        """
         # map the float function to any object that is iterable
         floater = lambda object: list(map(float, object))
 
-        # perform some cleaning of the extracted data
-        # no parsing
-        cleaned_data = [floater(raw_line.strip().split(','))
-                        for raw_line in raw_lines]
+        raw_data = self.get_raw_data()
+        float_data = [floater(raw_line) for raw_line in raw_data]
 
-        print(cleaned_data)
+        print(raw_data[0])
+        print(float_data[0])
 
 
 def main():
