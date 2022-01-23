@@ -64,7 +64,10 @@ class CSVImporter:
         # clean the two legends in order to get rid of the extra quotes
         legends[0] = str(legends[0][1])
         legends[1] = str(legends[1][1:-1])
-        print(legends)
+
+        # print(legends)
+
+        return legends
 
     def get_raw_data(self):
         """
@@ -82,9 +85,9 @@ class CSVImporter:
 
         return cleaned_data
 
-    def parse_raw_data(self):
+    def numerical_data(self):
         """
-        - perform parsing of the extracted raw data to float
+        - perform PARSING & RESTRUCTURING of the extracted raw data to float
         - restructure the numerical data in such a way that each pair of elements from a sub-array corresponds to a single parameter set: x,f(x)
         """
         # map the float function to any object that is iterable
@@ -93,8 +96,32 @@ class CSVImporter:
         raw_data = self.get_raw_data()
         float_data = [floater(raw_line) for raw_line in raw_data]
 
-        print(raw_data[0])
-        print(float_data[0])
+        # delete the initial array after float has been performed
+        # source: https://www.kite.com/python/answers/how-to-delete-an-array-in-python
+        del raw_data
+
+        # determine the number of pairs {x,f(x)} for the entire csv file
+        # determine the length of a dataset
+        data_set_size = len(float_data)
+        number_of_function_pairs = int(len(float_data[0]) / 2)
+
+        # rows -> columns
+        rows = data_set_size
+        columns = len(float_data[0])
+
+        full_data_set = []
+
+        for col in range(0, columns - 1, 2):
+            current_data_set = []
+            for row in range(rows):
+                current_pair = [float_data[row][col], float_data[row][col + 1]]
+                current_data_set.append(current_pair)
+            full_data_set.append(current_data_set)
+
+        # print(f'Size -> {len(full_data_set[0])}, {len(full_data_set)}')
+        # print(full_data_set[0])
+
+        return full_data_set
 
 
 def main():

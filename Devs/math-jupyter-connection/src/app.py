@@ -17,12 +17,11 @@ csvfilepath = lambda filename: f'{DATADIRPATH}{filename}'
 def main():
     file = csv.CSVImporter(csvfilepath(CSV_1))
     n_params = file.get_param_number()
-    # print(n_params)
     param_values = file.get_param_values()
-    # legends = file.get_legends()
+    legends = file.get_legends()
     raw_data = file.get_raw_data()
-    parsed_data = file.parse_raw_data()
-
+    numerical_data = file.numerical_data()
+    print(numerical_data)
 
 if __name__ == "__main__":
     main()
