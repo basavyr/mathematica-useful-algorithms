@@ -9,8 +9,9 @@ class CSVImporter:
     """
 
     def __init__(self, csv_file_path):
-        """at init, the class receives the path to the csv file
-        numerical data will be imported from that path
+        """
+        - At init, the class receives the path to the csv file
+        - Numerical data will be imported from that path
         """
         self.csv_file_path = csv_file_path
 
@@ -28,12 +29,6 @@ class CSVImporter:
     def get_param_values(self):
         raw_params = []
 
-        with open(self.csv_file_path, 'r+') as reader:
-            for idx in range(2):
-                current_line = next(reader).strip()
-                if(idx == 1):
-                    raw_params.append(current_line)
-
         # stop if the `raw_params` array has dimension != 1
         try:
             assert len(raw_params) == 1
@@ -42,10 +37,15 @@ class CSVImporter:
         finally:
             pass
 
+        with open(self.csv_file_path, 'r+') as reader:
+            for idx in range(2):
+                current_line = next(reader).strip()
+                if(idx == 1):
+                    raw_params.append(current_line)
+
         params = [int(p) for p in raw_params[0].split(',')]
         param_pairs = [[params[id], params[id + 1]]
                        for id in range(0, len(params) - 1, 2)]
-        
 
         return param_pairs
 
