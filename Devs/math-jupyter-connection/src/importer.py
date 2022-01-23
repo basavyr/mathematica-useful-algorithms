@@ -66,16 +66,20 @@ class CSVImporter:
         legends[1] = str(legends[1][1:-1])
         print(legends)
 
-    def get_numerical_data(self):
+    def get_raw_data(self):
         """
         - retrieve the numerical data from the csv file
         - data is stored in an array of arrays (where each sub-array represents a line of numbers)
-        - data is stored in a so-called **raw format** where no change on the structure of the columns is performed
+        - data is stored as a so-called **raw format** where no change on the structure of the columns is performed
         """
         with open(self.csv_file_path, 'r+') as reader:
             raw_lines = reader.readlines()[3:]
 
-        print(raw_lines)
+        # perform some cleaning of the extracted data
+        # no parsing
+        cleaned_data = [raw_line.strip().split(',') for raw_line in raw_lines]
+
+        print(cleaned_data[0])
 
 
 def main():
