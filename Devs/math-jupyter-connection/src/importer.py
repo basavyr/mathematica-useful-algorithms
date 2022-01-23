@@ -49,6 +49,23 @@ class CSVImporter:
 
         return param_pairs
 
+    def get_legends(self):
+        """
+        - retrieves the legends that will be used within the graphical representations
+        - legends are represented in the csv file as text labels, after the numerical values of the parameters 
+        """
+        # retrieve the fourth line within the csv file
+        with open(self.csv_file_path, 'r+') as reader:
+            for idx in range(0, 3, 1):
+                current_line = next(reader).strip()
+                if(idx == 2):
+                    legends = current_line.split(',')[:2]
+
+        # clean the two legends in order to get rid of the extra quotes
+        legends[0] = str(legends[0][1])
+        legends[1] = str(legends[1][1:-1])
+        print(legends)
+
 
 def main():
     print(f'Main function of the importer module...')
