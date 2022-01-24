@@ -12,7 +12,9 @@ ROOTPATH = str(os.getcwd()) + '/../'
 DATADIRPATH = str(os.getcwd())[0:-3] + DATADIRNAME
 D_DATADIRPATH = ROOTPATH + DATADIRNAME
 CSVFILES = [file for file in os.listdir(DATADIRPATH) if ".csv" in file]
+C_CSVFILES = [file for file in os.listdir(D_DATADIRPATH) if ".csv" in file]
 CSV_1 = CSVFILES[0]
+C_CSV_1 = C_CSVFILES[0]
 
 
 # conditional for printing the data to console (1) or not (0)
@@ -20,7 +22,7 @@ PRINT_TO_SCREEN = 0
 
 
 # lambda for appending the data directory path to the csf file name
-csvfilepath = lambda filename: f'{DATADIRPATH}{filename}'
+csvfilepath = lambda filename: f'{DATADIRPATH}/{filename}'
 
 
 # print the objects evaluated from the class methods on the screen
@@ -45,6 +47,6 @@ def main(print_condition):
 
 
 if __name__ == "__main__":
-    # main(PRINT_TO_SCREEN)
-    print(os.listdir(DATADIRPATH))
-    print(os.listdir(D_DATADIRPATH))
+    main(PRINT_TO_SCREEN)
+    # print(csvfilepath(CSV_1))
+    # print(csvfilepath(C_CSV_1))
