@@ -4,10 +4,17 @@ import importer as csv
 import os
 
 # constants and relevant parameters/arguments that will be used throughout execution
-DATADIRNAME = "data/"
+# the directory name in which all the data used for numerical computations are stored
+DATADIRNAME = "data"
+# the path to the main root directory of the entire project
+ROOTPATH = str(os.getcwd()) + '/../'
+# path to the data folder
 DATADIRPATH = str(os.getcwd())[0:-3] + DATADIRNAME
+D_DATADIRPATH = ROOTPATH + DATADIRNAME
 CSVFILES = [file for file in os.listdir(DATADIRPATH) if ".csv" in file]
 CSV_1 = CSVFILES[0]
+
+
 # conditional for printing the data to console (1) or not (0)
 PRINT_TO_SCREEN = 0
 
@@ -16,6 +23,7 @@ PRINT_TO_SCREEN = 0
 csvfilepath = lambda filename: f'{DATADIRPATH}{filename}'
 
 
+# print the objects evaluated from the class methods on the screen
 def printer(main_cls, main_obj):
     for obj in main_obj:
         main_cls.show(obj)
@@ -37,4 +45,6 @@ def main(print_condition):
 
 
 if __name__ == "__main__":
-    main(PRINT_TO_SCREEN)
+    # main(PRINT_TO_SCREEN)
+    print(os.listdir(DATADIRPATH))
+    print(os.listdir(D_DATADIRPATH))
