@@ -25,13 +25,15 @@ class CSVImporter:
         CSV_FILES = [str(DATA_DIR_PATH) +
                      fl for fl in os.listdir(DATA_DIR_PATH) if ".csv" in fl]
 
+        CSV_FILES.append('FAILER')
+
         # if there is only one file, create a testing procedure for that particular file
         # otherwise, stop further function calls and just return the content of the data directory
         if(len(CSV_FILES) == 1):
             self.TEST_RUNTIME = True
         else:
             print(
-                'There are more than one csv file within the data directory...Stopping the test execution')
+                'There is more than one csv file within the data directory...Stopping the test execution')
             self.TEST_RUNTIME = False
 
         if(self.TEST_RUNTIME is True):

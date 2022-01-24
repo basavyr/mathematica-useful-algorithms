@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import importer as csv
-import os
 
 # print the data to the console
 PRINT_TO_SCREEN = 1
