@@ -25,7 +25,7 @@ class CSVImporter:
         CSV_FILES = [str(DATA_DIR_PATH) +
                      fl for fl in os.listdir(DATA_DIR_PATH) if ".csv" in fl]
 
-        CSV_FILES.append('FAILER')
+        # CSV_FILES.append('FAILER')
 
         # if there is only one file, create a testing procedure for that particular file
         # otherwise, stop further function calls and just return the content of the data directory
@@ -157,7 +157,6 @@ class CSVImporter:
         data_set_size = len(float_data)
         number_of_function_pairs = int(len(float_data[0]) / 2)
 
-        # rows -> columns
         rows = data_set_size
         columns = len(float_data[0])
 
@@ -170,10 +169,21 @@ class CSVImporter:
                 current_data_set.append(current_pair)
             full_data_set.append(current_data_set)
 
-        # print(f'Size -> {len(full_data_set[0])}, {len(full_data_set)}')
-        # print(full_data_set[0])
-
         return full_data_set
+
+    def get_column_pair(self, pair_id):
+        """
+        - retrieve only the i-th pair of columns {x,f(x)} from the csv file and prepare the data for graphical representation
+        """
+        # continue only of the pair index is no greater than the total number of pairs
+        numerical_data = self.numerical_data()
+        print(len(numerical_data))
+        try:
+            assert pair_id <= len(numerical_data)
+        except AssertionError as err:
+            return -1
+        else:
+            return numerical_data[pair_id - 1]
 
 
 def main():

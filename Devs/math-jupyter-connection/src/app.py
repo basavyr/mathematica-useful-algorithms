@@ -15,15 +15,17 @@ def printer(main_cls, main_obj):
 # This is the main (executable) app...
 def main():
     file = csv.CSVImporter()
-    n_params = file.get_param_number()
-    param_values = file.get_param_values()
-    legends = file.get_legends()
-    raw_data = file.get_raw_data()
-    numerical_data = file.numerical_data()
+    # n_params = file.get_param_number()
+    # param_values = file.get_param_values()
+    # legends = file.get_legends()
+    # raw_data = file.get_raw_data()
+    # numerical_data = file.numerical_data()
+    column_pair = file.get_column_pair(1)
+    print(column_pair)
 
-    if(PRINT_TO_SCREEN == 1):
-        obj_list = [n_params, param_values, legends, raw_data, numerical_data]
-        printer(file, obj_list)
+    # if(PRINT_TO_SCREEN == 1):
+    #     obj_list = [n_params, param_values, legends, raw_data, numerical_data]
+    #     printer(file, obj_list)
 
 
 if __name__ == "__main__":
