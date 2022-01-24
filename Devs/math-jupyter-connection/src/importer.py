@@ -30,6 +30,8 @@ class CSVImporter:
         if(len(CSV_FILES) == 1):
             self.TEST_RUNTIME = True
         else:
+            print(
+                'There are more than one csv file within the data directory...Stopping the test execution')
             self.TEST_RUNTIME = False
 
         if(self.TEST_RUNTIME is True):
