@@ -32,21 +32,21 @@ def printer(main_cls, main_obj):
 
 
 # This is the main (executable) app...
-def main(print_condition):
-    file = csv.CSVImporter(csvfilepath(CSV_1))
+def main():
+    file = csv.CSVImporter()
     n_params = file.get_param_number()
     param_values = file.get_param_values()
     legends = file.get_legends()
     raw_data = file.get_raw_data()
     numerical_data = file.numerical_data()
 
-    if(print_condition == 1):
-        # print the data to the console
-        obj_list = [n_params, param_values, legends, raw_data, numerical_data]
-        printer(file, obj_list)
+    # if(print_condition == 1):
+    #     # print the data to the console
+    #     obj_list = [n_params, param_values, legends, raw_data, numerical_data]
+    #     printer(file, obj_list)
 
 
 if __name__ == "__main__":
-    main(PRINT_TO_SCREEN)
+    main()
     # print(csvfilepath(CSV_1))
     # print(csvfilepath(C_CSV_1))

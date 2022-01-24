@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import os
+
+
 class CSVImporter:
     """
     - Import the numerical data inside the given CSV file
@@ -8,12 +11,29 @@ class CSVImporter:
     - Additional function for parsing the raw data into proper format that can be furthermore graphically represented is also implemented
     """
 
-    def __init__(self, csv_file_path):
+    def __init__(self):
         """
         - At init, the class receives the path to the csv file
         - Numerical data will be imported from that path
         """
-        self.csv_file_path = csv_file_path
+        # fix the path to the data directory in which all the csv files are stored
+        ROOTDIR = str(os.getcwd()) + '/../'
+        DATA_DIR_NAME = 'data'
+        DATA_DIR_PATH = ROOTDIR + DATA_DIR_NAME + '/'
+        # get every csv file name within the datadir
+        # append the proper path to the file name
+        CSV_FILES = [str(DATA_DIR_PATH) +
+                     fl for fl in os.listdir(DATA_DIR_PATH) if ".csv" in fl]
+
+        # if there is only one file, create a testing procedure for that particular file
+        # otherwise, stop further function calls and just return the content of the data directory
+        if(len(CSV_FILES) == 1):
+            self.TEST_RUNTIME = True
+        else:
+            self.TEST_RUNTIME = False
+
+        if(self.TEST_RUNTIME is True):
+            self.csv_file_path = CSV_FILES[0]
 
     def show(self, object):
         try:
@@ -23,7 +43,7 @@ class CSVImporter:
         finally:
             print(f'{object}')
 
-    def get_param_number(self,):
+    def get_param_number(self):
         with open(self.csv_file_path, 'r+') as reader:
             first_line = reader.readline()
         commas = [l for l in first_line if l == ","]
