@@ -18,7 +18,7 @@ C_CSV_1 = C_CSVFILES[0]
 
 
 # conditional for printing the data to console (1) or not (0)
-PRINT_TO_SCREEN = 0
+PRINT_TO_SCREEN = 1
 
 
 # lambda for appending the data directory path to the csf file name
@@ -40,10 +40,10 @@ def main():
     raw_data = file.get_raw_data()
     numerical_data = file.numerical_data()
 
-    # if(print_condition == 1):
-    #     # print the data to the console
-    #     obj_list = [n_params, param_values, legends, raw_data, numerical_data]
-    #     printer(file, obj_list)
+    if(PRINT_TO_SCREEN == 1):
+        # print the data to the console
+        obj_list = [n_params, param_values, legends, raw_data, numerical_data]
+        printer(file, obj_list)
 
 
 if __name__ == "__main__":

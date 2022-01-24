@@ -44,6 +44,10 @@ class CSVImporter:
             print(f'{object}')
 
     def get_param_number(self):
+        # only execute the procedure of the init function has a valid runtime value
+        if(self.TEST_RUNTIME is False):
+            return -1
+
         with open(self.csv_file_path, 'r+') as reader:
             first_line = reader.readline()
         commas = [l for l in first_line if l == ","]
@@ -52,6 +56,10 @@ class CSVImporter:
         return param_set_number
 
     def get_param_values(self):
+        # only execute the procedure of the init function has a valid runtime value
+        if(self.TEST_RUNTIME is False):
+            return -1
+
         raw_params = []
 
         # stop if the `raw_params` array has dimension != 1
@@ -79,6 +87,11 @@ class CSVImporter:
         - retrieves the legends that will be used within the graphical representations
         - legends are represented in the csv file as text labels, after the numerical values of the parameters 
         """
+
+        # only execute the procedure of the init function has a valid runtime value
+        if(self.TEST_RUNTIME is False):
+            return -1
+
         # retrieve the fourth line within the csv file
         with open(self.csv_file_path, 'r+') as reader:
             for idx in range(0, 3, 1):
@@ -100,6 +113,11 @@ class CSVImporter:
         - data is stored in an array of arrays (where each sub-array represents a line of numbers)
         - data is stored as a so-called **raw format** where no change on the structure of the columns is performed
         """
+
+        # only execute the procedure of the init function has a valid runtime value
+        if(self.TEST_RUNTIME is False):
+            return -1
+
         with open(self.csv_file_path, 'r+') as reader:
             raw_lines = reader.readlines()[3:]
 
@@ -115,6 +133,11 @@ class CSVImporter:
         - perform PARSING & RESTRUCTURING of the extracted raw data to float
         - restructure the numerical data in such a way that each pair of elements from a sub-array corresponds to a single parameter set: x,f(x)
         """
+
+        # only execute the procedure of the init function has a valid runtime value
+        if(self.TEST_RUNTIME is False):
+            return -1
+
         # map the float function to any object that is iterable
         floater = lambda object: list(map(float, object))
 
