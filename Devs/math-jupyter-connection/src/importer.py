@@ -44,7 +44,7 @@ class CSVImporter:
             assert object is not None
         except AssertionError as err:
             return -1
-        finally:
+        else:
             print(f'{object}')
 
     def get_param_number(self):
@@ -184,6 +184,9 @@ class CSVImporter:
             return -1
         else:
             return numerical_data[pair_id - 1]
+
+        # pure data retriever
+        with open(self.csv_file_path)
 
 
 def main():
