@@ -15,8 +15,13 @@ class CSVImporter:
         """
         self.csv_file_path = csv_file_path
 
-    def show_csv_path(self):
-        print(self.csv_file_path)
+    def show(self, object):
+        try:
+            assert object is not None
+        except AssertionError as err:
+            return -1
+        finally:
+            print(f'{object}')
 
     def get_param_number(self,):
         with open(self.csv_file_path, 'r+') as reader:
