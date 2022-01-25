@@ -239,27 +239,57 @@ class CSVImporter:
         # number of batches that will have length l=trim_value
         N_Batches = int(arr_length / trim_value)
         total_batches_length = N_Batches * trim_value
-        print(arr_length)
-        print(N_Batches)
-        print(total_batches_length)
 
+        # extract and trim the data
+        # add the trimmed data into a special array
+        trimmed_data = []
         for a in Arr:
             left = 0
             right = trim_value
+            sub_trimmed_data = []
             for idx in range(N_Batches):
-                print(f'batch #{idx+1}')
-                # print(a[left:right])
+                # print(f'batch #{idx+1}')
+
                 x_values = [x[0] for x in a[left:right]]
-                print(x_values)
+                x_avg = self.average(x_values)
+                # print(x_values)
+                # print(x_avg)
+
                 y_values = [x[1] for x in a[left:right]]
-                print(y_values)
+                y_avg = self.average(y_values)
+                # print(y_values)
+                # print(y_avg)
+
+                # add the averaged aggregated data into the trimmed array
+                sub_trimmed_data.append([x_avg, y_avg])
+
+                # change the indexes (left and right limits) accordingly
                 left = right
                 right = right + trim_value
-            print(f'remainder')
+
+            # no trimming required for the remaining data
+            # print(f'remainder')
+
             xr_values = [x[0] for x in a[left:]]
-            print(xr_values)
+            xr_avg = self.average(xr_values)
+            # print(xr_values)
+            # print(xr_avg)
+
             yr_values = [x[1] for x in a[left:]]
-            print(yr_values)
+            yr_avg = self.average(yr_values)
+            # print(yr_values)
+            # print(yr_avg)
+
+            # add the averaged aggregated data into the trimmed array
+            if(xr_avg != -1 and yr_avg != -1):
+                sub_trimmed_data.append([xr_avg, yr_avg])
+            trimmed_data.append(sub_trimmed_data)
+
+        idx = 1
+        for trimmy in trimmed_data:
+            print(f'trimmed #{idx}')
+            print(trimmy)
+            idx = idx + 1
 
 
 def main():

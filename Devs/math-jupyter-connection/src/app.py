@@ -21,7 +21,7 @@ def main():
     # raw_data = file.get_raw_data()
     # numerical_data = file.numerical_data()
     # column_pair = file.get_column_pair(1)
-    trimmed_data = file.trim_numerical_data(10)
+    trimmed_data = file.trim_numerical_data(30)
 
     if(PRINT_TO_SCREEN == 1):
         # obj_list = [n_params, param_values, legends, raw_data, numerical_data]
