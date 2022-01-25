@@ -39,10 +39,10 @@ class Plotter:
                       for idx in range(len(self.numerical_data))]
         return file_names
 
-    def plot_column_data(self, idx):
+    def plot_column_data(self, idx, params_idx, legends):
         """ 
         - plot a single pair {x,f(x)} from the tabular data
-        - the name of the plot corresponds to the idx-th element of the array with names
+        - the file name of the plot corresponds to the idx-th element of the array with pre-generated file names
         - idx => [1,2,3...,len(numerical_data)]
         """
         numerical_data = self.numerical_data
@@ -58,14 +58,17 @@ class Plotter:
         fig, ax = plt.subplots()
 
         plt.plot(x_data, y_data, '-r', label=r'$m_{func}$')
-        plt.xlabel('x')
-        plt.ylabel('f(x)')
+        plt.xlabel(legends[0])
+        plt.ylabel(legends[1])
         ax.legend(loc='best')
+        ax.set_title('')
+        plt.text(0.80, 0.20, f'(a,b)=({params_idx[0]},{params_idx[1]})', horizontalalignment='center',
+                 verticalalignment='center', transform=ax.transAxes, fontsize=11)
         plt.savefig(plot_name, bbox_inches='tight', dpi=300)
         fig.tight_layout()
         plt.close()
 
-    def plot_numerical_data(self):
+    def plot_numerical_data(self, params, legends):
         """
         - create a graphical representation with all the datasets within the csv table
         """
@@ -73,4 +76,4 @@ class Plotter:
         numerical_data = self.numerical_data
 
         for idx in range(len(numerical_data)):
-            self.plot_column_data(idx + 1)
+            self.plot_column_data(idx + 1, params[idx], legends)
