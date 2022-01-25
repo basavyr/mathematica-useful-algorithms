@@ -285,11 +285,7 @@ class CSVImporter:
                 sub_trimmed_data.append([xr_avg, yr_avg])
             trimmed_data.append(sub_trimmed_data)
 
-        idx = 1
-        for trimmy in trimmed_data:
-            print(f'trimmed #{idx}')
-            print(trimmy)
-            idx = idx + 1
+        return trimmed_data
 
 
 def main():
