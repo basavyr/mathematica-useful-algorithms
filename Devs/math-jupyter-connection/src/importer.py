@@ -224,6 +224,43 @@ class CSVImporter:
 
         return column_data
 
+    def trim_numerical_data(self, trim_value):
+        """
+        - trims the parsed data based on the trim_value argument
+        trimming process
+        - each pair {x,f(x)} will be aggregated into arrays of length *trim_value*
+        - the trimming value represents the 
+        """
+
+        # obtain the parsed and restructured numerical data
+        Arr = self.numerical_data()
+        # size of the arrays
+        arr_length = len(Arr[0])
+        # number of batches that will have length l=trim_value
+        N_Batches = int(arr_length / trim_value)
+        total_batches_length = N_Batches * trim_value
+        print(arr_length)
+        print(N_Batches)
+        print(total_batches_length)
+
+        for a in Arr:
+            left = 0
+            right = trim_value
+            for idx in range(N_Batches):
+                print(f'batch #{idx+1}')
+                # print(a[left:right])
+                x_values = [x[0] for x in a[left:right]]
+                print(x_values)
+                y_values = [x[1] for x in a[left:right]]
+                print(y_values)
+                left = right
+                right = right + trim_value
+            print(f'remainder')
+            xr_values = [x[0] for x in a[left:]]
+            print(xr_values)
+            yr_values = [x[1] for x in a[left:]]
+            print(yr_values)
+
 
 def main():
     print(f'Main function of the importer module...')
