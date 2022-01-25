@@ -1,32 +1,23 @@
 #!/usr/bin/env python
 
 import importer as csv
-
-# print the data to the console
-PRINT_TO_SCREEN = 0
-
-
-# print the objects evaluated from the class methods on the screen
-def printer(main_cls, main_obj):
-    for obj in main_obj:
-        main_cls.show(obj)
+import plotter as plt
 
 
 # This is the main (executable) app...
 def main():
-    file = csv.CSVImporter()
-    # n_params = file.get_param_number()
-    # param_values = file.get_param_values()
-    # legends = file.get_legends()
-    # raw_data = file.get_raw_data()
-    # numerical_data = file.numerical_data()
-    # column_pair = file.get_column_pair(1)
-    trimmed_data = file.trim_numerical_data(30)
+    # import phase
+    csv_file = csv.CSVImporter()
+    numerical_data = csv_file.numerical_data()
+    params = csv_file.get_param_values()
+    print(params)
+    legends = csv_file.get_legends()
 
-    if(PRINT_TO_SCREEN == 1):
-        # obj_list = [n_params, param_values, legends, raw_data, numerical_data]
-        obj_list = [trimmed_data]
-        printer(file, obj_list)
+    # plot phase
+    plot = plt.Plotter(numerical_data)
+    plot.plot_numerical_data(params, legends)
+    # trimmed_data = file.trim_numerical_data(5)
+    # plot = plt.Plotter(trimmed_data)
 
 
 if __name__ == "__main__":
