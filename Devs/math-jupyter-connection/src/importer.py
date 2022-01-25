@@ -39,6 +39,22 @@ class CSVImporter:
         if(self.TEST_RUNTIME is True):
             self.csv_file_path = CSV_FILES[0]
 
+    def average(self, arr):
+        """
+        Returns the average value of the entire array
+        """
+        if(len(arr) == 0):
+            return -1
+
+        sum_term = 0
+        arr_size = len(arr)
+        for a in arr:
+            sum_term += a
+
+        avg = float(sum_term / arr_size)
+
+        return avg
+
     def show(self, object):
         try:
             assert object is not None
