@@ -89,7 +89,7 @@ class CSVImporter:
     def get_legends(self):
         """
         - retrieves the legends that will be used within the graphical representations
-        - legends are represented in the csv file as text labels, after the numerical values of the parameters 
+        - legends are represented in the csv file as text labels, after the numerical values of the parameters
         """
 
         # only execute the procedure of the init function has a valid runtime value
@@ -176,8 +176,11 @@ class CSVImporter:
         - retrieve only the i-th pair of columns {x,f(x)} from the csv file and prepare the data for graphical representation
         """
         # continue only of the pair index is no greater than the total number of pairs
+
+        if(self.TEST_RUNTIME is False):
+            return -1
+
         numerical_data = self.numerical_data()
-        print(len(numerical_data))
         try:
             assert pair_id <= len(numerical_data)
         except AssertionError as err:
@@ -186,7 +189,14 @@ class CSVImporter:
             return numerical_data[pair_id - 1]
 
         # pure data retriever
-        with open(self.csv_file_path)
+        # with open(self.csv_file_path, 'r+') as reader:
+        #     raw_data = reader.readlines()[4:]
+
+        # clean_data = []
+        # for raw in raw_data:
+        #     clean_raw = raw.strip()
+        #     clean_data.append(list(map(float, clean_raw.split(','))))
+        # print(clean_data)
 
 
 def main():
