@@ -7,7 +7,9 @@ import plotter as plt
 # This is the main (executable) app...
 def main():
     file = csv.CSVImporter()
-    plot = plt.Plotter([])
+    numerical_data = file.numerical_data()
+    plot = plt.Plotter(numerical_data)
+    plot.plot_column_data(1)
 
 
 if __name__ == "__main__":
