@@ -10,6 +10,7 @@ def main():
     numerical_data = file.numerical_data()
     plot = plt.Plotter(numerical_data)
     plot.plot_column_data(1)
+    plot.plot_column_data(2)
 
 
 if __name__ == "__main__":

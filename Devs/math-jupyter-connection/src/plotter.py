@@ -40,8 +40,10 @@ class Plotter:
         return file_names
 
     def plot_column_data(self, idx):
-        """ plot a single pair {x,f(x)} from the tabular data
-        the name of the plot corresponds to the idx-th element of the array with names
+        """ 
+        - plot a single pair {x,f(x)} from the tabular data
+        - the name of the plot corresponds to the idx-th element of the array with names
+        - idx => [1,2,3...,len(numerical_data)]
         """
         numerical_data = self.numerical_data
         try:
@@ -62,7 +64,3 @@ class Plotter:
         plt.savefig(plot_name, bbox_inches='tight', dpi=300)
         fig.tight_layout()
         plt.close()
-
-        print(x_data)
-        print(y_data)
-        print(plot_name)
