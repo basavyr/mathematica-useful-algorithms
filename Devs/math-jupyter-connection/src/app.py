@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
 import importer as csv
+import plotter as plt
 
 
 # This is the main (executable) app...
 def main():
     file = csv.CSVImporter()
-    trimmed_data = file.trim_numerical_data(30)
+    plot = plt.Plotter([])
 
 
 if __name__ == "__main__":
