@@ -181,22 +181,32 @@ class CSVImporter:
             return -1
 
         numerical_data = self.numerical_data()
-        try:
-            assert pair_id <= len(numerical_data)
-        except AssertionError as err:
-            return -1
-        else:
-            return numerical_data[pair_id - 1]
+
+        # straight-forward method
+        # try:
+        #     assert pair_id <= len(numerical_data)
+        # except AssertionError as err:
+        #     return -1
+        # else:
+        #     return numerical_data[pair_id - 1]
 
         # pure data retriever
-        # with open(self.csv_file_path, 'r+') as reader:
-        #     raw_data = reader.readlines()[4:]
+        with open(self.csv_file_path, 'r+') as reader:
+            raw_data = reader.readlines()[3:]
 
-        # clean_data = []
-        # for raw in raw_data:
-        #     clean_raw = raw.strip()
-        #     clean_data.append(list(map(float, clean_raw.split(','))))
-        # print(clean_data)
+        clean_data = []
+        for raw in raw_data:
+            clean_raw = raw.strip()
+            clean_data.append(list(map(float, clean_raw.split(','))))
+
+        column_data = []
+        for row in range(0, len(clean_data)):
+            x = (2 * pair_id - 1) - 1
+            y = (2 * pair_id) - 1
+            pair = [clean_data[row][x], clean_data[row][y]]
+            column_data.append(pair)
+
+        return column_data
 
 
 def main():

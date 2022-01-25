@@ -20,12 +20,13 @@ def main():
     # legends = file.get_legends()
     # raw_data = file.get_raw_data()
     # numerical_data = file.numerical_data()
-    column_pair = file.get_column_pair(1)
-    print(column_pair)
 
-    # if(PRINT_TO_SCREEN == 1):
-    #     obj_list = [n_params, param_values, legends, raw_data, numerical_data]
-    #     printer(file, obj_list)
+    column_pair = file.get_column_pair(1)
+
+    if(PRINT_TO_SCREEN == 1):
+        # obj_list = [n_params, param_values, legends, raw_data, numerical_data]
+        obj_list = [column_pair]
+        printer(file, obj_list)
 
 
 if __name__ == "__main__":
