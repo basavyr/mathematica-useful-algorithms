@@ -64,3 +64,13 @@ class Plotter:
         plt.savefig(plot_name, bbox_inches='tight', dpi=300)
         fig.tight_layout()
         plt.close()
+
+    def plot_numerical_data(self):
+        """
+        - create a graphical representation with all the datasets within the csv table
+        """
+
+        numerical_data = self.numerical_data
+
+        for idx in range(len(numerical_data)):
+            self.plot_column_data(idx + 1)
