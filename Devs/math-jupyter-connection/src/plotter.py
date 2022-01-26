@@ -66,18 +66,18 @@ class Plotter:
         x_data = [x[0] for x in numerical_data[idx - 1]]
         y_data = [x[1] for x in numerical_data[idx - 1]]
 
-        # fig, ax = plt.subplots()
+        fig, ax = plt.subplots()
 
-        # plt.plot(x_data, y_data, '-r', label=r'$m_{func}$')
-        # plt.xlabel(legends[0])
-        # plt.ylabel(legends[1])
-        # ax.legend(loc='best')
-        # ax.set_title('')
-        # plt.text(0.80, 0.20, f'(a,b)=({params_idx[0]},{params_idx[1]})', horizontalalignment='center',
-        #          verticalalignment='center', transform=ax.transAxes, fontsize=11)
-        # plt.savefig(plot_name, bbox_inches='tight', dpi=300)
-        # fig.tight_layout()
-        # plt.close()
+        plt.plot(x_data, y_data, '-r', label=r'$m_{func}$')
+        plt.xlabel(legends[0])
+        plt.ylabel(legends[1])
+        ax.legend(loc='best')
+        ax.set_title('')
+        plt.text(0.80, 0.20, f'(a,b)=({params_idx[0]},{params_idx[1]})', horizontalalignment='center',
+                 verticalalignment='center', transform=ax.transAxes, fontsize=11)
+        plt.savefig(plot_path, bbox_inches='tight', dpi=300)
+        fig.tight_layout()
+        plt.close()
 
     def plot_numerical_data(self, params, legends):
         """
