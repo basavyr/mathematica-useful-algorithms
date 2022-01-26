@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from matplotlib import pyplot as plt
+import os
 
 
 class Plotter:
@@ -39,6 +40,15 @@ class Plotter:
                       for idx in range(len(self.numerical_data))]
         return file_names
 
+    def plot_path(self, filenames):
+        DATA_DIR = 'data/'
+        data_dir_path = lambda file_name: str(
+            os.getcwd()) + '/../' + DATA_DIR + str(file_name)
+
+        file_paths = [data_dir_path(x) for x in filenames]
+
+        return file_paths
+
     def plot_column_data(self, idx, params_idx, legends):
         """ 
         - plot a single pair {x,f(x)} from the tabular data
@@ -51,22 +61,23 @@ class Plotter:
         except Exception as err:
             return -1
         plot_name = self.generate_plot_files()[idx - 1]
+        plot_path = self.plot_path(self.generate_plot_files())[idx - 1]
 
         x_data = [x[0] for x in numerical_data[idx - 1]]
         y_data = [x[1] for x in numerical_data[idx - 1]]
 
-        fig, ax = plt.subplots()
+        # fig, ax = plt.subplots()
 
-        plt.plot(x_data, y_data, '-r', label=r'$m_{func}$')
-        plt.xlabel(legends[0])
-        plt.ylabel(legends[1])
-        ax.legend(loc='best')
-        ax.set_title('')
-        plt.text(0.80, 0.20, f'(a,b)=({params_idx[0]},{params_idx[1]})', horizontalalignment='center',
-                 verticalalignment='center', transform=ax.transAxes, fontsize=11)
-        plt.savefig(plot_name, bbox_inches='tight', dpi=300)
-        fig.tight_layout()
-        plt.close()
+        # plt.plot(x_data, y_data, '-r', label=r'$m_{func}$')
+        # plt.xlabel(legends[0])
+        # plt.ylabel(legends[1])
+        # ax.legend(loc='best')
+        # ax.set_title('')
+        # plt.text(0.80, 0.20, f'(a,b)=({params_idx[0]},{params_idx[1]})', horizontalalignment='center',
+        #          verticalalignment='center', transform=ax.transAxes, fontsize=11)
+        # plt.savefig(plot_name, bbox_inches='tight', dpi=300)
+        # fig.tight_layout()
+        # plt.close()
 
     def plot_numerical_data(self, params, legends):
         """

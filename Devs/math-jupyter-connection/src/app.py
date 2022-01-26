@@ -10,7 +10,6 @@ def main():
     csv_file = csv.CSVImporter()
     numerical_data = csv_file.numerical_data()
     params = csv_file.get_param_values()
-    print(params)
     legends = csv_file.get_legends()
 
     # plot phase
