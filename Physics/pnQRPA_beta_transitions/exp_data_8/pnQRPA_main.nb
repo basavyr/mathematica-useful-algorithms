@@ -1,0 +1,462 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16419,        454]
+NotebookOptionsPosition[     14666,        413]
+NotebookOutlinePosition[     15092,        430]
+CellTagsIndexPosition[     15049,        427]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Te128", "Chapter",
+ CellChangeTimes->{{3.857951207823349*^9, 
+  3.857951210105813*^9}},ExpressionUUID->"02654e88-38b7-48fc-a8d7-\
+6df788b524a5"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"enData1", "="}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"strData1", "="}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"enData2", "="}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"strData2", "="}], ";"}]}], "Input",
+ CellChangeTimes->{{3.857951225651058*^9, 
+  3.857951281954878*^9}},ExpressionUUID->"c7e1e6de-babd-4803-b1d4-\
+8840a88db156"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Xe128", "Chapter",
+ CellChangeTimes->{{3.857951215349277*^9, 
+  3.857951220826716*^9}},ExpressionUUID->"1ab044fb-47f9-4a39-b3be-\
+747cda3c604a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"enData3", "="}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"strData3", "="}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8579512606537857`*^9, 
+  3.8579512910480633`*^9}},ExpressionUUID->"e146262d-4340-4fb3-b644-\
+eaa97855ffdb"],
+
+Cell[CellGroupData[{
+
+Cell["Numerical params", "Section",
+ CellChangeTimes->{{3.857951761618352*^9, 
+  3.857951768052967*^9}},ExpressionUUID->"bf79d236-e921-4141-98f2-\
+1a9d7b6e5c53"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"xpd", "=", "1.56"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"chi12", "=", "0.8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"el1", "=", "\"\<Te\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"el2", "=", "\"\<Xe\>\""}], ";"}]}], "Input",
+ CellChangeTimes->{{3.857951772365686*^9, 3.8579517991907387`*^9}, {
+  3.857952004057716*^9, 
+  3.85795204151709*^9}},ExpressionUUID->"86fb60f9-bc15-4148-9746-\
+271af76ebfe1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Figures", "Section",
+ CellChangeTimes->{{3.857951337869282*^9, 
+  3.857951338749715*^9}},ExpressionUUID->"ae270ae1-5802-4e05-8fe8-\
+0b33976101cb"],
+
+Cell[CellGroupData[{
+
+Cell["Figure1", "Subsection",
+ CellChangeTimes->{{3.857951345647623*^9, 
+  3.857951346976111*^9}},ExpressionUUID->"df5bc79c-7a4c-41ef-bc2c-\
+1548b3376d27"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"tableFig1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"enData1", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", 
+       RowBox[{"strData1", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "strData1", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fig1", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"tableFig1", ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1.2"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"FrameStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Black", ",", "Thick"}], "]"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "21"}], "}"}], ",", "Full"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<E [MeV]\>\"", ",", 
+        "\"\<\!\(\*SuperscriptBox[\(B\), \(-\)]\) (GT)\>\""}], "}"}]}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"20", ",", "Bold", ",", "Black", ",", 
+        RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "}"}]}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"Placed", "[", 
+       RowBox[{
+        RowBox[{"{", "\"\<pnQRPA\>\"", "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.35", ",", "0.9"}], "}"}]}], "]"}]}], ",", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "StringTemplate", "[", "\"\<\[Chi](1)=\[Chi](2)=`` MeV\>\"", 
+              "]"}], "[", "chi12", "]"}], ",", "18", ",", "Bold", ",", 
+            "Black", ",", 
+            RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.35", ",", "0.8"}], "}"}], "]"}]}], "]"}], ",", 
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "StringTemplate", "[", 
+              "\"\<\!\(\*SubscriptBox[\(X\), \(dp\)]\)=`` MeV\>\"", "]"}], 
+             "[", "xdp", "]"}], ",", "18", ",", "Bold", ",", "Black", ",", 
+            RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.35", ",", "0.7"}], "}"}], "]"}]}], "]"}], ",", 
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Framed", "[", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"StringTemplate", "[", "\"\<``\>\"", "]"}], "[", "el1", 
+              "]"}], ",", "20", ",", "Bold", ",", "Black", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.65", ",", "0.3"}], "}"}], "]"}]}], "]"}]}], "}"}]}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", "fig1", "]"}]}], "Input",
+ CellChangeTimes->{{3.8578833741888123`*^9, 3.857883483171958*^9}, {
+  3.857883552041247*^9, 3.857883617366967*^9}, {3.857885217496502*^9, 
+  3.857885225550709*^9}, {3.857885259511611*^9, 3.857885259788171*^9}, {
+  3.857885292171338*^9, 3.8578852930285788`*^9}, {3.857885328000766*^9, 
+  3.8578853622705593`*^9}, {3.857885398239395*^9, 3.857885497088306*^9}, {
+  3.857951700857876*^9, 3.857951706380435*^9}, {3.857951831301614*^9, 
+  3.857951911374563*^9}},ExpressionUUID->"550e6812-92fd-4469-82b9-\
+1b0bdde309e2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Figure2", "Subsection",
+ CellChangeTimes->{{3.857951349093248*^9, 
+  3.8579513502558813`*^9}},ExpressionUUID->"1ed2a959-45e5-47b1-8b04-\
+d3d05325b518"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"tableFig2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"enData2", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", 
+       RowBox[{"strData2", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "strData2", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fig2", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"tableFig2", ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1.2"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"FrameStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Black", ",", "Thick"}], "]"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "14"}], "}"}], ",", "Full"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<E [MeV]\>\"", ",", 
+        "\"\<\!\(\*SuperscriptBox[\(B\), \(+\)]\) (GT)\>\""}], "}"}]}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"20", ",", "Bold", ",", "Black", ",", 
+        RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "}"}]}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"Placed", "[", 
+       RowBox[{
+        RowBox[{"{", "\"\<pnQRPA\>\"", "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.7", ",", "0.9"}], "}"}]}], "]"}]}], ",", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "StringTemplate", "[", "\"\<\[Chi](1)=\[Chi](2)=`` MeV\>\"", 
+              "]"}], "[", "chi12", "]"}], ",", "18", ",", "Bold", ",", 
+            "Black", ",", 
+            RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.73", ",", "0.8"}], "}"}], "]"}]}], "]"}], ",", 
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "StringTemplate", "[", 
+              "\"\<\!\(\*SubscriptBox[\(X\), \(dp\)]\)=`` MeV\>\"", "]"}], 
+             "[", "xdp", "]"}], ",", "18", ",", "Bold", ",", "Black", ",", 
+            RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.73", ",", "0.7"}], "}"}], "]"}]}], "]"}], ",", 
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Framed", "[", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"StringTemplate", "[", "\"\<``\>\"", "]"}], "[", "el1", 
+              "]"}], ",", "20", ",", "Bold", ",", "Black", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.75", ",", "0.2"}], "}"}], "]"}]}], "]"}]}], "}"}]}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", "fig2", "]"}]}], "Input",
+ CellChangeTimes->{{3.85795170798871*^9, 3.85795173203636*^9}, {
+  3.857951925108389*^9, 
+  3.8579519800466433`*^9}},ExpressionUUID->"1701ea61-ea08-4e9d-b489-\
+9a5b30c1ef7a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Figure3", "Subsection",
+ CellChangeTimes->{{3.857951352403019*^9, 
+  3.8579513556996326`*^9}},ExpressionUUID->"0ba76c7e-db4d-4e8f-b7ec-\
+8027b1a4931c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"tableFig3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"enData3", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", 
+       RowBox[{"strData3", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "strData3", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fig3", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"tableFig3", ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1.2"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"FrameStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Black", ",", "Thick"}], "]"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "21"}], "}"}], ",", "Full"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<E [MeV]\>\"", ",", 
+        "\"\<\!\(\*SuperscriptBox[\(B\), \(+\)]\) (GT)\>\""}], "}"}]}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"20", ",", "Bold", ",", "Black", ",", 
+        RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "}"}]}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"Placed", "[", 
+       RowBox[{
+        RowBox[{"{", "\"\<pnQRPA\>\"", "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.35", ",", "0.9"}], "}"}]}], "]"}]}], ",", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "StringTemplate", "[", "\"\<\[Chi](1)=\[Chi](2)=`` MeV\>\"", 
+              "]"}], "[", "chi12", "]"}], ",", "18", ",", "Bold", ",", 
+            "Black", ",", 
+            RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.35", ",", "0.8"}], "}"}], "]"}]}], "]"}], ",", 
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "StringTemplate", "[", 
+              "\"\<\!\(\*SubscriptBox[\(X\), \(dp\)]\)=`` MeV\>\"", "]"}], 
+             "[", "xdp", "]"}], ",", "18", ",", "Bold", ",", "Black", ",", 
+            RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.35", ",", "0.7"}], "}"}], "]"}]}], "]"}], ",", 
+        RowBox[{"Inset", "[", 
+         RowBox[{
+          RowBox[{"Framed", "[", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"StringTemplate", "[", "\"\<``\>\"", "]"}], "[", "el2", 
+              "]"}], ",", "20", ",", "Bold", ",", "Black", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Scaled", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.2", ",", "0.2"}], "}"}], "]"}]}], "]"}]}], "}"}]}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", "fig3", "]"}]}], "Input",
+ CellChangeTimes->{{3.8579517288114367`*^9, 3.857951739830282*^9}, {
+  3.857951931876759*^9, 3.857951934266589*^9}, {3.857951967793013*^9, 
+  3.857951985249188*^9}},ExpressionUUID->"93b9f8e9-24b3-4949-b8d7-\
+798649d6f1bc"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1680, 997},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b27d704b-03e4-4423-abfe-0faba9617f84"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 150, 3, 86, "Chapter",ExpressionUUID->"02654e88-38b7-48fc-a8d7-6df788b524a5"],
+Cell[733, 27, 405, 11, 116, "Input",ExpressionUUID->"c7e1e6de-babd-4803-b1d4-8840a88db156"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1175, 43, 150, 3, 86, "Chapter",ExpressionUUID->"1ab044fb-47f9-4a39-b3be-747cda3c604a"],
+Cell[1328, 48, 270, 7, 64, "Input",ExpressionUUID->"e146262d-4340-4fb3-b644-eaa97855ffdb"],
+Cell[CellGroupData[{
+Cell[1623, 59, 161, 3, 84, "Section",ExpressionUUID->"bf79d236-e921-4141-98f2-1a9d7b6e5c53"],
+Cell[1787, 64, 482, 12, 116, "Input",ExpressionUUID->"86fb60f9-bc15-4148-9746-271af76ebfe1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2306, 81, 152, 3, 84, "Section",ExpressionUUID->"ae270ae1-5802-4e05-8fe8-0b33976101cb"],
+Cell[CellGroupData[{
+Cell[2483, 88, 155, 3, 67, "Subsection",ExpressionUUID->"df5bc79c-7a4c-41ef-bc2c-1548b3376d27"],
+Cell[2641, 93, 4075, 101, 232, "Input",ExpressionUUID->"550e6812-92fd-4469-82b9-1b0bdde309e2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6753, 199, 157, 3, 67, "Subsection",ExpressionUUID->"1ed2a959-45e5-47b1-8b04-d3d05325b518"],
+Cell[6913, 204, 3734, 97, 235, "Input",ExpressionUUID->"1701ea61-ea08-4e9d-b489-9a5b30c1ef7a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10684, 306, 157, 3, 67, "Subsection",ExpressionUUID->"0ba76c7e-db4d-4e8f-b7ec-8027b1a4931c"],
+Cell[10844, 311, 3782, 97, 235, "Input",ExpressionUUID->"93b9f8e9-24b3-4949-b8d7-798649d6f1bc"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
