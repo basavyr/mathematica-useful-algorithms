@@ -1,0 +1,112 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3307,        104]
+NotebookOptionsPosition[      2486,         80]
+NotebookOutlinePosition[      2882,         96]
+CellTagsIndexPosition[      2839,         93]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Fitting the rotor energy with two parameters", "Chapter",
+ CellChangeTimes->{{3.859388343051947*^9, 
+  3.859388353829359*^9}},ExpressionUUID->"e6b5f72d-b41d-4d86-bd6e-\
+3026644b6f65"],
+
+Cell[CellGroupData[{
+
+Cell["Using the wobbling frequency and the largest moi", "Subsection",
+ CellChangeTimes->{{3.85938835540065*^9, 
+  3.859388367280094*^9}},ExpressionUUID->"94b04b1e-5678-441b-a29b-\
+050c5eefa375"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"energy", "[", 
+    RowBox[{"n_", ",", "I_", ",", "moi3_", ",", "omega_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", "*", "moi3"}]], "I", 
+     RowBox[{"(", 
+      RowBox[{"I", "+", "1"}], ")"}]}], "+", 
+    RowBox[{"omega", "*", 
+     RowBox[{"(", 
+      RowBox[{"n", "+", 
+       FractionBox["1", "2"]}], ")"}]}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.85938836903658*^9, 3.859388403029685*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"cd46dd86-917c-4522-8fbb-432653eb85ee"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"testdata", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"energy", "[", 
+      RowBox[{"0", ",", "x", ",", "1", ",", "1"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "10", ",", "28", ",", "2"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", "testdata", "]"}]}], "Input",
+ CellChangeTimes->{{3.8593884098798923`*^9, 3.859388452317824*^9}},
+ CellLabel->"In[87]:=",ExpressionUUID->"3075d1cc-f69e-4736-8d44-b97bd1a630ae"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "55.5`", ",", "78.5`", ",", "105.5`", ",", "136.5`", ",", "171.5`", ",", 
+   "210.5`", ",", "253.5`", ",", "300.5`", ",", "351.5`", ",", "406.5`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.859388448876882*^9, 3.859388452692914*^9}},
+ CellLabel->"Out[88]=",ExpressionUUID->"9d8a2de2-0a7f-4d0f-807e-df623c6e304f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 897},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"058eccc4-c49d-4cba-bbf5-340b5961517e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 189, 3, 69, "Chapter",ExpressionUUID->"e6b5f72d-b41d-4d86-bd6e-3026644b6f65"],
+Cell[CellGroupData[{
+Cell[794, 29, 195, 3, 54, "Subsection",ExpressionUUID->"94b04b1e-5678-441b-a29b-050c5eefa375"],
+Cell[992, 34, 566, 16, 48, "Input",ExpressionUUID->"cd46dd86-917c-4522-8fbb-432653eb85ee"],
+Cell[CellGroupData[{
+Cell[1583, 54, 504, 12, 52, "Input",ExpressionUUID->"3075d1cc-f69e-4736-8d44-b97bd1a630ae"],
+Cell[2090, 68, 356, 7, 57, "Output",ExpressionUUID->"9d8a2de2-0a7f-4d0f-807e-df623c6e304f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
