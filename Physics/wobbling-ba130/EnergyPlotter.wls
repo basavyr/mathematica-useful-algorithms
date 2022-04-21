@@ -27,5 +27,5 @@ energyplotter[energies_,color_]:=ListLinePlot[energies,Axes->{False,True,False,F
 shower[energiesexp_,energiesth_,spins_,color_,band_]:=Show[energyplotter[bandmaker[1,1,energiesexp],Black],energyplotter[bandmaker[2.3,1,energiesth],color],PlotRange->{Full,{Min[energiesexp]-1.5,Max[energiesexp]+0.3}},Epilog->{Table[Inset[Style[StringTemplate["\!\(\*SuperscriptBox[\(``\), \(+\)]\)"][spins[[i]]],Black,17,Bold,Italic],{1.5,energiesexp[[i]]+0.25}],{i,1,Length[energiesexp]}],Table[Inset[Style[StringTemplate["\!\(\*SuperscriptBox[\(``\), \(+\)]\)"][spins[[i]]],Black,17,Bold,Italic],{2.8,energiesth[[i]]+0.25}],{i,1,Length[energiesth]}],Inset[Style["Exp.",Black,Bold,17],{1.5,-.5}],Inset[Style["Th.",Black,Bold,17],{2.8,-.5}],Inset[Framed[Style[band,Black,Italic,Bold,17]],{2.1,-.5}]}];
 plot1=shower[band1exp,band1th,spinsband1,Red,"B1"];
 plot2=shower[band2exp,band2th,spinsband2,Blue,"B2"];
-Export["/Users/basavyr/Documents/Work/DFT/mathematica-useful-algorithms/Physics/wobbling-ba130/ba130-band1.pdf",plot1,ImageResolution->1200];
-Export["/Users/basavyr/Documents/Work/DFT/mathematica-useful-algorithms/Physics/wobbling-ba130/ba130-band2.pdf",plot2,ImageResolution->1200];
+Export["/Users/basavyr/Documents/Work/PhD/phdthesis/Chapters/Figures/ba130-band1.pdf",plot1,ImageResolution->1200];
+Export["/Users/basavyr/Documents/Work/PhD/phdthesis/Chapters/Figures/ba130-band2.pdf",plot2,ImageResolution->1200];
