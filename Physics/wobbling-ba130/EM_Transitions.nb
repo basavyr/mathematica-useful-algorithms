@@ -1,0 +1,177 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5740,        169]
+NotebookOptionsPosition[      4541,        141]
+NotebookOutlinePosition[      4939,        157]
+CellTagsIndexPosition[      4896,        154]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8595266985413637`*^9, 3.8595267055765877`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"443249f9-b41c-4c40-9a11-ddca8276b8e7"],
+
+Cell[CellGroupData[{
+
+Cell["Import", "Section",
+ CellChangeTimes->{{3.859602948228405*^9, 
+  3.859602949329969*^9}},ExpressionUUID->"f45852ae-cb90-4dff-bd26-\
+3ad73b1b82d2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "parampath", "=", 
+   "\"\</Users/basavyr/Documents/Work/DFT/mathematica-useful-algorithms/\
+Physics/wobbling-ba130/fit_params.dat\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"params", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Import", "[", "parampath", "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"I1", "=", 
+   RowBox[{"params", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"I2", "=", 
+   RowBox[{"params", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"I3", "=", 
+   RowBox[{"params", "[", 
+    RowBox[{"[", "3", "]"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.859520630769464*^9, 3.859520674134563*^9}, {
+  3.8595267432432127`*^9, 3.859526752471367*^9}, {3.8596029359180717`*^9, 
+  3.859602944179883*^9}, {3.859602979845622*^9, 3.859602989863832*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"30a7b7a1-2517-4a8e-a99c-88f1d10e5ea4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Calculate the terms t1 and t2 (normalized to the spin value I)\
+\>", "Section",
+ CellChangeTimes->{{3.8596030348376503`*^9, 
+  3.859603049339848*^9}},ExpressionUUID->"2e1de1b7-93ce-482f-8f5f-\
+7bf70698121c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"t1", "=", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"2", "*", "I2"}]], "+", 
+    FractionBox["1", 
+     RowBox[{"2", "*", "I1"}]], "-", 
+    RowBox[{"2", 
+     FractionBox["1", 
+      RowBox[{"2", "*", "I3"}]]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t2", "=", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"2", "*", "I2"}]], "-", 
+    FractionBox["1", 
+     RowBox[{"2", "*", "I1"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"w1", "=", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["t1", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          SuperscriptBox["t1", "2"], "-", 
+          SuperscriptBox["t2", "2"]}], "]"}]], "+", "1"}], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"w2", "=", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["t1", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          SuperscriptBox["t1", "2"], "-", 
+          SuperscriptBox["t2", "2"]}], "]"}]], "-", "1"}], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", "t1", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", "t2", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", "w1", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", "w2", "]"}]}], "Input",
+ CellChangeTimes->{{3.859603051615643*^9, 3.859603150320959*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"f54120ce-c371-4052-b16a-5b2a8d2c70b1"],
+
+Cell[BoxData["0.017113910044185523`"], "Output",
+ CellChangeTimes->{3.8596031509188013`*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"9add46e4-faf7-4443-b061-e4ab90840f6b"],
+
+Cell[BoxData["0.004433218106507583`"], "Output",
+ CellChangeTimes->{3.859603150921459*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"303fefbe-e344-4272-b18c-1796354b35dd"],
+
+Cell[BoxData["1.0087963587700988`"], "Output",
+ CellChangeTimes->{3.8596031509230213`*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"6db9854d-bc70-4125-af6c-54ff1f3363d2"],
+
+Cell[BoxData["0.13292890380880262`"], "Output",
+ CellChangeTimes->{3.859603150924486*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"d192c477-241e-4212-b786-d479c61ce3f6"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 338}, {222, Automatic}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b3877889-7841-494c-b7c1-871570c58009"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 224, 3, 30, "Input",ExpressionUUID->"443249f9-b41c-4c40-9a11-ddca8276b8e7"],
+Cell[CellGroupData[{
+Cell[807, 27, 151, 3, 67, "Section",ExpressionUUID->"f45852ae-cb90-4dff-bd26-3ad73b1b82d2"],
+Cell[961, 32, 1024, 26, 157, "Input",ExpressionUUID->"30a7b7a1-2517-4a8e-a99c-88f1d10e5ea4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2022, 63, 217, 5, 67, "Section",ExpressionUUID->"2e1de1b7-93ce-482f-8f5f-7bf70698121c"],
+Cell[CellGroupData[{
+Cell[2264, 72, 1560, 49, 284, "Input",ExpressionUUID->"f54120ce-c371-4052-b16a-5b2a8d2c70b1"],
+Cell[3827, 123, 171, 2, 34, "Output",ExpressionUUID->"9add46e4-faf7-4443-b061-e4ab90840f6b"],
+Cell[4001, 127, 169, 2, 34, "Output",ExpressionUUID->"303fefbe-e344-4272-b18c-1796354b35dd"],
+Cell[4173, 131, 169, 2, 34, "Output",ExpressionUUID->"6db9854d-bc70-4125-af6c-54ff1f3363d2"],
+Cell[4345, 135, 168, 2, 57, "Output",ExpressionUUID->"d192c477-241e-4212-b786-d479c61ce3f6"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
