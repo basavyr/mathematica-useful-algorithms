@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17561,        461]
-NotebookOptionsPosition[     16764,        439]
-NotebookOutlinePosition[     17163,        455]
-CellTagsIndexPosition[     17120,        452]
+NotebookDataLength[     17934,        472]
+NotebookOptionsPosition[     17137,        450]
+NotebookOutlinePosition[     17536,        466]
+CellTagsIndexPosition[     17493,        463]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -130,51 +130,64 @@ Cell[BoxData[{
    RowBox[{"wobbling", "[", 
     RowBox[{"yrastEn", ",", "wob1En", ",", "wob1Spin"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"ListPlot", "[", 
-  RowBox[{"data", ",", 
-   RowBox[{"PlotRange", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"Automatic", ",", 
+ RowBox[{
+  RowBox[{"fig", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"data", ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
       RowBox[{"{", 
-       RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
-   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
-   RowBox[{"PlotMarkers", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"Automatic", ",", " ", "Medium"}], "}"}]}], ",", 
-   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
-   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
-   RowBox[{"AspectRatio", "\[Rule]", "0.8"}], ",", 
-   RowBox[{"PlotStyle", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"Thick", ",", "Blue"}], "}"}]}], ",", 
-   RowBox[{"FrameStyle", "\[Rule]", 
-    RowBox[{"Directive", "[", 
-     RowBox[{"Thick", ",", "Black"}], "]"}]}], ",", 
-   RowBox[{"FrameLabel", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{
-     "\"\<I [\[HBar]]\>\"", ",", 
-      "\"\<\!\(\*SubscriptBox[\(E\), \(wob\)]\) [MeV]\>\""}], "}"}]}], ",", 
-   RowBox[{"LabelStyle", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"18", ",", "Bold", ",", "Black"}], "}"}]}], ",", 
-   RowBox[{"PlotLegends", "\[Rule]", 
-    RowBox[{"Placed", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"Row", "[", 
+       RowBox[{"Automatic", ",", 
         RowBox[{"{", 
-         RowBox[{
-          RowBox[{"Superscript", "[", 
-           RowBox[{"\"\<\>\"", ",", "\"\<105\>\""}], "]"}], ",", 
-          "\"\<Pd ; exp\>\""}], "}"}], "]"}], "}"}], ",", 
+         RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+     RowBox[{"PlotMarkers", "\[Rule]", 
       RowBox[{"{", 
-       RowBox[{"0.3", ",", "0.9"}], "}"}]}], "]"}]}]}], "]"}]}], "Input",
+       RowBox[{"Automatic", ",", " ", "Medium"}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "0.8"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Blue"}], "}"}]}], ",", 
+     RowBox[{"FrameStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Thick", ",", "Black"}], "]"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<I [\[HBar]]\>\"", ",", 
+        "\"\<\!\(\*SubscriptBox[\(E\), \(wob\)]\) [MeV]\>\""}], "}"}]}], ",", 
+     
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"18", ",", "Bold", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"Placed", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Row", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Superscript", "[", 
+             RowBox[{"\"\<\>\"", ",", "\"\<105\>\""}], "]"}], ",", 
+            "\"\<Pd ; exp\>\""}], "}"}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.3", ",", "0.9"}], "}"}]}], "]"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "350"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "\"\</Users/basavyr/Documents/Work/DFT/mathematica-useful-algorithms/\
+Physics/experimental-data-collection-wobblers/105.pdf\>\"", ",", "fig"}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", "fig", "]"}]}], "Input",
  CellChangeTimes->{{3.860489013855739*^9, 3.860489032918902*^9}, {
   3.860489073181851*^9, 3.860489074678512*^9}, {3.860489232077075*^9, 
-  3.8604892712224913`*^9}, {3.8604921966747513`*^9, 3.86049237485977*^9}},
+  3.8604892712224913`*^9}, {3.8604921966747513`*^9, 3.86049237485977*^9}, {
+  3.860492520486135*^9, 3.860492583440518*^9}},
  CellLabel->
-  "In[211]:=",ExpressionUUID->"92ac7794-e453-4195-89fc-e46b56cd1e61"],
+  "In[223]:=",ExpressionUUID->"92ac7794-e453-4195-89fc-e46b56cd1e61"],
 
 Cell[BoxData[
  TagBox[
@@ -329,6 +342,7 @@ Cell[BoxData[
    GridLines->{None, None},
    GridLinesStyle->Directive[
      GrayLevel[0.5, 0.4]],
+   ImageSize->350,
    LabelStyle->{18, Bold, 
      GrayLevel[0]},
    Method->{
@@ -391,7 +405,7 @@ Cell[BoxData[
         GrayLevel[0]], 
       FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
       GridLines -> {None, None}, GridLinesStyle -> Directive[
-        GrayLevel[0.5, 0.4]], LabelStyle -> {18, Bold, 
+        GrayLevel[0.5, 0.4]], ImageSize -> 350, LabelStyle -> {18, Bold, 
         GrayLevel[0]}, 
       Method -> {
        "OptimizePlotMarkers" -> True, "OptimizePlotMarkers" -> True, 
@@ -428,12 +442,9 @@ Cell[BoxData[
   Editable->True,
   SelectWithContents->False,
   Selectable->True]], "Output",
- CellChangeTimes->{{3.8604890337134438`*^9, 3.860489075265688*^9}, {
-  3.860489238486557*^9, 3.860489271742939*^9}, {3.8604922046538067`*^9, 
-  3.860492237731018*^9}, {3.860492274388146*^9, 3.86049228382091*^9}, {
-  3.860492329072504*^9, 3.860492375048834*^9}},
+ CellChangeTimes->{{3.8604925765579987`*^9, 3.860492584046116*^9}},
  CellLabel->
-  "Out[212]=",ExpressionUUID->"7237bced-cd9d-44c6-aca8-862696b117cd"]
+  "Out[226]=",ExpressionUUID->"dd7e2583-f391-4eaf-ae07-a84f7c184e2f"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -459,8 +470,8 @@ Cell[580, 22, 152, 3, 69, "Chapter",ExpressionUUID->"0572f3d4-4949-40f3-8bf4-7d9
 Cell[735, 27, 227, 4, 30, "Input",ExpressionUUID->"644ec8fa-c4c3-43a4-a669-0ae5f7e61b14"],
 Cell[965, 33, 3127, 89, 217, "Input",ExpressionUUID->"6dca4b20-b598-4682-ab89-a418581823c5"],
 Cell[CellGroupData[{
-Cell[4117, 126, 1950, 50, 136, "Input",ExpressionUUID->"92ac7794-e453-4195-89fc-e46b56cd1e61"],
-Cell[6070, 178, 10666, 257, 321, "Output",ExpressionUUID->"7237bced-cd9d-44c6-aca8-862696b117cd"]
+Cell[4117, 126, 2480, 63, 241, "Input",ExpressionUUID->"92ac7794-e453-4195-89fc-e46b56cd1e61"],
+Cell[6600, 191, 10509, 255, 336, "Output",ExpressionUUID->"dd7e2583-f391-4eaf-ae07-a84f7c184e2f"]
 }, Open  ]]
 }, Open  ]]
 }
