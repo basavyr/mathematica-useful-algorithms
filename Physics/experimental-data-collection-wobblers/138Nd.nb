@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     22073,        578]
-NotebookOptionsPosition[     21278,        556]
-NotebookOutlinePosition[     21675,        572]
-CellTagsIndexPosition[     21632,        569]
+NotebookDataLength[     22530,        592]
+NotebookOptionsPosition[     21643,        569]
+NotebookOutlinePosition[     22041,        585]
+CellTagsIndexPosition[     21998,        582]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,7 +28,8 @@ c0f16b95fc73"],
 Cell[BoxData[
  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.860711821475295*^9, 3.860711829563302*^9}},
- CellLabel->"In[34]:=",ExpressionUUID->"67f00398-7fc1-4bf1-a5c9-2ceebc30dccf"],
+ CellLabel->
+  "In[308]:=",ExpressionUUID->"67f00398-7fc1-4bf1-a5c9-2ceebc30dccf"],
 
 Cell[BoxData[{
  RowBox[{
@@ -61,7 +62,19 @@ Cell[BoxData[{
    RowBox[{"L6En", "/", "1000"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.860711345769001*^9, 3.860711409276409*^9}, {
   3.860711530198165*^9, 3.86071154867367*^9}},
- CellLabel->"In[35]:=",ExpressionUUID->"0f18bfaa-b523-437a-9133-7856c28c4d93"],
+ CellLabel->
+  "In[309]:=",ExpressionUUID->"0f18bfaa-b523-437a-9133-7856c28c4d93"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "plotfile1", "=", 
+   "\"\</Users/basavyr/Documents/DevWorkspace/GitHub/mathematica-useful-\
+algorithms/Physics/experimental-data-collection-wobblers/138Nd.pdf\>\""}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.860724301614442*^9, 3.860724311364884*^9}},
+ CellLabel->
+  "In[315]:=",ExpressionUUID->"c4424a37-2a9a-4fda-aaa1-77b6753779b9"],
 
 Cell[CellGroupData[{
 
@@ -149,23 +162,21 @@ Cell[BoxData[{
              RowBox[{
               RowBox[{"Superscript", "[", 
                RowBox[{"\"\<\>\"", ",", "\"\<138\>\""}], "]"}], ",", 
-              "\"\<Nd\>\""}], "}"}], "]"}], ",", "Bold", ",", "30"}], "]"}], 
-         ",", 
+              "\"\<Nd ; exp\>\""}], "}"}], "]"}], ",", "Bold", ",", "30"}], 
+          "]"}], ",", 
          RowBox[{"Scaled", "[", 
           RowBox[{"{", 
-           RowBox[{"0.8", ",", "0.2"}], "}"}], "]"}]}], "]"}], "}"}]}]}], 
+           RowBox[{"0.7", ",", "0.2"}], "}"}], "]"}]}], "]"}], "}"}]}]}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
-   RowBox[{
-   "\"\</Users/basavyr/Documents/DevWorkspace/GitHub/mathematica-useful-\
-algorithms/Physics/experimental-data-collection-wobblers/138Nd.pdf\>\"", ",", 
-    "fig"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"plotfile1", ",", "fig"}], "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"Show", "[", "fig", "]"}]}], "Input",
  CellChangeTimes->{{3.860711470009556*^9, 3.860711527465543*^9}, {
   3.860711562432447*^9, 3.860711754671349*^9}, {3.860711805841137*^9, 
-  3.860711819067849*^9}},
- CellLabel->"In[41]:=",ExpressionUUID->"a02928ac-d6a8-445d-8e02-52b1bf9e0cbb"],
+  3.860711819067849*^9}, {3.860724317273779*^9, 3.860724344962364*^9}},
+ CellLabel->
+  "In[316]:=",ExpressionUUID->"a02928ac-d6a8-445d-8e02-52b1bf9e0cbb"],
 
 Cell[BoxData[
  TagBox[
@@ -395,9 +406,9 @@ Cell[BoxData[
          TemplateBox[{
            
            TemplateBox[{"\"\"", "\"138\""}, "Superscript", SyntaxForm -> 
-            SuperscriptBox], "\"Nd\""}, "RowDefault"], Bold, 30, StripOnInput -> 
-         False], TraditionalForm]], 
-      Scaled[{0.8, 0.2}]]},
+            SuperscriptBox], "\"Nd ; exp\""}, "RowDefault"], Bold, 30, 
+         StripOnInput -> False], TraditionalForm]], 
+      Scaled[{0.7, 0.2}]]},
    Frame->{{True, True}, {True, True}},
    FrameLabel->{{
       FormBox["\"E [MeV]\"", TraditionalForm], None}, {
@@ -493,8 +504,8 @@ Cell[BoxData[
         Inset[
          Style[
           Row[{
-            Superscript["", "138"], "Nd"}], Bold, 30], 
-         Scaled[{0.8, 0.2}]]}, Frame -> {{True, True}, {True, True}}, 
+            Superscript["", "138"], "Nd ; exp"}], Bold, 30], 
+         Scaled[{0.7, 0.2}]]}, Frame -> {{True, True}, {True, True}}, 
       FrameLabel -> {{"E [MeV]", None}, {"I [\[HBar]]", None}}, FrameStyle -> 
       Directive[
         Thickness[Large], 
@@ -549,13 +560,15 @@ Cell[BoxData[
   SelectWithContents->False,
   Selectable->True]], "Output",
  CellChangeTimes->{{3.860711642453445*^9, 3.860711680729019*^9}, {
-   3.860711747371689*^9, 3.860711755246808*^9}, 3.8607118334647512`*^9},
- CellLabel->"Out[45]=",ExpressionUUID->"a43c3603-3e45-4aa7-81f1-8f13ff8ae632"]
+   3.860711747371689*^9, 3.860711755246808*^9}, 3.8607118334647512`*^9, {
+   3.86072432339933*^9, 3.86072434879014*^9}},
+ CellLabel->
+  "Out[320]=",ExpressionUUID->"a1ab8048-a67d-4fec-ac61-7e194c451cd8"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{536, Automatic}, {Automatic, 95}},
+WindowMargins->{{Automatic, 756}, {Automatic, 224}},
 FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"7a4a2137-fa49-4181-ba89-f639bca4f2b7"
@@ -573,11 +586,12 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 152, 3, 69, "Chapter",ExpressionUUID->"9ac4e614-ce40-4abc-ac66-c0f16b95fc73"],
-Cell[735, 27, 221, 3, 30, "Input",ExpressionUUID->"67f00398-7fc1-4bf1-a5c9-2ceebc30dccf"],
-Cell[959, 32, 1038, 31, 136, "Input",ExpressionUUID->"0f18bfaa-b523-437a-9133-7856c28c4d93"],
+Cell[735, 27, 225, 4, 30, "Input",ExpressionUUID->"67f00398-7fc1-4bf1-a5c9-2ceebc30dccf"],
+Cell[963, 33, 1042, 32, 136, "Input",ExpressionUUID->"0f18bfaa-b523-437a-9133-7856c28c4d93"],
+Cell[2008, 67, 373, 9, 73, "Input",ExpressionUUID->"c4424a37-2a9a-4fda-aaa1-77b6753779b9"],
 Cell[CellGroupData[{
-Cell[2022, 67, 3626, 100, 304, "Input",ExpressionUUID->"a02928ac-d6a8-445d-8e02-52b1bf9e0cbb"],
-Cell[5651, 169, 15599, 383, 325, "Output",ExpressionUUID->"a43c3603-3e45-4aa7-81f1-8f13ff8ae632"]
+Cell[2406, 80, 3543, 98, 262, "Input",ExpressionUUID->"a02928ac-d6a8-445d-8e02-52b1bf9e0cbb"],
+Cell[5952, 180, 15663, 385, 325, "Output",ExpressionUUID->"a1ab8048-a67d-4fec-ac61-7e194c451cd8"]
 }, Open  ]]
 }, Open  ]]
 }
