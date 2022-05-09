@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    259244,       4297]
-NotebookOptionsPosition[    258445,       4275]
-NotebookOutlinePosition[    258843,       4291]
-CellTagsIndexPosition[    258800,       4288]
+NotebookDataLength[    260533,       4338]
+NotebookOptionsPosition[    259635,       4315]
+NotebookOutlinePosition[    260033,       4331]
+CellTagsIndexPosition[    259990,       4328]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -27,10 +27,10 @@ Cell["136Nd - Petrache Study", "Chapter",
 
 Cell[CellGroupData[{
 
-Cell["The 2-phonon structure (bands 3-4)", "Section",
+Cell["The 1-phonon structure (bands 3-4)", "Section",
  CellChangeTimes->{{3.86105466704777*^9, 3.86105468416311*^9}, {
-  3.8610628077273483`*^9, 
-  3.86106280847997*^9}},ExpressionUUID->"69cc39bf-916c-4e03-b190-\
+  3.8610628077273483`*^9, 3.86106280847997*^9}, {3.861063922780859*^9, 
+  3.861063922847685*^9}},ExpressionUUID->"69cc39bf-916c-4e03-b190-\
 714d9cfd5b33"],
 
 Cell[TextData[Cell[BoxData[
@@ -4269,7 +4269,47 @@ the bands [3,4",
 Cell[BoxData[
  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.861003193510132*^9, 3.861003201199144*^9}},
- CellLabel->"In[70]:=",ExpressionUUID->"ea05b15a-917d-42b9-b222-7b7d8405502e"]
+ CellLabel->
+  "In[238]:=",ExpressionUUID->"ea05b15a-917d-42b9-b222-7b7d8405502e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"band3En", "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{"#", "/", "1000"}], "]"}], "&"}], "@", 
+     RowBox[{"{", 
+      RowBox[{"5841", ",", "4847", ",", "3995", ",", "3277"}], "}"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"band4En", "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{"#", "/", "1000"}], "]"}], "&"}], "@", 
+     RowBox[{"{", 
+      RowBox[{"5346", ",", "4545", ",", "4026"}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"band3Spin", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"i", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "10", ",", "16", ",", "2"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"band4Spin", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"i", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "11", ",", "15", ",", "2"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.861063882842019*^9, 3.8610639147074823`*^9}},
+ CellLabel->
+  "In[239]:=",ExpressionUUID->"2cd77ff5-4457-49c2-b542-47676a9b9095"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -4293,10 +4333,11 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 167, 3, 69, "Chapter",ExpressionUUID->"c31256d0-6443-4763-92ba-3615c571ea10"],
 Cell[CellGroupData[{
-Cell[772, 29, 227, 4, 67, "Section",ExpressionUUID->"69cc39bf-916c-4e03-b190-714d9cfd5b33"],
-Cell[1002, 35, 256660, 4215, 733, "Text",ExpressionUUID->"f65db0e0-1b6f-4e4b-8ceb-e7f491d26151"],
-Cell[257665, 4252, 528, 14, 81, "Text",ExpressionUUID->"1c1c540e-0ab6-4c52-aed0-53a5ced2976a"],
-Cell[258196, 4268, 221, 3, 30, "Input",ExpressionUUID->"ea05b15a-917d-42b9-b222-7b7d8405502e"]
+Cell[772, 29, 273, 4, 67, "Section",ExpressionUUID->"69cc39bf-916c-4e03-b190-714d9cfd5b33"],
+Cell[1048, 35, 256660, 4215, 733, "Text",ExpressionUUID->"f65db0e0-1b6f-4e4b-8ceb-e7f491d26151"],
+Cell[257711, 4252, 528, 14, 81, "Text",ExpressionUUID->"1c1c540e-0ab6-4c52-aed0-53a5ced2976a"],
+Cell[258242, 4268, 225, 4, 30, "Input",ExpressionUUID->"ea05b15a-917d-42b9-b222-7b7d8405502e"],
+Cell[258470, 4274, 1137, 37, 149, "Input",ExpressionUUID->"2cd77ff5-4457-49c2-b542-47676a9b9095"]
 }, Open  ]]
 }, Open  ]]
 }
