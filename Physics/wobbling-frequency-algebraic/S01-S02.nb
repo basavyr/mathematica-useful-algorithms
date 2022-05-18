@@ -1,0 +1,214 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6191,        206]
+NotebookOptionsPosition[      5619,        188]
+NotebookOutlinePosition[      6017,        204]
+CellTagsIndexPosition[      5974,        201]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Solutions ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["S", "01"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "56760a7f-479f-4885-8a55-bfcde8b40568"],
+ "and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["S", "02"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "60c79112-6202-4f2b-9aab-83d87d8f6548"]
+}], "Chapter",
+ CellChangeTimes->{{3.861859796701173*^9, 
+  3.861859809856422*^9}},ExpressionUUID->"faa7e391-39db-42e9-9cb5-\
+8540f7d15da6"],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8618598478564587`*^9, 3.861859855110977*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"ec74cda1-87ec-462e-95d4-be24a4d28152"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"bar", "[", 
+     RowBox[{"I0_", ",", "Ak_"}], "]"}], ":=", 
+    RowBox[{"I0", "*", "Ak"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"The", " ", "Intrinsic", " ", "Spin", " ", "terms"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["P", "31"], "[", 
+    RowBox[{"Spin_", ",", "j_", ",", "I0_", ",", "A1_", ",", "A3_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "Spin"}], "-", "1"}], ")"}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"bar", "[", 
+        RowBox[{"I0", ",", "A3"}], "]"}], "-", 
+       RowBox[{"bar", "[", 
+        RowBox[{"I0", ",", "A1"}], "]"}]}], ")"}]}], "+", 
+    RowBox[{"2", "*", "j", "*", 
+     RowBox[{"bar", "[", 
+      RowBox[{"I0", ",", "A1"}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SubscriptBox["P", "21"], "[", 
+     RowBox[{"Spin_", ",", "j_", ",", "I0_", ",", "A1_", ",", "A2_"}], "]"}], 
+    ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", "Spin"}], "-", "1"}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"bar", "[", 
+         RowBox[{"I0", ",", "A2"}], "]"}], "-", 
+        RowBox[{"bar", "[", 
+         RowBox[{"I0", ",", "A1"}], "]"}]}], ")"}]}], "+", 
+     RowBox[{"2", "*", "j", "*", 
+      RowBox[{"bar", "[", 
+       RowBox[{"I0", ",", "A1"}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"The", " ", "Single"}], "-", 
+    RowBox[{"particle", " ", "terms"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["Q", "31"], "[", 
+    RowBox[{"Spin_", ",", "j_", ",", "I0_", ",", "A1_", ",", "A3_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "j"}], "-", "1"}], ")"}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"bar", "[", 
+        RowBox[{"I0", ",", "A3"}], "]"}], "-", 
+       RowBox[{"bar", "[", 
+        RowBox[{"I0", ",", "A1"}], "]"}]}], ")"}]}], "+", 
+    RowBox[{"2", "Spin", "*", 
+     RowBox[{"bar", "[", 
+      RowBox[{"I0", ",", "A1"}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SubscriptBox["Q", "21"], "[", 
+     RowBox[{"Spin_", ",", "j_", ",", "I0_", ",", "A1_", ",", "A2_"}], "]"}], 
+    ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", "j"}], "-", "1"}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"bar", "[", 
+         RowBox[{"I0", ",", "A2"}], "]"}], "-", 
+        RowBox[{"bar", "[", 
+         RowBox[{"I0", ",", "A1"}], "]"}]}], ")"}]}], "+", 
+     RowBox[{"2", "Spin", "*", 
+      RowBox[{"bar", "[", 
+       RowBox[{"I0", ",", "A1"}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"The", " ", "triaxial", " ", "terms"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["G", "1"], "[", 
+    RowBox[{"j_", ",", "\[Gamma]_"}], "]"}], ":=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"2", "j"}], "-", "1"}], 
+     RowBox[{"j", 
+      RowBox[{"(", 
+       RowBox[{"j", "+", "1"}], ")"}]}]], 
+    SqrtBox["3"], 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SqrtBox["3"], 
+       RowBox[{"Cos", "[", 
+        RowBox[{"\[Gamma]", "*", 
+         FractionBox["\[Pi]", "180"]}], "]"}]}], "+", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"\[Gamma]", "*", 
+        FractionBox["\[Pi]", "180"]}], "]"}]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["G", "2"], "[", 
+    RowBox[{"j_", ",", "\[Gamma]_"}], "]"}], ":=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"2", "j"}], "-", "1"}], 
+     RowBox[{"j", 
+      RowBox[{"(", 
+       RowBox[{"j", "+", "1"}], ")"}]}]], "2", 
+    SqrtBox["3"], 
+    RowBox[{"Sin", "[", 
+     RowBox[{"\[Gamma]", "*", 
+      FractionBox["\[Pi]", "180"]}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.861859866030726*^9, 3.861859875271476*^9}, {
+  3.86185994016908*^9, 3.8618602983765173`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"b6d6e38a-3c1c-4145-827e-61209917784b"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 785}, {145, Automatic}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f9e92b93-459b-412f-bbf2-d41aa41f72ea"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 505, 16, 69, "Chapter",ExpressionUUID->"faa7e391-39db-42e9-9cb5-8540f7d15da6"],
+Cell[1088, 40, 222, 3, 30, "Input",ExpressionUUID->"ec74cda1-87ec-462e-95d4-be24a4d28152"],
+Cell[1313, 45, 4290, 140, 297, "Input",ExpressionUUID->"b6d6e38a-3c1c-4145-827e-61209917784b"]
+}, Open  ]]
+}
+]
+*)
+
