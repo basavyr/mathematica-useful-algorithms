@@ -1,0 +1,226 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6756,        218]
+NotebookOptionsPosition[      5860,        195]
+NotebookOutlinePosition[      6258,        211]
+CellTagsIndexPosition[      6215,        208]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Study the behavior of the oscillator frequencies ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "1"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "055cd33b-8f4f-42a5-94f7-c38b314fb201"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "44ab3bac-09de-4196-a6b4-33004fce73cf"]
+}], "Chapter",
+ CellChangeTimes->{{3.8620034062136927`*^9, 
+  3.86200342791574*^9}},ExpressionUUID->"485fa7c9-7e46-4fea-a180-\
+3cbbbe7b24da"],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.862104672969507*^9, 3.862104678542889*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"74f3f2a5-dd67-446e-95d7-6197a2aee8c9"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"S", "[", 
+    RowBox[{"I_", ",", "j_"}], "]"}], ":=", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"2", "I"}], "-", "1", "-", 
+     RowBox[{"2", "j"}]}], 
+    RowBox[{
+     RowBox[{"2", "I"}], "-", "1"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SP", "[", 
+    RowBox[{"I_", ",", "j_"}], "]"}], ":=", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"2", "j"}], "-", 
+     RowBox[{"2", "I"}], "-", "1"}], 
+    RowBox[{
+     RowBox[{"2", "j"}], "-", "1"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T", "[", 
+    RowBox[{"j_", ",", "\[Gamma]_"}], "]"}], ":=", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"j", 
+      RowBox[{"(", 
+       RowBox[{"j", "+", "1"}], ")"}]}]], 
+    RowBox[{"Sqrt", "[", "3", "]"}], 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sqrt", "[", "3", "]"}], 
+       RowBox[{"Cos", "[", "\[Gamma]", "]"}]}], "+", 
+      RowBox[{"Sin", "[", "\[Gamma]", "]"}]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TP", "[", 
+    RowBox[{"j_", ",", "\[Gamma]_"}], "]"}], ":=", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"j", 
+      RowBox[{"(", 
+       RowBox[{"j", "+", "1"}], ")"}]}]], "2", 
+    RowBox[{"Sqrt", "[", "3", "]"}], 
+    RowBox[{"Sin", "[", "\[Gamma]", "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.862003434307369*^9, 3.86200348657336*^9}, {
+  3.862104521105274*^9, 3.862104589105194*^9}, {3.8621046395140676`*^9, 
+  3.862104669316628*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"d3fd972c-ee73-490b-8f42-81ceaa49df20"],
+
+Cell["Create the omega sub-terms", "Subsection",
+ CellChangeTimes->{{3.862104837008847*^9, 
+  3.862104844336801*^9}},ExpressionUUID->"6bbc99f8-b0c8-4e48-b67d-\
+89e1d6863691"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Nuclear total spin -> i\nSingle-particle spin -> j", \
+"Text"]], "Subsection",
+ CellChangeTimes->{{3.862104901581904*^9, 3.862104913496825*^9}, {
+  3.862105101646512*^9, 
+  3.86210510751254*^9}},ExpressionUUID->"c0128bb7-d552-4dcf-a457-\
+7d54dd22d512"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"st1", "[", 
+    RowBox[{"i_", ",", "j_", ",", "a1_", ",", "a2_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "i"}], "-", "1"}], ")"}], 
+     RowBox[{"(", 
+      RowBox[{"a2", "-", "a1"}], ")"}]}], "+", 
+    RowBox[{"2", "*", "j", "*", "a1"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"st2", "[", 
+    RowBox[{"i_", ",", "j_", ",", "a1_", ",", "a3_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "i"}], "-", "1"}], ")"}], 
+     RowBox[{"(", 
+      RowBox[{"a3", "-", "a1"}], ")"}]}], "+", 
+    RowBox[{"2", "*", "j", "*", "a1"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"st3", "[", 
+    RowBox[{
+    "i_", ",", "j_", ",", "a1_", ",", "a3_", ",", "v_", ",", "\[Gamma]_"}], 
+    "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "j"}], "-", "1"}], ")"}], 
+     RowBox[{"(", 
+      RowBox[{"a3", "-", "a1"}], ")"}]}], "+", 
+    RowBox[{"2", "*", "i", "*", "a1"}], "+", 
+    RowBox[{"v", "*", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"2", "j"}], "-", "1"}], 
+      RowBox[{"j", 
+       RowBox[{"(", 
+        RowBox[{"j", "+", "1"}], ")"}]}]], 
+     RowBox[{"Sqrt", "[", "3", "]"}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sqrt", "[", "3", "]"}], 
+        RowBox[{"Cos", "[", "\[Gamma]", "]"}]}], "+", 
+       RowBox[{"Sin", "[", "\[Gamma]", "]"}]}], ")"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"st4", "[", 
+    RowBox[{
+    "i_", ",", "j_", ",", "a1_", ",", "a2_", ",", "v_", ",", "\[Gamma]_"}], 
+    "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "j"}], "-", "1"}], ")"}], 
+     RowBox[{"(", 
+      RowBox[{"a2", "-", "a1"}], ")"}]}], "+", 
+    RowBox[{"2", "i", "*", "a1"}], "+", 
+    RowBox[{"v", "*", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"2", "j"}], "-", "1"}], 
+      RowBox[{"j", 
+       RowBox[{"(", 
+        RowBox[{"j", "+", "1"}], ")"}]}]], "2", 
+     RowBox[{"Sqrt", "[", "3", "]"}], "*", 
+     RowBox[{"Sin", "[", "\[Gamma]", "]"}]}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8621048461513233`*^9, 3.862105092856866*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"50ac8a9b-c2d2-47ff-a2ae-d8bea4648121"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 312}, {199, Automatic}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3d425e23-8501-49fc-87d6-364b88b155a5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 558, 16, 117, "Chapter",ExpressionUUID->"485fa7c9-7e46-4fea-a180-3cbbbe7b24da"],
+Cell[1141, 40, 221, 3, 30, "Input",ExpressionUUID->"74f3f2a5-dd67-446e-95d7-6197a2aee8c9"],
+Cell[1365, 45, 1602, 52, 181, "Input",ExpressionUUID->"d3fd972c-ee73-490b-8f42-81ceaa49df20"],
+Cell[2970, 99, 174, 3, 54, "Subsection",ExpressionUUID->"6bbc99f8-b0c8-4e48-b67d-89e1d6863691"],
+Cell[CellGroupData[{
+Cell[3169, 106, 276, 5, 55, "Subsection",ExpressionUUID->"c0128bb7-d552-4dcf-a457-7d54dd22d512"],
+Cell[3448, 113, 2384, 78, 162, "Input",ExpressionUUID->"50ac8a9b-c2d2-47ff-a2ae-d8bea4648121"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
