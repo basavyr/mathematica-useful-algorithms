@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2842,         97]
-NotebookOptionsPosition[      2263,         79]
-NotebookOutlinePosition[      2661,         95]
-CellTagsIndexPosition[      2618,         92]
+NotebookDataLength[      7632,        228]
+NotebookOptionsPosition[      6415,        200]
+NotebookOutlinePosition[      6813,        216]
+CellTagsIndexPosition[      6770,        213]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -51,10 +51,9 @@ Cell[TextData[{
 quadrupole moment ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["Q", "I"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["Q", "I"], TraditionalForm]],ExpressionUUID->
   "d19ceab1-97c8-4c38-9bbf-144fabb978e5"],
- " which is given by the ",
+ " , which is given by the ",
  StyleBox["off-diagonal ",
   FontSlant->"Italic"],
  "matrix elements: \[LeftAngleBracket]I||\[ScriptCapitalM](E2)||I-2\
@@ -70,15 +69,137 @@ quadrupole moment ",
  ": ",
  StyleBox["I-2",
   FontWeight->"Bold"],
- "}"
+ "}\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["Q", "I"], "=", 
+    RowBox[{
+     SqrtBox[
+      FractionBox["16", 
+       RowBox[{"5", "\[Pi]"}]]], 
+     RowBox[{"B", "(", 
+      RowBox[{"E2", ";", 
+       RowBox[{"I", "->", 
+        RowBox[{"I", "-", "2"}]}]}], ")"}], "\[Times]", 
+     SubsuperscriptBox["C", 
+      RowBox[{"K", " ", "0", " ", "K"}], 
+      RowBox[{
+       RowBox[{"I", " ", "2", " ", "I"}], "-", "2"}]]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "01dcdb18-e804-458b-ab5d-3eb70ac578a6"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["Q", "SQM"], "(", "I", ")"}], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Plain",ExpressionUUID->
+  "bdbc5441-1b66-4d79-980e-e9e83ed1bd8a"],
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["C", 
+    RowBox[{"K", " ", "2", " ", "K"}], 
+    RowBox[{"I", " ", "2", " ", "I"}]], TraditionalForm]],
+  FontWeight->"Plain",ExpressionUUID->
+  "a125ad1a-7c5a-4aa6-8ee8-f26edc5d846c"],
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["C", 
+    RowBox[{"I", " ", "0", " ", "I"}], 
+    RowBox[{"I", " ", "2", " ", "I"}]], TraditionalForm]],ExpressionUUID->
+  "b628f58f-426c-41b8-8458-c4daf0462c44"],
+ "\[Times]",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["Q", "I"], TraditionalForm]],ExpressionUUID->
+  "41054ddb-f9ba-4be0-8457-d388baef6649"]
 }], "Subsection",
- CellChangeTimes->{{3.863907979511677*^9, 
-  3.8639081161171293`*^9}},ExpressionUUID->"dc5d608c-fe03-420b-8047-\
-47ccd27cdad2"]
+ CellChangeTimes->{{3.863907979511677*^9, 3.8639081161171293`*^9}, {
+  3.863908290401287*^9, 3.863908300276312*^9}, {3.863908349462324*^9, 
+  3.86390837977348*^9}, {3.863908409808035*^9, 3.8639084869387217`*^9}, {
+  3.863912415577793*^9, 3.8639124611010027`*^9}, {3.8639124920753517`*^9, 
+  3.8639125293693027`*^9}},ExpressionUUID->"dc5d608c-fe03-420b-8047-\
+47ccd27cdad2"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Theoretical ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["Q", "I"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ade9738e-966c-41b0-b7f5-66cb63424141"]
+}], "Section",
+ CellChangeTimes->{{3.86391808701993*^9, 
+  3.8639181067044983`*^9}},ExpressionUUID->"4b5ecfeb-99bc-40b4-b454-\
+ffd1861428e6"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+From the theoretical transition quadrupole moment calculate the SQM via the \
+formula containing the two Clebsch-Gordan coefficients\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.863918113399167*^9, 
+  3.8639181503356*^9}},ExpressionUUID->"9e384151-8fd8-43a7-862b-7cefb5e4ef88"],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.863918743403479*^9, 3.8639187488963327`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"f6681fe7-b7bd-4ffa-bac6-4bc39522de02"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"the", " ", "quadrupole", " ", "moment", " ", "for", " ", 
+   RowBox[{"{", 
+    RowBox[{"161", ",", "167"}], "}"}], "Lu"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.8639185960115137`*^9, 3.863918638993935*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"65f8985b-fae1-43f9-8e4f-252de5d82169"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"QIdata1", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "8.89", ",", "8.91", ",", "8.92", ",", "8.94", ",", "8.95", ",", "8.96", 
+      ",", "8.97", ",", "8.98"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "the", " ", "quadrupole", " ", "moment", " ", "for", " ", "163", "Lu"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"QIdata2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "8.89", ",", "8.77", ",", "8.66", ",", "8.57", ",", "8.50", ",", "8.43", 
+     ",", "8.36", ",", "8.31"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "the", " ", "quadrupole", " ", "moment", " ", "for", " ", "165", "Lu"}], 
+   " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.863918642808617*^9, 3.863918716158288*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"80ee7118-d51e-4c69-8cfd-8793e96f2fe8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"QIdata3", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "10.12", ",", "10.14", ",", "10.16", ",", "10.18", ",", "10.19", ",", 
+     "10.21", ",", "10.22", ",", "10.23"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8639187194236603`*^9, 3.8639187404346457`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"fd116526-cd56-46f8-be42-cbbbab0fc828"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 },
-WindowSize->{808, 911},
-WindowMargins->{{851, Automatic}, {Automatic, 238}},
+WindowSize->{1123, 911},
+WindowMargins->{{72, Automatic}, {Automatic, 230}},
 FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"0dc3fc96-4e78-4e28-a1c2-7866d84885a9"
@@ -96,8 +217,18 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 171, 3, 69, "Chapter",ExpressionUUID->"fbe73e3d-156f-49d2-8ee0-45995dbdd4d8"],
-Cell[754, 27, 678, 19, 113, "Subsection",ExpressionUUID->"af9e5011-dfbf-40a3-b89d-60444946f85f"],
-Cell[1435, 48, 812, 28, 92, "Subsection",ExpressionUUID->"dc5d608c-fe03-420b-8047-47ccd27cdad2"]
+Cell[754, 27, 678, 19, 112, "Subsection",ExpressionUUID->"af9e5011-dfbf-40a3-b89d-60444946f85f"],
+Cell[1435, 48, 2411, 75, 141, "Subsection",ExpressionUUID->"dc5d608c-fe03-420b-8047-47ccd27cdad2"],
+Cell[CellGroupData[{
+Cell[3871, 127, 335, 10, 54, "Section",ExpressionUUID->"4b5ecfeb-99bc-40b4-b454-ffd1861428e6"],
+Cell[CellGroupData[{
+Cell[4231, 141, 287, 5, 71, "Subsubsection",ExpressionUUID->"9e384151-8fd8-43a7-862b-7cefb5e4ef88"],
+Cell[4521, 148, 222, 3, 30, "Input",ExpressionUUID->"f6681fe7-b7bd-4ffa-bac6-4bc39522de02"],
+Cell[4746, 153, 337, 6, 30, "Input",ExpressionUUID->"65f8985b-fae1-43f9-8e4f-252de5d82169"],
+Cell[5086, 161, 913, 24, 94, "Input",ExpressionUUID->"80ee7118-d51e-4c69-8cfd-8793e96f2fe8"],
+Cell[6002, 187, 373, 8, 85, "Input",ExpressionUUID->"fd116526-cd56-46f8-be42-cbbbab0fc828"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
