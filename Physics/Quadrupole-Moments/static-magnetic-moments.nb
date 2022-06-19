@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    144648,       2641]
-NotebookOptionsPosition[    143729,       2618]
-NotebookOutlinePosition[    144127,       2634]
-CellTagsIndexPosition[    144084,       2631]
+NotebookDataLength[    155666,       2893]
+NotebookOptionsPosition[    154747,       2870]
+NotebookOutlinePosition[    155145,       2886]
+CellTagsIndexPosition[    155102,       2883]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2000,7 +2000,7 @@ Cell[BoxData[
  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.864604502434696*^9, 3.864604524875601*^9}},
  CellLabel->
-  "In[1274]:=",ExpressionUUID->"e3ac22e9-6c0e-4372-aff5-5afdfe9eda83"],
+  "In[1350]:=",ExpressionUUID->"e3ac22e9-6c0e-4372-aff5-5afdfe9eda83"],
 
 Cell[BoxData[{
  RowBox[{
@@ -2049,7 +2049,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.864604556681115*^9, 3.86460472200065*^9}, 
    3.864604952650303*^9, {3.864605187099392*^9, 3.8646052012949953`*^9}},
  CellLabel->
-  "In[1275]:=",ExpressionUUID->"d7ca1e97-d4d8-406f-92ff-59ba65a70697"],
+  "In[1351]:=",ExpressionUUID->"d7ca1e97-d4d8-406f-92ff-59ba65a70697"],
 
 Cell[BoxData[{
  RowBox[{
@@ -2132,6 +2132,20 @@ Cell[BoxData[{
        RowBox[{"Length", "[", "BM1th", "]"}]}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"errplus", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "0.006", ",", "0.005", ",", "0.008", ",", "0.013", ",", "0.012"}], "}"}],
+     "*", "100"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"errminus", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "0.005", ",", "0.005", ",", "0.007", ",", "0.011", ",", "0.010"}], "}"}],
+     "*", "100"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"muIExp", "=", 
    RowBox[{"Table", "[", 
     RowBox[{
@@ -2139,32 +2153,40 @@ Cell[BoxData[{
       RowBox[{
        RowBox[{"spins", "[", 
         RowBox[{"[", "i", "]"}], "]"}], ",", 
-       RowBox[{"muI", "[", 
+       RowBox[{"Around", "[", 
         RowBox[{
-         RowBox[{"spins", "[", 
-          RowBox[{"[", "i", "]"}], "]"}], ",", 
-         RowBox[{
-          RowBox[{"spins", "[", 
-           RowBox[{"[", "i", "]"}], "]"}], "-", "1"}], ",", 
-         RowBox[{"diff", "[", 
+         RowBox[{"muI", "[", 
           RowBox[{
-           RowBox[{"BM1exp", "[", 
-            RowBox[{"[", "i", "]"}], "]"}], ",", 
            RowBox[{"spins", "[", 
             RowBox[{"[", "i", "]"}], "]"}], ",", 
            RowBox[{
             RowBox[{"spins", "[", 
-             RowBox[{"[", "i", "]"}], "]"}], "-", "1"}]}], "]"}]}], "]"}]}], 
-      "}"}], ",", 
+             RowBox[{"[", "i", "]"}], "]"}], "-", "1"}], ",", 
+           RowBox[{"diff", "[", 
+            RowBox[{
+             RowBox[{"BM1exp", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], ",", 
+             RowBox[{"spins", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"spins", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "-", "1"}]}], "]"}]}], "]"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"errminus", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], ",", 
+           RowBox[{"errplus", "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], "}"}]}], "]"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"i", ",", "1", ",", 
        RowBox[{"Length", "[", "BM1exp", "]"}]}], "}"}]}], "]"}]}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.864604852599079*^9, 3.864604949702306*^9}, {
   3.864605630009775*^9, 3.864605863989251*^9}, {3.86460604295391*^9, 
-  3.86460605996348*^9}},
+  3.86460605996348*^9}, {3.864606328996194*^9, 3.8646064536472683`*^9}},
  CellLabel->
-  "In[1280]:=",ExpressionUUID->"ce72df9d-f7b2-4abf-84b1-fb5e368cd470"],
+  "In[1356]:=",ExpressionUUID->"ce72df9d-f7b2-4abf-84b1-fb5e368cd470"],
 
 Cell[CellGroupData[{
 
@@ -2214,7 +2236,9 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
           RowBox[{"47", "/", "2"}], ",", 
+          RowBox[{"51", "/", "2"}], ",", 
           RowBox[{"55", "/", "2"}], ",", 
+          RowBox[{"59", "/", "2"}], ",", 
           RowBox[{"63", "/", "2"}]}], "}"}], ",", "None"}], "}"}]}], "}"}]}], 
    ",", 
    RowBox[{"PlotLegends", "\[Rule]", 
@@ -2225,13 +2249,121 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"0.25", ",", "0.8"}], "}"}]}], "]"}]}]}], "]"}]], "Input",
  CellChangeTimes->{{3.864605916318548*^9, 3.864606026729237*^9}, {
-  3.8646060826897507`*^9, 3.864606178289093*^9}},
+  3.8646060826897507`*^9, 3.864606178289093*^9}, {3.864606233598456*^9, 
+  3.8646062420331097`*^9}},
  CellLabel->
-  "In[1287]:=",ExpressionUUID->"a41998ec-48b1-436a-a9e5-63baebc9b449"],
+  "In[1365]:=",ExpressionUUID->"a41998ec-48b1-436a-a9e5-63baebc9b449"],
 
 Cell[BoxData[
  TagBox[
-  GraphicsBox[{{{}, {{{}, {}, 
+  GraphicsBox[{{{{
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{{}, {
+           LineBox[{{23.5, 10.949755144792679`}, {23.5, 
+            11.449755144792679`}}], 
+           LineBox[{{23.5, 11.449755144792679`}, {23.5, 
+            12.049755144792679`}}]}},
+         Antialiasing->False]}, 
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{{}, {
+           LineBox[{{25.5, 11.87786508243272}, {25.5, 12.37786508243272}}], 
+           LineBox[{{25.5, 12.37786508243272}, {25.5, 12.87786508243272}}]}},
+         Antialiasing->False]}, 
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{{}, {
+           LineBox[{{27.5, 12.852925210586834`}, {27.5, 
+            13.552925210586833`}}], 
+           LineBox[{{27.5, 13.552925210586833`}, {27.5, 
+            14.352925210586834`}}]}},
+         Antialiasing->False]}, 
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{{}, {
+           LineBox[{{29.5, 13.351927016647812`}, {29.5, 
+            14.451927016647812`}}], 
+           LineBox[{{29.5, 14.451927016647812`}, {29.5, 
+            15.751927016647812`}}]}},
+         Antialiasing->False]}, 
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{{}, {
+           LineBox[{{31.5, 14.417600945742041`}, {31.5, 
+            15.417600945742041`}}], 
+           LineBox[{{31.5, 15.417600945742041`}, {31.5, 16.61760094574204}}]}},
+         Antialiasing->False]}}, {
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{
+          GeometricTransformationBox[
+           LineBox[{}], {{{1., 0.}, {0., 1.}}, {0., 0.}}], 
+          GeometricTransformationBox[
+           LineBox[{{{23.5, 12.049755144792679`}, 
+              Offset[{3, 0}, {23.5, 12.049755144792679`}]}, {{23.5, 
+              12.049755144792679`}, 
+              Offset[{-3, 0}, {23.5, 12.049755144792679`}]}, {{23.5, 
+              10.949755144792679`}, 
+              Offset[{3, 0}, {23.5, 10.949755144792679`}]}, {{23.5, 
+              10.949755144792679`}, 
+              Offset[{-3, 0}, {23.5, 10.949755144792679`}]}}], {{{1., 0.}, {
+            0., 1.}}, {0., 0.}}]},
+         Antialiasing->False]}, 
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{
+          GeometricTransformationBox[
+           LineBox[{}], {{{1., 0.}, {0., 1.}}, {0., 0.}}], 
+          GeometricTransformationBox[
+           LineBox[{{{25.5, 12.87786508243272}, 
+              Offset[{3, 0}, {25.5, 12.87786508243272}]}, {{25.5, 
+              12.87786508243272}, 
+              Offset[{-3, 0}, {25.5, 12.87786508243272}]}, {{25.5, 
+              11.87786508243272}, 
+              Offset[{3, 0}, {25.5, 11.87786508243272}]}, {{25.5, 
+              11.87786508243272}, 
+              Offset[{-3, 0}, {25.5, 11.87786508243272}]}}], {{{1., 0.}, {0., 
+            1.}}, {0., 0.}}]},
+         Antialiasing->False]}, 
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{
+          GeometricTransformationBox[
+           LineBox[{}], {{{1., 0.}, {0., 1.}}, {0., 0.}}], 
+          GeometricTransformationBox[
+           LineBox[{{{27.5, 14.352925210586834`}, 
+              Offset[{3, 0}, {27.5, 14.352925210586834`}]}, {{27.5, 
+              14.352925210586834`}, 
+              Offset[{-3, 0}, {27.5, 14.352925210586834`}]}, {{27.5, 
+              12.852925210586834`}, 
+              Offset[{3, 0}, {27.5, 12.852925210586834`}]}, {{27.5, 
+              12.852925210586834`}, 
+              Offset[{-3, 0}, {27.5, 12.852925210586834`}]}}], {{{1., 0.}, {
+            0., 1.}}, {0., 0.}}]},
+         Antialiasing->False]}, 
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{
+          GeometricTransformationBox[
+           LineBox[{}], {{{1., 0.}, {0., 1.}}, {0., 0.}}], 
+          GeometricTransformationBox[
+           LineBox[{{{29.5, 15.751927016647812`}, 
+              Offset[{3, 0}, {29.5, 15.751927016647812`}]}, {{29.5, 
+              15.751927016647812`}, 
+              Offset[{-3, 0}, {29.5, 15.751927016647812`}]}, {{29.5, 
+              13.351927016647812`}, 
+              Offset[{3, 0}, {29.5, 13.351927016647812`}]}, {{29.5, 
+              13.351927016647812`}, 
+              Offset[{-3, 0}, {29.5, 13.351927016647812`}]}}], {{{1., 0.}, {
+            0., 1.}}, {0., 0.}}]},
+         Antialiasing->False]}, 
+       {GrayLevel[0], Thickness[Large], 
+        StyleBox[{
+          GeometricTransformationBox[
+           LineBox[{}], {{{1., 0.}, {0., 1.}}, {0., 0.}}], 
+          GeometricTransformationBox[
+           LineBox[{{{31.5, 16.61760094574204}, 
+              Offset[{3, 0}, {31.5, 16.61760094574204}]}, {{31.5, 
+              16.61760094574204}, 
+              Offset[{-3, 0}, {31.5, 16.61760094574204}]}, {{31.5, 
+              14.417600945742041`}, 
+              Offset[{3, 0}, {31.5, 14.417600945742041`}]}, {{31.5, 
+              14.417600945742041`}, 
+              Offset[{-3, 0}, {31.5, 14.417600945742041`}]}}], {{{1., 0.}, {
+            0., 1.}}, {0., 0.}}]},
+         Antialiasing->False]}}}, {{{}, {}, 
        {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], Thickness[Large],
          Dashing[{Small, Small}], 
         LineBox[{{23.5, 11.449755144792679`}, {25.5, 12.414698887405619`}, {
@@ -2444,7 +2576,7 @@ Cell[BoxData[
    AspectRatio->0.8,
    Axes->{False, False},
    AxesLabel->{None, None},
-   AxesOrigin->{23.33333333333339, 11.229319266962184`},
+   AxesOrigin->{23.33333333333339, 10.634874822517737`},
    DisplayFunction->Identity,
    Frame->{{True, True}, {True, True}},
    FrameLabel->{{
@@ -2461,9 +2593,17 @@ Cell[BoxData[
         FormBox[
          FractionBox["47", "2"], TraditionalForm]}, {
         NCache[
+         Rational[51, 2], 25.5], 
+        FormBox[
+         FractionBox["51", "2"], TraditionalForm]}, {
+        NCache[
          Rational[55, 2], 27.5], 
         FormBox[
          FractionBox["55", "2"], TraditionalForm]}, {
+        NCache[
+         Rational[59, 2], 29.5], 
+        FormBox[
+         FractionBox["59", "2"], TraditionalForm]}, {
         NCache[
          Rational[63, 2], 31.5], 
         FormBox[
@@ -2485,8 +2625,8 @@ Cell[BoxData[
           Part[#, 1]], 
          Identity[
           Part[#, 2]]}& )}},
-   PlotRange->{{23.33333333333339, 31.5}, {11.229319266962184`, 
-    15.417600945742041`}},
+   PlotRange->{{23.33333333333339, 31.5}, {10.634874822517737`, 
+    16.61760094574204}},
    PlotRangeClipping->True,
    PlotRangePadding->{{
       Scaled[0.02], 
@@ -2495,7 +2635,116 @@ Cell[BoxData[
       Scaled[0.05]}},
    Ticks->{Automatic, Automatic}],
   InterpretTemplate[Legended[
-    Graphics[{{}, {{{}, {}, {
+    Graphics[{{{{{Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], {}, {
+           Line[{{23.5, 10.949755144792679`}, {23.5, 11.449755144792679`}}], 
+           
+           Line[{{23.5, 11.449755144792679`}, {23.5, 
+            12.049755144792679`}}]}}, {Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], {}, {
+           Line[{{25.5, 11.87786508243272}, {25.5, 12.37786508243272}}], 
+           Line[{{25.5, 12.37786508243272}, {25.5, 12.87786508243272}}]}}, {
+         Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], {}, {
+           Line[{{27.5, 12.852925210586834`}, {27.5, 13.552925210586833`}}], 
+           
+           Line[{{27.5, 13.552925210586833`}, {27.5, 
+            14.352925210586834`}}]}}, {Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], {}, {
+           Line[{{29.5, 13.351927016647812`}, {29.5, 14.451927016647812`}}], 
+           
+           Line[{{29.5, 14.451927016647812`}, {29.5, 
+            15.751927016647812`}}]}}, {Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], {}, {
+           Line[{{31.5, 14.417600945742041`}, {31.5, 15.417600945742041`}}], 
+           
+           Line[{{31.5, 15.417600945742041`}, {31.5, 
+            16.61760094574204}}]}}}}, {{{Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], 
+          Rotate[
+           Line[{}], 0., {23.5, 11.449755144792679`}], 
+          Rotate[
+           Line[{{{23.5, 12.049755144792679`}, 
+              Offset[{3, 0}, {23.5, 12.049755144792679`}]}, {{23.5, 
+              12.049755144792679`}, 
+              Offset[{-3, 0}, {23.5, 12.049755144792679`}]}, {{23.5, 
+              10.949755144792679`}, 
+              Offset[{3, 0}, {23.5, 10.949755144792679`}]}, {{23.5, 
+              10.949755144792679`}, 
+              Offset[{-3, 0}, {23.5, 10.949755144792679`}]}}], 0., {23.5, 
+           11.449755144792679`}]}, {Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], 
+          Rotate[
+           Line[{}], 0., {25.5, 12.37786508243272}], 
+          Rotate[
+           Line[{{{25.5, 12.87786508243272}, 
+              Offset[{3, 0}, {25.5, 12.87786508243272}]}, {{25.5, 
+              12.87786508243272}, 
+              Offset[{-3, 0}, {25.5, 12.87786508243272}]}, {{25.5, 
+              11.87786508243272}, 
+              Offset[{3, 0}, {25.5, 11.87786508243272}]}, {{25.5, 
+              11.87786508243272}, 
+              Offset[{-3, 0}, {25.5, 11.87786508243272}]}}], 0., {25.5, 
+           12.37786508243272}]}, {Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], 
+          Rotate[
+           Line[{}], 0., {27.5, 13.552925210586833`}], 
+          Rotate[
+           Line[{{{27.5, 14.352925210586834`}, 
+              Offset[{3, 0}, {27.5, 14.352925210586834`}]}, {{27.5, 
+              14.352925210586834`}, 
+              Offset[{-3, 0}, {27.5, 14.352925210586834`}]}, {{27.5, 
+              12.852925210586834`}, 
+              Offset[{3, 0}, {27.5, 12.852925210586834`}]}, {{27.5, 
+              12.852925210586834`}, 
+              Offset[{-3, 0}, {27.5, 12.852925210586834`}]}}], 0., {27.5, 
+           13.552925210586833`}]}, {Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], 
+          Rotate[
+           Line[{}], 0., {29.5, 14.451927016647812`}], 
+          Rotate[
+           Line[{{{29.5, 15.751927016647812`}, 
+              Offset[{3, 0}, {29.5, 15.751927016647812`}]}, {{29.5, 
+              15.751927016647812`}, 
+              Offset[{-3, 0}, {29.5, 15.751927016647812`}]}, {{29.5, 
+              13.351927016647812`}, 
+              Offset[{3, 0}, {29.5, 13.351927016647812`}]}, {{29.5, 
+              13.351927016647812`}, 
+              Offset[{-3, 0}, {29.5, 13.351927016647812`}]}}], 0., {29.5, 
+           14.451927016647812`}]}, {Antialiasing -> False, 
+          Directive[
+           GrayLevel[0], 
+           Thickness[Large]], 
+          Rotate[
+           Line[{}], 0., {31.5, 15.417600945742041`}], 
+          Rotate[
+           Line[{{{31.5, 16.61760094574204}, 
+              Offset[{3, 0}, {31.5, 16.61760094574204}]}, {{31.5, 
+              16.61760094574204}, 
+              Offset[{-3, 0}, {31.5, 16.61760094574204}]}, {{31.5, 
+              14.417600945742041`}, 
+              Offset[{3, 0}, {31.5, 14.417600945742041`}]}, {{31.5, 
+              14.417600945742041`}, 
+              Offset[{-3, 0}, {31.5, 14.417600945742041`}]}}], 0., {31.5, 
+           15.417600945742041`}]}}}}, {{{}, {}, {
          Hue[0.67, 0.6, 0.6], 
          Directive[
           PointSize[0.012833333333333334`], 
@@ -2549,14 +2798,16 @@ Cell[BoxData[
           15.417600945742041`}}}]}}}, {{}, {}}}, {
      DisplayFunction -> Identity, DisplayFunction -> Identity, AspectRatio -> 
       0.8, Axes -> {False, False}, AxesLabel -> {None, None}, 
-      AxesOrigin -> {23.33333333333339, 11.229319266962184`}, DisplayFunction :> 
+      AxesOrigin -> {23.33333333333339, 10.634874822517737`}, DisplayFunction :> 
       Identity, Frame -> {{True, True}, {True, True}}, 
       FrameLabel -> {{"\!\(\*SubscriptBox[\(\[Mu]\), \(I\)]\)", None}, {
         "I [\[HBar]]", None}}, FrameStyle -> Directive[
         GrayLevel[0], 
         Thickness[Large]], FrameTicks -> {{Automatic, None}, {{
           Rational[47, 2], 
+          Rational[51, 2], 
           Rational[55, 2], 
+          Rational[59, 2], 
           Rational[63, 2]}, None}}, GridLines -> {None, None}, GridLinesStyle -> 
       Directive[
         GrayLevel[0.5, 0.4]], ImageSize -> 380, 
@@ -2573,8 +2824,8 @@ Cell[BoxData[
              Part[#, 1]], 
             Identity[
              Part[#, 2]]}& )}}, 
-      PlotRange -> {{23.33333333333339, 31.5}, {11.229319266962184`, 
-       15.417600945742041`}}, PlotRangeClipping -> True, PlotRangePadding -> {{
+      PlotRange -> {{23.33333333333339, 31.5}, {10.634874822517737`, 
+       16.61760094574204}}, PlotRangeClipping -> True, PlotRangePadding -> {{
          Scaled[0.02], 
          Scaled[0.02]}, {
          Scaled[0.05], 
@@ -2610,14 +2861,15 @@ Cell[BoxData[
   Selectable->True]], "Output",
  CellChangeTimes->{{3.864605926852865*^9, 3.86460595941105*^9}, 
    3.8646059915786457`*^9, 3.864606029595593*^9, {3.864606060911324*^9, 
-   3.864606178691566*^9}},
+   3.864606178691566*^9}, 3.864606242563628*^9, 3.864606350365794*^9, 
+   3.8646063987654257`*^9, {3.864606440436364*^9, 3.864606454084861*^9}},
  CellLabel->
-  "Out[1287]=",ExpressionUUID->"c79f53f4-4d4e-4672-baa2-eb4a8fb1a6cd"]
+  "Out[1365]=",ExpressionUUID->"46ca1a15-66b6-4849-a68d-e537024bd86f"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{275, Automatic}, {178, Automatic}},
+WindowMargins->{{278, Automatic}, {158, Automatic}},
 FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"606c7763-ad2c-4dee-86d1-da0a39998c7a"
@@ -2637,10 +2889,10 @@ Cell[CellGroupData[{
 Cell[580, 22, 119762, 1974, 281, "Section",ExpressionUUID->"f555b064-66cd-48ca-917b-916ab2ba9f3b"],
 Cell[120345, 1998, 226, 4, 30, "Input",ExpressionUUID->"e3ac22e9-6c0e-4372-aff5-5afdfe9eda83"],
 Cell[120574, 2004, 1529, 47, 189, "Input",ExpressionUUID->"d7ca1e97-d4d8-406f-92ff-59ba65a70697"],
-Cell[122106, 2053, 3750, 113, 241, "Input",ExpressionUUID->"ce72df9d-f7b2-4abf-84b1-fb5e368cd470"],
+Cell[122106, 2053, 4539, 135, 304, "Input",ExpressionUUID->"ce72df9d-f7b2-4abf-84b1-fb5e368cd470"],
 Cell[CellGroupData[{
-Cell[125881, 2170, 2159, 59, 157, "Input",ExpressionUUID->"a41998ec-48b1-436a-a9e5-63baebc9b449"],
-Cell[128043, 2231, 15658, 383, 364, "Output",ExpressionUUID->"c79f53f4-4d4e-4672-baa2-eb4a8fb1a6cd"]
+Cell[126670, 2192, 2294, 62, 157, "Input",ExpressionUUID->"a41998ec-48b1-436a-a9e5-63baebc9b449"],
+Cell[128967, 2256, 25752, 610, 341, "Output",ExpressionUUID->"46ca1a15-66b6-4849-a68d-e537024bd86f"]
 }, Open  ]]
 }, Open  ]]
 }
