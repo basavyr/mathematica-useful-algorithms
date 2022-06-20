@@ -1,0 +1,189 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6386,        181]
+NotebookOptionsPosition[      5828,        164]
+NotebookOutlinePosition[      6226,        180]
+CellTagsIndexPosition[      6183,        177]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.864697388384643*^9, 3.864697404066925*^9}},
+ CellLabel->
+  "In[174]:=",ExpressionUUID->"bba459cd-2a09-48cf-b527-b379ae65e244"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"rk", "[", 
+    RowBox[{"beta_", ",", "gamma_", ",", "k_"}], "]"}], ":=", 
+   RowBox[{"1", "+", 
+    RowBox[{
+     SqrtBox[
+      FractionBox["5", 
+       RowBox[{"4", "\[Pi]"}]]], "beta", "*", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+       RowBox[{"gamma", "*", 
+        FractionBox["\[Pi]", "180"]}], "-", 
+       RowBox[{"2", 
+        FractionBox["\[Pi]", "3"], "k"}]}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bt", "=", "0.2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gm", "=", "25"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"r1", "=", 
+   RowBox[{"rk", "[", 
+    RowBox[{"bt", ",", "gm", ",", "1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"r2", "=", 
+   RowBox[{"rk", "[", 
+    RowBox[{"bt", ",", "gm", ",", "2"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"r3", "=", 
+   RowBox[{"rk", "[", 
+    RowBox[{"bt", ",", "gm", ",", "3"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Opacity", "[", "0.9", "]"}], ",", 
+       RowBox[{"Ellipsoid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"r1", ",", "r2", ",", "r3"}], "}"}]}], "]"}]}], "}"}], ",", 
+     
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"Background", "\[Rule]", "None"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], " ", 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.864696044838478*^9, 3.864696067337338*^9}, {
+  3.864696128131419*^9, 3.864696335842142*^9}, {3.864696366066106*^9, 
+  3.864696392259143*^9}, {3.864696901037635*^9, 3.864696903289856*^9}, {
+  3.86469740121115*^9, 3.8646974021334343`*^9}},
+ CellLabel->"In[175]:=",
+ CellID->1293586754,ExpressionUUID->"2976bebb-70c2-47e6-8d28-9a804575b858"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p1", "=", 
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Opacity", "[", "0.9", "]"}], ",", 
+         RowBox[{"Ellipsoid", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2", ",", "4"}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}], ",", 
+     RowBox[{"ViewPoint", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0.0009375662947885135`", ",", 
+        RowBox[{"-", "0.018158479906044574`"}], ",", 
+        RowBox[{"-", "3.3837360107693013`"}]}], "}"}]}], ",", 
+     RowBox[{"ViewVertical", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0.9847812971755163`", ",", "0.010406682922479621`", ",", 
+        RowBox[{"-", "0.173486304023858`"}]}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Medium"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p2", "=", 
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Opacity", "[", "0.9", "]"}], ",", 
+         RowBox[{"Ellipsoid", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2", ",", "4"}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}], ",", 
+     RowBox[{"ViewPoint", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0.5956171559456894`", ",", 
+        RowBox[{"-", "3.270439163451964`"}], ",", "0.6320347155835558`"}], 
+       "}"}]}], ",", 
+     RowBox[{"ViewVertical", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0.23821182569351884`", ",", 
+        RowBox[{"-", "0.6467410338673077`"}], ",", "0.7245558371940747`"}], 
+       "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "\"\</Users/basavyr/Documents/Work/mathematica-useful-algorithms/Math/\
+triaxial-ellipsoid-geometry-beta-gamma/triaxial-1.png\>\"", ",", "p1", ",", 
+    RowBox[{"Background", "\[Rule]", "None"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "\"\</Users/basavyr/Documents/Work/mathematica-useful-algorithms/Math/\
+triaxial-ellipsoid-geometry-beta-gamma/triaxial-2.png\>\"", ",", "p2", ",", 
+    RowBox[{"Background", "\[Rule]", "None"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.864696415820435*^9, 3.864696426933052*^9}, {
+  3.864696760943305*^9, 3.864696832811908*^9}, {3.8646968795207653`*^9, 
+  3.864696888914805*^9}, {3.864696963601676*^9, 3.864697005302843*^9}, {
+  3.864697288328397*^9, 3.864697339359754*^9}, {3.8646973773899612`*^9, 
+  3.8646973863515387`*^9}, {3.864697456596175*^9, 3.8646974659224358`*^9}},
+ CellLabel->
+  "In[181]:=",ExpressionUUID->"2c08182d-f07c-45f7-98ab-ea694185cbb4"]
+},
+WindowSize->{883, 911},
+WindowMargins->{{339, Automatic}, {128, Automatic}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f34780a0-3ee2-4364-aa70-59fc11008832"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 225, 4, 30, "Input",ExpressionUUID->"bba459cd-2a09-48cf-b527-b379ae65e244"],
+Cell[786, 26, 1975, 59, 209, "Input",ExpressionUUID->"2976bebb-70c2-47e6-8d28-9a804575b858",
+ CellID->1293586754],
+Cell[2764, 87, 3060, 75, 359, "Input",ExpressionUUID->"2c08182d-f07c-45f7-98ab-ea694185cbb4"]
+}
+]
+*)
+
