@@ -1,0 +1,146 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4614,        138]
+NotebookOptionsPosition[      3602,        112]
+NotebookOutlinePosition[      4000,        128]
+CellTagsIndexPosition[      3957,        125]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Study the wobbling quantities for 136Nd", "Chapter",
+ CellChangeTimes->{{3.8650433727718554`*^9, 3.8650434028258753`*^9}, 
+   3.865201214262165*^9, {3.865209273342894*^9, 
+   3.865209275312558*^9}},ExpressionUUID->"f4e0bbe4-397f-4bda-acb0-\
+1603287af384"],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8651542965016623`*^9, 3.8651543018496447`*^9}},
+ CellLabel->
+  "In[13488]:=",ExpressionUUID->"ca232048-adaa-4f26-b0bb-1be7283606fe"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ZZ", "=", "60"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AA", "=", "136"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.865209289409707*^9, 
+  3.865209295145809*^9}},ExpressionUUID->"5dadd70d-a6be-48af-8316-\
+9470e7c7c906"],
+
+Cell[CellGroupData[{
+
+Cell["Fitting parameters", "Subsection",
+ CellChangeTimes->{{3.865155086661827*^9, 
+  3.865155089567691*^9}},ExpressionUUID->"632ea7d5-c7d7-41c1-905a-\
+d2538b42c0ae"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bandhead", "=", "10"}], ";"}]], "Input",
+ CellChangeTimes->{{3.8651541446387873`*^9, 3.8651541505030622`*^9}, {
+   3.8651549852676973`*^9, 3.865155042462245*^9}, {3.865155864960053*^9, 
+   3.865155867452981*^9}, 3.8652093095017138`*^9, {3.865209433094079*^9, 
+   3.865209435320075*^9}},ExpressionUUID->"57316dbe-4c0a-425e-9cb9-\
+0bd65e267322"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Theoretical formalism", "Subsection",
+ CellChangeTimes->{{3.865154829358322*^9, 
+  3.865154831794174*^9}},ExpressionUUID->"a341f31f-6c30-4fa7-96be-\
+ed470ea65538"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"omega", "[", 
+    RowBox[{"I_", ",", "A1_", ",", "A2_", ",", "A3_"}], "]"}], ":=", 
+   RowBox[{"2", "I", "*", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"A1", "-", "A3"}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{"A2", "-", "A3"}], ")"}]}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"En", "[", 
+    RowBox[{"I_", ",", "n_", ",", "A1_", ",", "A2_", ",", "A3_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"A3", "*", "I", "*", 
+     RowBox[{"(", 
+      RowBox[{"I", "+", "1"}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"omega", "[", 
+      RowBox[{"I", ",", "A1", ",", "A2", ",", "A3"}], "]"}], "*", 
+     RowBox[{"(", 
+      RowBox[{"n", "+", 
+       FractionBox["1", "2"]}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Exc", "[", 
+    RowBox[{"I_", ",", "n_", ",", "A1_", ",", "A2_", ",", "A3_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"En", "[", 
+     RowBox[{"I", ",", "n", ",", "A1", ",", "A2", ",", "A3"}], "]"}], "-", 
+    RowBox[{"En", "[", 
+     RowBox[{"bandhead", ",", "0", ",", "A1", ",", "A2", ",", "A3"}], 
+     "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.865154170212778*^9, 3.865154204342325*^9}, {
+  3.86515424045135*^9, 3.865154292259403*^9}, {3.865155805744063*^9, 
+  3.865155875097481*^9}},
+ CellLabel->
+  "In[13498]:=",ExpressionUUID->"4e05cd7e-6c13-4fd5-a7e7-4d3c22e4841c"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{221, Automatic}, {Automatic, -84}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"158457c1-2f8b-4d45-a541-499b95b8f588"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 261, 4, 69, "Chapter",ExpressionUUID->"f4e0bbe4-397f-4bda-acb0-1603287af384"],
+Cell[844, 28, 231, 4, 30, "Input",ExpressionUUID->"ca232048-adaa-4f26-b0bb-1be7283606fe"],
+Cell[1078, 34, 268, 7, 52, "Input",ExpressionUUID->"5dadd70d-a6be-48af-8316-9470e7c7c906"],
+Cell[CellGroupData[{
+Cell[1371, 45, 166, 3, 54, "Subsection",ExpressionUUID->"632ea7d5-c7d7-41c1-905a-d2538b42c0ae"],
+Cell[1540, 50, 378, 7, 30, "Input",ExpressionUUID->"57316dbe-4c0a-425e-9cb9-0bd65e267322"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1955, 62, 169, 3, 54, "Subsection",ExpressionUUID->"a341f31f-6c30-4fa7-96be-ed470ea65538"],
+Cell[2127, 67, 1447, 41, 92, "Input",ExpressionUUID->"4e05cd7e-6c13-4fd5-a7e7-4d3c22e4841c"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
