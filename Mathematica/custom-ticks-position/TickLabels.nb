@@ -1,0 +1,262 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6542,        195]*)
+(*NotebookOutlinePosition[      7179,        217]*)
+(*  CellTagsIndexPosition[      7135,        213]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Repositioning Tick labels", "Section"],
+
+Cell["\<\
+It is possible to place Tick labels at positions other than the \
+default using Text. Here is an example of how to move the Tick label on the \
+horizontal axis so they appear above the axis.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["A plot", "Subsection"],
+
+Cell[BoxData[
+    RowBox[{"plt", " ", "=", " ", 
+      RowBox[{"Plot", "[", 
+        RowBox[{"x", ",", 
+          RowBox[{"{", 
+            RowBox[{"x", ",", "0", ",", "2"}], "}"}]}], "]"}]}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Getting the tick specifications", "Subsection"],
+
+Cell["\<\
+We will make use of the default Tick positions to create the new \
+tick marks and labels. First we get the Tick specifications from the above \
+plot using AbsoluteOptions.\
+\>", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"tks", "=", 
+        RowBox[{"AbsoluteOptions", "[", 
+          RowBox[{"plt", ",", "Ticks"}], "]"}]}], ";"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Manipulating the Tick labels", "Subsection"],
+
+Cell["\<\
+This next step involves removing the labels from the existing Ticks \
+and making the marks where the labels appear a little longer than the \
+default. We can do this using ReplacePart.(See the Help Browser for more \
+information about ReplacePart.) If you carefully examine the structure of tks \
+you will understand why we are using tks[[1,2,1]]. This allows us to work \
+with the x-Ticks and not change the y-Ticks.\
+\>", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"xTks", "=", 
+        RowBox[{"Map", "[", 
+          RowBox[{
+            RowBox[{
+              RowBox[{"If", "[", 
+                RowBox[{
+                  RowBox[{
+                    RowBox[{"Head", "[", 
+                      RowBox[{"#", "[", 
+                        RowBox[{"[", "2", "]"}], "]"}], "]"}], "===", 
+                    "Real"}], ",", 
+                  RowBox[{"ReplacePart", "[", 
+                    RowBox[{"#", ",", 
+                      RowBox[{"{", 
+                        RowBox[{"\"\<\>\"", ",", 
+                          RowBox[{"{", 
+                            RowBox[{".01", ",", "0"}], "}"}]}], "}"}], ",", 
+                      RowBox[{"{", 
+                        RowBox[{
+                          RowBox[{"{", "2", "}"}], ",", 
+                          RowBox[{"{", "3", "}"}]}], "}"}], ",", 
+                      RowBox[{"{", 
+                        RowBox[{
+                          RowBox[{"{", "1", "}"}], ",", 
+                          RowBox[{"{", "2", "}"}]}], "}"}]}], "]"}], ",", 
+                  "#"}], "]"}], "&"}], ",", 
+            RowBox[{"tks", "[", 
+              RowBox[{"[", 
+                RowBox[{"1", ",", "2", ",", "1"}], "]"}], "]"}]}], "]"}]}], 
+      ";"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["New Labels", "Subsection"],
+
+Cell["\<\
+This next step uses Text to create new labels for our Tick marks. \
+Using Offset allows us to have more control over the position of the labels. \
+Note the position of you axis determines the position of the labels. In this \
+case the axis passes through the origin and so the vertical dimension is \
+zero.\
+\>", "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"tklbls", " ", "=", " ", 
+        RowBox[{"Table", "[", 
+          RowBox[{
+            RowBox[{"Text", "[", 
+              RowBox[{
+                RowBox[{"PaddedForm", "[", 
+                  RowBox[{"i", ",", 
+                    RowBox[{"{", 
+                      RowBox[{"2", ",", "1"}], "}"}]}], "]"}], ",", 
+                RowBox[{"Offset", "[", 
+                  RowBox[{
+                    RowBox[{"{", 
+                      RowBox[{
+                        RowBox[{"-", "2"}], ",", "7"}], "}"}], ",", 
+                    RowBox[{"{", 
+                      RowBox[{"i", ",", "0"}], "}"}]}], "]"}]}], "]"}], ",", 
+            RowBox[{"{", 
+              RowBox[{"i", ",", ".5", ",", "2", ",", ".5"}], "}"}]}], "]"}]}],
+       ";"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Putting things together", "Subsection"],
+
+Cell["\<\
+You should realize the following is the result of a few \
+repositionings of  the Tick labels. If  you have a complicated plot which \
+takes time to render you may want to use a \"fake\" plot to get the positions \
+as you want before rendering the final plot.\
+\>", "Text"],
+
+Cell[BoxData[
+    RowBox[{"Plot", "[", 
+      RowBox[{"x", ",", 
+        RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "2"}], "}"}], ",", 
+        RowBox[{"Ticks", " ", "\[Rule]", " ", 
+          RowBox[{"{", 
+            RowBox[{"xTks", ",", "Automatic"}], "}"}]}], ",", 
+        RowBox[{"Epilog", " ", "\[Rule]", " ", "tklbls"}], ",", 
+        RowBox[{"PlotRange", " ", "\[Rule]", " ", "All"}]}], "]"}]], "Input"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.1 for Macintosh",
+ScreenRectangle->{{0, 1024}, {0, 746}},
+WindowSize->{520, 624},
+WindowMargins->{{Automatic, 223}, {Automatic, 1}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1727, 52, 44, 0, 56, "Section"],
+Cell[1774, 54, 214, 4, 50, "Text"],
+
+Cell[CellGroupData[{
+Cell[2013, 62, 28, 0, 46, "Subsection"],
+Cell[2044, 64, 202, 5, 27, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2283, 74, 53, 0, 46, "Subsection"],
+Cell[2339, 76, 195, 4, 50, "Text"],
+Cell[2537, 82, 161, 4, 27, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2735, 91, 50, 0, 46, "Subsection"],
+Cell[2788, 93, 441, 7, 104, "Text"],
+Cell[3232, 102, 1287, 31, 91, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4556, 138, 32, 0, 46, "Subsection"],
+Cell[4591, 140, 330, 6, 86, "Text"],
+Cell[4924, 148, 799, 20, 59, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5760, 173, 45, 0, 46, "Subsection"],
+Cell[5808, 175, 282, 5, 68, "Text"],
+Cell[6093, 182, 421, 9, 43, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
