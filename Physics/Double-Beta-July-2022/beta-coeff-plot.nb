@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     28114,        717]
-NotebookOptionsPosition[     27153,        691]
-NotebookOutlinePosition[     27588,        708]
-CellTagsIndexPosition[     27545,        705]
+NotebookDataLength[     29420,        749]
+NotebookOptionsPosition[     28459,        723]
+NotebookOutlinePosition[     28894,        740]
+CellTagsIndexPosition[     28851,        737]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,7 +22,7 @@ Cell[BoxData[
  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.866873349140273*^9, 3.866873353328529*^9}},
  CellLabel->
-  "In[314]:=",ExpressionUUID->"91a7495d-bba0-4b79-b293-00b65212891e"],
+  "In[174]:=",ExpressionUUID->"91a7495d-bba0-4b79-b293-00b65212891e"],
 
 Cell[CellGroupData[{
 
@@ -105,7 +105,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.866873243883691*^9, 3.866873341316332*^9}, {
   3.866873605881404*^9, 3.866873606043186*^9}},
  CellLabel->
-  "In[315]:=",ExpressionUUID->"1b4454ea-9f75-4593-8714-920853f73c09"]
+  "In[175]:=",ExpressionUUID->"1b4454ea-9f75-4593-8714-920853f73c09"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -173,8 +173,24 @@ Cell[BoxData[{
            RowBox[{"i", ",", 
             RowBox[{"{", 
              RowBox[{"i", ",", "75", ",", "150", ",", "15"}], "}"}]}], "]"}], 
-          ",", "None"}], "}"}]}], "}"}]}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+          ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{"i", ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "75", ",", "150", ",", "15"}], "}"}]}], 
+           "]"}]}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"FrameTicksStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Black", ",", "Black"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Black", ",", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", 
+            RowBox[{"FontOpacity", "->", "0"}], ",", 
+            RowBox[{"FontSize", "->", "0"}]}], "}"}]}], "}"}]}], "}"}]}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
@@ -187,9 +203,10 @@ algorithms/Physics/Double-Beta-July-2022/beta-coeff-plot.pdf\>\"", ",",
   3.866873794999537*^9, 3.866873861305223*^9}, {3.866874098565691*^9, 
   3.866874193688855*^9}, {3.866874244247756*^9, 3.866874276303499*^9}, {
   3.866874322013523*^9, 3.866874375616542*^9}, {3.8668744141698513`*^9, 
-  3.8668744789900618`*^9}},
+  3.8668744789900618`*^9}, {3.866879354220208*^9, 3.866879529977442*^9}, {
+  3.866879597302504*^9, 3.866879607207121*^9}},
  CellLabel->
-  "In[322]:=",ExpressionUUID->"34fbd2b0-c44d-46e7-b5e7-3647439a6a7d"],
+  "In[182]:=",ExpressionUUID->"34fbd2b0-c44d-46e7-b5e7-3647439a6a7d"],
 
 Cell[BoxData[
  TagBox[
@@ -503,7 +520,18 @@ Cell[BoxData[
         FormBox["105", TraditionalForm]}, {120, 
         FormBox["120", TraditionalForm]}, {135, 
         FormBox["135", TraditionalForm]}, {150, 
-        FormBox["150", TraditionalForm]}}, None}},
+        FormBox["150", TraditionalForm]}}, {{75, 
+        FormBox["75", TraditionalForm]}, {90, 
+        FormBox["90", TraditionalForm]}, {105, 
+        FormBox["105", TraditionalForm]}, {120, 
+        FormBox["120", TraditionalForm]}, {135, 
+        FormBox["135", TraditionalForm]}, {150, 
+        FormBox["150", TraditionalForm]}}}},
+   FrameTicksStyle->{{
+      GrayLevel[0], 
+      GrayLevel[0]}, {
+      GrayLevel[0], {
+       GrayLevel[0], FontOpacity -> 0, FontSize -> 0}}},
    GridLines->{None, None},
    GridLinesStyle->Directive[
      GrayLevel[0.5, 0.4]],
@@ -621,8 +649,12 @@ Cell[BoxData[
          HoldForm["A"], None}}, FrameStyle -> Directive[
         GrayLevel[0], 
         Thickness[Large]], 
-      FrameTicks -> {{
-        Automatic, Automatic}, {{75, 90, 105, 120, 135, 150}, None}}, 
+      FrameTicks -> {{Automatic, Automatic}, {{75, 90, 105, 120, 135, 150}, {
+        75, 90, 105, 120, 135, 150}}}, FrameTicksStyle -> {{
+         GrayLevel[0], 
+         GrayLevel[0]}, {
+         GrayLevel[0], {
+          GrayLevel[0], FontOpacity -> 0, FontSize -> 0}}}, 
       GridLines -> {None, None}, GridLinesStyle -> Directive[
         GrayLevel[0.5, 0.4]], ImageSize -> 420, LabelStyle -> {22, Bold, 
         GrayLevel[0], FontFamily -> "Times"}, 
@@ -682,10 +714,10 @@ Cell[BoxData[
   Editable->True,
   SelectWithContents->False,
   Selectable->True]], "Output",
- CellChangeTimes->{
-  3.866874377449667*^9, {3.866874416315178*^9, 3.866874479471795*^9}},
+ CellChangeTimes->{{3.866879484290018*^9, 3.866879530552351*^9}, {
+  3.8668796021468973`*^9, 3.866879610532537*^9}},
  CellLabel->
-  "Out[324]=",ExpressionUUID->"587c4c22-1b74-44e9-802c-2e9b791622e3"]
+  "Out[184]=",ExpressionUUID->"8a2736c2-a3a2-4fd4-82e2-d36f54aea200"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -715,8 +747,8 @@ Cell[973, 33, 2457, 74, 178, "Input",ExpressionUUID->"1b4454ea-9f75-4593-8714-92
 Cell[CellGroupData[{
 Cell[3467, 112, 152, 3, 67, "Section",ExpressionUUID->"f2da079c-dc29-496f-a013-ed78a6993d31"],
 Cell[CellGroupData[{
-Cell[3644, 119, 2836, 72, 268, "Input",ExpressionUUID->"34fbd2b0-c44d-46e7-b5e7-3647439a6a7d"],
-Cell[6483, 193, 20642, 494, 375, "Output",ExpressionUUID->"587c4c22-1b74-44e9-802c-2e9b791622e3"]
+Cell[3644, 119, 3503, 89, 310, "Input",ExpressionUUID->"34fbd2b0-c44d-46e7-b5e7-3647439a6a7d"],
+Cell[7150, 210, 21281, 509, 389, "Output",ExpressionUUID->"8a2736c2-a3a2-4fd4-82e2-d36f54aea200"]
 }, Open  ]]
 }, Open  ]]
 }
