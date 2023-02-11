@@ -1,0 +1,113 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3509,        105]
+NotebookOptionsPosition[      2810,         84]
+NotebookOutlinePosition[      3207,        100]
+CellTagsIndexPosition[      3164,         97]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.885092904321604*^9, 3.885092907819057*^9}},
+ CellLabel->"In[78]:=",ExpressionUUID->"0c43c262-7ece-4747-8d93-f81e13a87e13"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Adjust the export path for plots and figures based on the machine on which \
+the notebook is currently executed\
+\>", "Section",
+ CellChangeTimes->{{3.8850935936840897`*^9, 
+  3.885093628040698*^9}},ExpressionUUID->"2a20f4f3-93cd-48c2-946f-\
+6dfa73819454"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Uses the system machine to determine if the current kernel is running on the \
+MacBook Air or the Mac Mini\
+\>", "Subsection",
+ CellChangeTimes->{{3.885093701166873*^9, 
+  3.885093722870962*^9}},ExpressionUUID->"6d69e8c2-3f58-4fa1-9f85-\
+9520036aaeab"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "exportPrePathMacMini", "=", 
+   "\"\</Users/basavyr/Offline-Work/Repos/phdthesis/Chapters/Figures/\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "exportPrePathMacBook", "=", 
+   "\"\</Users/basavyr/Documents/Work/PhD/phdthesis/Chapters/Figures/\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"exportPrePath", "=", "\"\<\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"isSystemMacBook", "=", 
+   RowBox[{"ContainsAny", "[", 
+    RowBox[{
+     RowBox[{"{", "\"\<MacBook\>\"", "}"}], ",", 
+     RowBox[{"StringSplit", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringTemplate", "[", "\"\<``\>\"", "]"}], "[", 
+        "$MachineName", "]"}], ",", "\"\<-\>\""}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{"isSystemMacBook", ",", 
+    RowBox[{"exportPrePath", "=", "exportPrePathMacBook"}], ",", 
+    RowBox[{"exportPrePath", "=", "exportPrePathMacMini"}]}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.8850926952091503`*^9, 3.8850927103595943`*^9}, {
+  3.885092740938159*^9, 3.885092752335288*^9}, {3.885092883481909*^9, 
+  3.885092958044518*^9}, {3.88509300626744*^9, 3.885093243790457*^9}, {
+  3.8850933356531982`*^9, 3.885093392375729*^9}, {3.8850935644755087`*^9, 
+  3.88509356466623*^9}},
+ CellLabel->"In[79]:=",ExpressionUUID->"65594226-485e-4025-ab3b-82df97e8ad5d"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{912, 897},
+WindowMargins->{{38, Automatic}, {Automatic, 42}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (November 18, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"eaa1294d-ab38-4e8d-a7be-9aad65bbf0ae"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 221, 3, 30, "Input",ExpressionUUID->"0c43c262-7ece-4747-8d93-f81e13a87e13"],
+Cell[CellGroupData[{
+Cell[804, 27, 266, 6, 105, "Section",ExpressionUUID->"2a20f4f3-93cd-48c2-946f-6dfa73819454"],
+Cell[CellGroupData[{
+Cell[1095, 37, 262, 6, 81, "Subsection",ExpressionUUID->"6d69e8c2-3f58-4fa1-9f85-9520036aaeab"],
+Cell[1360, 45, 1422, 35, 170, "Input",ExpressionUUID->"65594226-485e-4025-ab3b-82df97e8ad5d"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
