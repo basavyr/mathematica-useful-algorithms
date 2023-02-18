@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     94490,       1592]
-NotebookOptionsPosition[     93912,       1574]
-NotebookOutlinePosition[     94313,       1590]
-CellTagsIndexPosition[     94270,       1587]
+NotebookDataLength[     97197,       1672]
+NotebookOptionsPosition[     96168,       1646]
+NotebookOutlinePosition[     96569,       1662]
+CellTagsIndexPosition[     96526,       1659]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,7 +22,7 @@ Cell[BoxData[
  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.885596948477015*^9, 3.885596955403126*^9}, {
   3.885724669430273*^9, 3.885724671474722*^9}},
- CellLabel->"In[11]:=",ExpressionUUID->"901b4421-1ac4-409e-b382-6577cfc2df0d"],
+ CellLabel->"In[1]:=",ExpressionUUID->"901b4421-1ac4-409e-b382-6577cfc2df0d"],
 
 Cell[CellGroupData[{
 
@@ -32,6 +32,8 @@ Calculating the elliptic potential V(q) using the Jacobi Amplitude of module m\
  CellChangeTimes->{{3.885596978580216*^9, 
   3.8855969934487123`*^9}},ExpressionUUID->"5dc914ec-54e2-4e54-8426-\
 8b2d962ee015"],
+
+Cell[CellGroupData[{
 
 Cell[TextData[{
  "The module in ",
@@ -1569,7 +1571,77 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD7g/H8w+z4h
   3.8855970715921507`*^9, 3.885597081604068*^9}, {3.885597132900565*^9, 
   3.8855971331033707`*^9}, {3.8857246804393663`*^9, 
   3.885724689832386*^9}},ExpressionUUID->"b7f2adf5-5dd9-43ad-a64b-\
-658e7d71566a"]
+658e7d71566a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"export", "[", 
+    RowBox[{"object_", ",", " ", "name_"}], "]"}], ":=", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "StringTemplate", "[", 
+       "\"\</Users/basavyr/Documents/Work/Repos/mathematica-useful-algorithms/\
+Physics/Elliptic-Functions-New-Boson/Figures/``.pdf\>\"", "]"}], "[", "name", 
+      "]"}], ",", "object", ",", " ", 
+     RowBox[{"ImageResolution", "->", "1200"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.885724808486289*^9, 3.885724852796783*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"87844706-2541-42e7-8075-6d74f80b5091"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mois", "=", 
+   RowBox[{"{", 
+    RowBox[{"91", ",", "9", ",", "51"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oddspin", "=", "5.5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"thetadeg", "=", 
+   RowBox[{"-", "119"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"A", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"N", "[", 
+      RowBox[{"1", "/", 
+       RowBox[{"(", 
+        RowBox[{"2", "*", "#"}], ")"}]}], "]"}], "&"}], "/@", "mois"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rad", "[", "theta_", "]"}], ":=", 
+   RowBox[{"N", "[", 
+    RowBox[{"theta", "*", 
+     RowBox[{"\[Pi]", "/", "180"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.885724864672701*^9, 3.8857249875767593`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"21485287-2509-496e-80aa-fed34147193a"],
+
+Cell[CellGroupData[{
+
+Cell["Angular momentum vector j", "Item",
+ CellChangeTimes->{{3.885724995540627*^9, 
+  3.88572500170646*^9}},ExpressionUUID->"b54e83f0-21ea-49a9-bed6-\
+a4b7fea6807c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"j1", "=", 
+   RowBox[{"oddspin", "*", 
+    RowBox[{"Cos", "[", 
+     RowBox[{"rad", "[", "thetadeg", "]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"j2", "=", 
+   RowBox[{"oddspin", "*", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"rad", "[", "thetadeg", "]"}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.885725004138537*^9, 3.8857250303724337`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"43af9d1e-f636-43c3-b221-beae745e97a8"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1088, 1022},
@@ -1589,10 +1661,18 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 270, 4, 30, "Input",ExpressionUUID->"901b4421-1ac4-409e-b382-6577cfc2df0d"],
+Cell[558, 20, 269, 4, 30, "Input",ExpressionUUID->"901b4421-1ac4-409e-b382-6577cfc2df0d"],
 Cell[CellGroupData[{
-Cell[853, 28, 233, 5, 117, "Chapter",ExpressionUUID->"5dc914ec-54e2-4e54-8426-8b2d962ee015"],
-Cell[1089, 35, 92807, 1536, 400, "Section",ExpressionUUID->"b7f2adf5-5dd9-43ad-a64b-658e7d71566a"]
+Cell[852, 28, 233, 5, 117, "Chapter",ExpressionUUID->"5dc914ec-54e2-4e54-8426-8b2d962ee015"],
+Cell[CellGroupData[{
+Cell[1110, 37, 92807, 1536, 398, "Section",ExpressionUUID->"b7f2adf5-5dd9-43ad-a64b-658e7d71566a"],
+Cell[93920, 1575, 636, 15, 115, "Input",ExpressionUUID->"87844706-2541-42e7-8075-6d74f80b5091"],
+Cell[94559, 1592, 883, 27, 115, "Input",ExpressionUUID->"21485287-2509-496e-80aa-fed34147193a"],
+Cell[CellGroupData[{
+Cell[95467, 1623, 166, 3, 32, "Item",ExpressionUUID->"b54e83f0-21ea-49a9-bed6-a4b7fea6807c"],
+Cell[95636, 1628, 492, 13, 107, "Input",ExpressionUUID->"43af9d1e-f636-43c3-b221-beae745e97a8"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
