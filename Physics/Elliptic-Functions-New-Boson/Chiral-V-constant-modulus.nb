@@ -1,0 +1,220 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6700,        210]
+NotebookOptionsPosition[      5567,        181]
+NotebookOutlinePosition[      5966,        197]
+CellTagsIndexPosition[      5923,        194]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Chiral potential V", "Title",
+ CellChangeTimes->{{3.8863201685467377`*^9, 
+  3.886320171709569*^9}},ExpressionUUID->"acc12453-83aa-4474-b924-\
+54895cd8f101"],
+
+Cell["\<\
+Using the elliptic functions to determine the chiral potentials\
+\>", "Subtitle",
+ CellChangeTimes->{{3.886320173946788*^9, 
+  3.886320186268383*^9}},ExpressionUUID->"442c0504-3bdf-46f4-8f73-\
+991e6d5a03c3"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The potential is constructed to depend on the modulus ",
+ StyleBox["k",
+  FontSlant->"Italic"],
+ " explicitly"
+}], "Section",
+ CellChangeTimes->{{3.886320188824703*^9, 3.8863202114041433`*^9}, {
+  3.886320318678966*^9, 
+  3.886320321279396*^9}},ExpressionUUID->"b89d145b-b3d3-4dde-a5a7-\
+2dcc4ac6447a"],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.886038698739017*^9, 3.886038708933712*^9}},
+ CellLabel->
+  "In[101]:=",ExpressionUUID->"4e3034e7-44a1-4eb7-979d-7d1ef7894f42"],
+
+Cell[CellGroupData[{
+
+Cell["Helper functions", "Item",
+ CellChangeTimes->{{3.886039837722784*^9, 
+  3.886039843307226*^9}},ExpressionUUID->"df658408-39a7-414c-b9bd-\
+9c1c95525b69"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "thesispath", "=", 
+   "\"\</Users/basavyr/Documents/Work/PhD/phdthesis/Chapters/Figures\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"export", "[", 
+    RowBox[{"object_", ",", "name_", ",", "format_"}], "]"}], ":=", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"StringTemplate", "[", "\"\<``/``.``\>\"", "]"}], "[", 
+      RowBox[{"thesispath", ",", "name", ",", " ", "format"}], "]"}], ",", 
+     "object", ",", " ", 
+     RowBox[{"ImageResolution", "->", "1500"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"linspace", "[", 
+    RowBox[{"a_", ",", "b_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"q", ",", 
+     RowBox[{"{", 
+      RowBox[{"q", ",", "a", ",", "b", ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"b", "-", "a"}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"n", "-", "1"}], ")"}]}]}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.886038628581292*^9, 3.88603869687473*^9}, {
+  3.8860398451236753`*^9, 3.886039887113049*^9}, {3.886300360270067*^9, 
+  3.886300360459919*^9}},
+ CellLabel->
+  "In[102]:=",ExpressionUUID->"6c900875-3c34-46b2-91d4-80857380ef69"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fit parameters", "Item",
+ CellChangeTimes->{{3.886038728642085*^9, 
+  3.8860387334468927`*^9}},ExpressionUUID->"ce6afd72-729b-4c76-8e33-\
+8e38c36fd75a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"moisfit1", "=", 
+   RowBox[{"{", 
+    RowBox[{"91", ",", "9", ",", "51"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"moisfit2", "=", 
+   RowBox[{"{", 
+    RowBox[{"13.53", ",", "101.76", ",", "52.94"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"moisfit3", "=", 
+   RowBox[{"{", 
+    RowBox[{"89", ",", "12", ",", "48"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"spinvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{"22.5", ",", "18.5", ",", "14.5"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"thetadegfit1", "=", 
+   RowBox[{"-", "119"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"thetadegfit2", "=", "140"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"thetadegfit3", "=", 
+   RowBox[{"-", "71"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oddspin", "=", "5.5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"A", "[", 
+    RowBox[{"k_", ",", "mois_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"N", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", "/", 
+        RowBox[{"(", 
+         RowBox[{"2", "*", "#"}], ")"}]}], "&"}], "/@", "mois"}], "]"}], "[", 
+    
+    RowBox[{"[", "k", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rad", "[", "theta_", "]"}], ":=", 
+   RowBox[{"N", "[", 
+    RowBox[{"theta", "*", 
+     RowBox[{"\[Pi]", "/", "180"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"j", "[", 
+    RowBox[{"k_", ",", "thetadeg_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"oddspin", "*", 
+       RowBox[{"Cos", "[", 
+        RowBox[{"rad", "[", "thetadeg", "]"}], "]"}]}], ",", 
+      RowBox[{"oddspin", "*", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"rad", "[", "thetadeg", "]"}], "]"}]}]}], "}"}], "[", 
+    RowBox[{"[", "k", "]"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8860387644848537`*^9, 3.8860388119444857`*^9}, {
+  3.886039062237712*^9, 3.8860390837220163`*^9}, {3.8860393269638968`*^9, 
+  3.886039341237214*^9}, {3.886039655535509*^9, 3.886039670451436*^9}, {
+  3.886115846658513*^9, 3.8861158908666267`*^9}, {3.8861159288509502`*^9, 
+  3.8861159577035*^9}},
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"dcd46223-373e-46b2-8685-bf3d8db5d03c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{919, 1136},
+WindowMargins->{{169, Automatic}, {Automatic, 37}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (November 18, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"005013cc-96b8-46d4-a0bb-5a2c849a1d24"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 163, 3, 98, "Title",ExpressionUUID->"acc12453-83aa-4474-b924-54895cd8f101"],
+Cell[746, 27, 217, 5, 53, "Subtitle",ExpressionUUID->"442c0504-3bdf-46f4-8f73-991e6d5a03c3"],
+Cell[CellGroupData[{
+Cell[988, 36, 320, 9, 67, "Section",ExpressionUUID->"b89d145b-b3d3-4dde-a5a7-2dcc4ac6447a"],
+Cell[1311, 47, 225, 4, 30, "Input",ExpressionUUID->"4e3034e7-44a1-4eb7-979d-7d1ef7894f42"],
+Cell[CellGroupData[{
+Cell[1561, 55, 158, 3, 32, "Item",ExpressionUUID->"df658408-39a7-414c-b9bd-9c1c95525b69"],
+Cell[1722, 60, 1262, 36, 94, "Input",ExpressionUUID->"6c900875-3c34-46b2-91d4-80857380ef69"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3021, 101, 158, 3, 32, "Item",ExpressionUUID->"ce6afd72-729b-4c76-8e33-8e38c36fd75a"],
+Cell[3182, 106, 2345, 70, 241, "Input",ExpressionUUID->"dcd46223-373e-46b2-8685-bf3d8db5d03c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
