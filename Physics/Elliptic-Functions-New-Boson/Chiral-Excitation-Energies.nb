@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6104,        191]
-NotebookOptionsPosition[      5065,        163]
-NotebookOutlinePosition[      5464,        179]
-CellTagsIndexPosition[      5421,        176]
+NotebookDataLength[     24868,        576]
+NotebookOptionsPosition[     23159,        536]
+NotebookOutlinePosition[     23559,        552]
+CellTagsIndexPosition[     23516,        549]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -35,8 +35,7 @@ Cell["The symmetric and asymmetric excitation energies", "Chapter",
 Cell[BoxData[
  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.886038698739017*^9, 3.886038708933712*^9}},
- CellLabel->
-  "In[1745]:=",ExpressionUUID->"12ca6def-a78a-42ef-9b5f-d4d780f90ec9"],
+ CellLabel->"In[85]:=",ExpressionUUID->"12ca6def-a78a-42ef-9b5f-d4d780f90ec9"],
 
 Cell[CellGroupData[{
 
@@ -99,8 +98,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.886038628581292*^9, 3.88603869687473*^9}, {
   3.8860398451236753`*^9, 3.886039887113049*^9}, {3.886300360270067*^9, 
   3.886300360459919*^9}, {3.886399789769371*^9, 3.886399794761685*^9}},
- CellLabel->
-  "In[1746]:=",ExpressionUUID->"8a53c86b-842c-40eb-a4d8-65ecddab65b6"]
+ CellLabel->"In[86]:=",ExpressionUUID->"8a53c86b-842c-40eb-a4d8-65ecddab65b6"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -122,9 +120,16 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"oddspin", "=", "5.5"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"spinvalues", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"q", ",", 
+     RowBox[{"{", 
+      RowBox[{"q", ",", "7.5", ",", "27.5", ",", "2"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
    RowBox[{"A", "[", 
-    RowBox[{"k_", ",", "mois_"}], "]"}], ":=", 
+    RowBox[{"mois_", ",", "k_"}], "]"}], ":=", 
    RowBox[{
     RowBox[{"N", "[", 
      RowBox[{
@@ -143,7 +148,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"j", "[", 
-    RowBox[{"k_", ",", "thetadeg_"}], "]"}], ":=", 
+    RowBox[{"thetadeg_", ",", "k_"}], "]"}], ":=", 
    RowBox[{
     RowBox[{"{", 
      RowBox[{
@@ -154,15 +159,383 @@ Cell[BoxData[{
        RowBox[{"Sin", "[", 
         RowBox[{"rad", "[", "thetadeg", "]"}], "]"}]}]}], "}"}], "[", 
     RowBox[{"[", "k", "]"}], "]"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.886411188179126*^9, 3.886411230872106*^9}},
+ CellChangeTimes->{{3.886411188179126*^9, 3.886411230872106*^9}, {
+  3.886411374335561*^9, 3.886411384759531*^9}, {3.886411854002322*^9, 
+  3.886411869718624*^9}},
+ CellLabel->"In[89]:=",ExpressionUUID->"6f6a46e2-c8a2-4b59-90bb-b2e5aa718b2d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Functions", "Item",
+ CellChangeTimes->{{3.886411340818101*^9, 
+  3.886411343021727*^9}},ExpressionUUID->"d7535115-29aa-48ff-b3d2-\
+8978bdca3cd3"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"A21", "[", 
+    RowBox[{"I_", ",", "thetadeg_", ",", "mois_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"A", "[", 
+     RowBox[{"mois", ",", "2"}], "]"}], "-", 
+    RowBox[{"A", "[", 
+     RowBox[{"mois", ",", "1"}], "]"}], "-", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"A", "[", 
+       RowBox[{"mois", ",", "2"}], "]"}], "*", 
+      RowBox[{"j", "[", 
+       RowBox[{"thetadeg", ",", "2"}], "]"}]}], "I"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"omega", "[", 
+    RowBox[{"I_", ",", "thetadeg_", ",", "mois_"}], "]"}], ":=", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", "I"}], "+", "1"}], ")"}], "*", 
+          RowBox[{"A21", "[", 
+           RowBox[{"I", ",", "thetadeg", ",", "mois"}], "]"}]}], "+", 
+         RowBox[{"2", 
+          RowBox[{"A", "[", 
+           RowBox[{"mois", ",", "1"}], "]"}], "*", 
+          RowBox[{"j", "[", 
+           RowBox[{"thetadeg", ",", "1"}], "]"}]}]}], ")"}], "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", "I"}], "+", "1"}], ")"}], 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"A", "[", 
+             RowBox[{"mois", ",", "3"}], "]"}], "-", 
+            RowBox[{"A", "[", 
+             RowBox[{"mois", ",", "1"}], "]"}]}], ")"}]}], "+", 
+         RowBox[{"2", 
+          RowBox[{"A", "[", 
+           RowBox[{"mois", ",", "1"}], "]"}], "*", 
+          RowBox[{"j", "[", 
+           RowBox[{"thetadeg", ",", "1"}], "]"}]}]}], ")"}]}], "-", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"A", "[", 
+           RowBox[{"mois", ",", "3"}], "]"}], "-", 
+          RowBox[{"A", "[", 
+           RowBox[{"mois", ",", "1"}], "]"}]}], ")"}], "*", 
+        RowBox[{"A21", "[", 
+         RowBox[{"I", ",", "thetadeg", ",", "mois"}], "]"}]}], ")"}]}], ")"}], 
+    RowBox[{"1", "/", "2"}]]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8864113480186243`*^9, 3.886411358567747*^9}, {
+  3.886411396333515*^9, 3.886411638680459*^9}},
+ CellLabel->"In[96]:=",ExpressionUUID->"45cfe80b-2257-4a51-9717-18a4a2223e89"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Excitation energies", "Item",
+ CellChangeTimes->{{3.886411663614429*^9, 
+  3.8864116673145447`*^9}},ExpressionUUID->"396a6df1-895d-478e-9612-\
+468300db3c69"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Esymm", "[", 
+    RowBox[{"I_", ",", "thetadeg_", ",", "mois_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"A", "[", 
+      RowBox[{"mois", ",", "1"}], "]"}], "*", 
+     SuperscriptBox["I", "2"]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"omega", "[", 
+        RowBox[{"I", ",", "thetadeg", ",", "mois"}], "]"}], "+", 
+       RowBox[{"omega", "[", 
+        RowBox[{"I", ",", 
+         RowBox[{"thetadeg", "+", "180"}], ",", "mois"}], "]"}]}], 
+      ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Easymm", "[", 
+    RowBox[{"I_", ",", "thetadeg_", ",", "mois_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "I"}], "+", "1"}], ")"}], "*", 
+     RowBox[{"A", "[", 
+      RowBox[{"mois", ",", "1"}], "]"}], "*", 
+     RowBox[{"j", "[", 
+      RowBox[{"thetadeg", ",", "1"}], "]"}]}], "-", 
+    RowBox[{"I", "*", 
+     RowBox[{"A", "[", 
+      RowBox[{"mois", ",", "2"}], "]"}], "*", 
+     RowBox[{"j", "[", 
+      RowBox[{"thetadeg", ",", "2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"omega", "[", 
+        RowBox[{"I", ",", "thetadeg", ",", "mois"}], "]"}], "-", 
+       RowBox[{"omega", "[", 
+        RowBox[{"I", ",", 
+         RowBox[{"thetadeg", "+", "180"}], ",", "mois"}], "]"}]}], 
+      ")"}]}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.886411671107546*^9, 3.886411791721312*^9}, {
+  3.886411842409173*^9, 3.886411849818335*^9}},
+ CellLabel->"In[98]:=",ExpressionUUID->"350e8c99-5012-437c-a9f4-95fb255e8447"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"spin", ",", 
+       RowBox[{"Esymm", "[", 
+        RowBox[{"spin", ",", "thetadegfit1", ",", "moisfit1"}], "]"}], ",", 
+       RowBox[{"Easymm", "[", 
+        RowBox[{"spin", ",", "thetadegfit1", ",", "moisfit1"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"spin", ",", "spinvalues"}], "}"}]}], "]"}], ",", 
+   RowBox[{"Frame", "->", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8864118009050837`*^9, 3.886411839128477*^9}, {
+  3.886411874950584*^9, 3.886411911468379*^9}},
  CellLabel->
-  "In[1749]:=",ExpressionUUID->"6f6a46e2-c8a2-4b59-90bb-b2e5aa718b2d"]
+  "In[100]:=",ExpressionUUID->"0407b6f0-c3b0-4505-b9cd-168885e43477"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{
+     InsetBox["7.5`", {33.325, -9.279166666666669}, {Center, Center}, {62., 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["0.5038332274482398`", {99.97500000000002, -9.279166666666669}, \
+{Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["1.8050073750691804`", {166.625, -9.279166666666669}, {
+      Center, Center}, {62.00000000000003, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["9.5`", {33.325, -27.8375}, {Center, Center}, {62., 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["0.7594508984910834`", {99.97500000000002, -27.8375}, {
+      Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["2.2771242749515093`", {166.625, -27.8375}, {Center, Center}, {62.00000000000003, 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["11.5`", {33.325, -46.39583333333333}, {Center, Center}, {62., 16.999999999999993},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["1.0548162924134452`", {99.97500000000002, -46.39583333333333}, \
+{Center, Center}, {62.000000000000014, 16.999999999999993},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["2.751175071769271`", {166.625, -46.39583333333333}, {
+      Center, Center}, {62.00000000000003, 16.999999999999993},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["13.5`", {33.325, -64.95416666666667}, {Center, Center}, {62., 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["1.392181543753857`", {99.97500000000002, -64.95416666666667}, {
+      Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["3.2259710651166174`", {166.625, -64.95416666666667}, {
+      Center, Center}, {62.00000000000003, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["15.5`", {33.325, -83.5125}, {Center, Center}, {62., 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["1.7724069073450652`", {99.97500000000002, -83.5125}, {
+      Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["3.701135201472639`", {166.625, -83.5125}, {Center, Center}, {62.00000000000003, 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["17.5`", {33.325, -102.07083333333334}, {Center, Center}, {62., 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["2.195905508908`", {99.97500000000002, -102.07083333333334}, {
+      Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["4.176508425912719`", {166.625, -102.07083333333334}, {
+      Center, Center}, {62.00000000000003, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["19.5`", {33.325, -120.62916666666666}, {Center, Center}, {62., 16.999999999999986},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["2.6629035721315986`", \
+{99.97500000000002, -120.62916666666666}, {Center, Center}, {62.000000000000014, 16.999999999999986},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["4.65201176392853`", {166.625, -120.62916666666666}, {
+      Center, Center}, {62.00000000000003, 16.999999999999986},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["21.5`", {33.325, -139.1875}, {Center, Center}, {62., 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["3.1735363470119893`", {99.97500000000002, -139.1875}, {
+      Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["5.127601520557867`", {166.625, -139.1875}, {Center, Center}, {62.00000000000003, 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["23.5`", {33.325, -157.74583333333334}, {Center, Center}, {62., 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["3.727890023304919`", {99.97500000000002, -157.74583333333334}, \
+{Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["5.603251559890935`", {166.625, -157.74583333333334}, {
+      Center, Center}, {62.00000000000003, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["25.5`", {33.325, -176.30416666666667}, {Center, Center}, {62., 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["4.326022277573553`", {99.97500000000002, -176.30416666666667}, \
+{Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["6.078945295434007`", {166.625, -176.30416666666667}, {
+      Center, Center}, {62.00000000000003, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox["27.5`", {33.325, -194.8625}, {Center, Center}, {62., 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["4.967973233426241`", {99.97500000000002, -194.8625}, {
+      Center, Center}, {62.000000000000014, 17.},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox["6.55467169832101`", {166.625, -194.8625}, {Center, Center}, {62.00000000000003, 17.},
+      
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}}, 
+   StyleBox[{{}, {LineBox[{{0, 0}, {0, -18.558333333333334`}}], 
+      LineBox[{{0, -18.558333333333334`}, {0, -37.11666666666667}}], 
+      LineBox[{{0, -37.11666666666667}, {0, -55.675}}], 
+      LineBox[{{0, -55.675}, {0, -74.23333333333333}}], 
+      LineBox[{{0, -74.23333333333333}, {0, -92.79166666666667}}], 
+      LineBox[{{0, -92.79166666666667}, {0, -111.35000000000001`}}], 
+      LineBox[{{0, -111.35000000000001`}, {0, -129.90833333333333`}}], 
+      LineBox[{{0, -129.90833333333333`}, {0, -148.46666666666667`}}], 
+      LineBox[{{0, -148.46666666666667`}, {0, -167.025}}], 
+      LineBox[{{0, -167.025}, {0, -185.58333333333334`}}], 
+      LineBox[{{0, -185.58333333333334`}, {0, -204.14166666666668`}}], 
+      LineBox[{{66.65, 0}, {66.65, -18.558333333333334`}}], 
+      LineBox[{{66.65, -18.558333333333334`}, {66.65, -37.11666666666667}}], 
+      LineBox[{{66.65, -37.11666666666667}, {66.65, -55.675}}], 
+      LineBox[{{66.65, -55.675}, {66.65, -74.23333333333333}}], 
+      LineBox[{{66.65, -74.23333333333333}, {66.65, -92.79166666666667}}], 
+      LineBox[{{66.65, -92.79166666666667}, {66.65, -111.35000000000001`}}], 
+      LineBox[{{66.65, -111.35000000000001`}, {66.65, -129.90833333333333`}}],
+       LineBox[{{66.65, -129.90833333333333`}, {
+       66.65, -148.46666666666667`}}], 
+      LineBox[{{66.65, -148.46666666666667`}, {66.65, -167.025}}], 
+      LineBox[{{66.65, -167.025}, {66.65, -185.58333333333334`}}], 
+      LineBox[{{66.65, -185.58333333333334`}, {66.65, -204.14166666666668`}}],
+       LineBox[{{133.3, 0}, {133.3, -18.558333333333334`}}], 
+      LineBox[{{133.3, -18.558333333333334`}, {133.3, -37.11666666666667}}], 
+      LineBox[{{133.3, -37.11666666666667}, {133.3, -55.675}}], 
+      LineBox[{{133.3, -55.675}, {133.3, -74.23333333333333}}], 
+      LineBox[{{133.3, -74.23333333333333}, {133.3, -92.79166666666667}}], 
+      LineBox[{{133.3, -92.79166666666667}, {133.3, -111.35000000000001`}}], 
+      LineBox[{{133.3, -111.35000000000001`}, {133.3, -129.90833333333333`}}],
+       LineBox[{{133.3, -129.90833333333333`}, {
+       133.3, -148.46666666666667`}}], 
+      LineBox[{{133.3, -148.46666666666667`}, {133.3, -167.025}}], 
+      LineBox[{{133.3, -167.025}, {133.3, -185.58333333333334`}}], 
+      LineBox[{{133.3, -185.58333333333334`}, {133.3, -204.14166666666668`}}],
+       LineBox[{{199.95000000000002`, 0}, {
+        199.95000000000002`, -18.558333333333334`}}], 
+      LineBox[{{199.95000000000002`, -18.558333333333334`}, {
+       199.95000000000002`, -37.11666666666667}}], 
+      LineBox[{{199.95000000000002`, -37.11666666666667}, {
+       199.95000000000002`, -55.675}}], 
+      LineBox[{{199.95000000000002`, -55.675}, {
+       199.95000000000002`, -74.23333333333333}}], 
+      LineBox[{{199.95000000000002`, -74.23333333333333}, {
+       199.95000000000002`, -92.79166666666667}}], 
+      LineBox[{{199.95000000000002`, -92.79166666666667}, {
+       199.95000000000002`, -111.35000000000001`}}], 
+      LineBox[{{199.95000000000002`, -111.35000000000001`}, {
+       199.95000000000002`, -129.90833333333333`}}], 
+      LineBox[{{199.95000000000002`, -129.90833333333333`}, {
+       199.95000000000002`, -148.46666666666667`}}], 
+      LineBox[{{199.95000000000002`, -148.46666666666667`}, {
+       199.95000000000002`, -167.025}}], 
+      LineBox[{{199.95000000000002`, -167.025}, {
+       199.95000000000002`, -185.58333333333334`}}], 
+      LineBox[{{199.95000000000002`, -185.58333333333334`}, {
+       199.95000000000002`, -204.14166666666668`}}], 
+      LineBox[{{0, 0}, {66.65, 0}}], LineBox[{{66.65, 0}, {133.3, 0}}], 
+      LineBox[{{133.3, 0}, {199.95000000000002`, 0}}], 
+      LineBox[{{0, -18.558333333333334`}, {66.65, -18.558333333333334`}}], 
+      LineBox[{{66.65, -18.558333333333334`}, {133.3, -18.558333333333334`}}],
+       LineBox[{{133.3, -18.558333333333334`}, {
+       199.95000000000002`, -18.558333333333334`}}], 
+      LineBox[{{0, -37.11666666666667}, {66.65, -37.11666666666667}}], 
+      LineBox[{{66.65, -37.11666666666667}, {133.3, -37.11666666666667}}], 
+      LineBox[{{133.3, -37.11666666666667}, {
+       199.95000000000002`, -37.11666666666667}}], 
+      LineBox[{{0, -55.675}, {66.65, -55.675}}], 
+      LineBox[{{66.65, -55.675}, {133.3, -55.675}}], 
+      LineBox[{{133.3, -55.675}, {199.95000000000002`, -55.675}}], 
+      LineBox[{{0, -74.23333333333333}, {66.65, -74.23333333333333}}], 
+      LineBox[{{66.65, -74.23333333333333}, {133.3, -74.23333333333333}}], 
+      LineBox[{{133.3, -74.23333333333333}, {
+       199.95000000000002`, -74.23333333333333}}], 
+      LineBox[{{0, -92.79166666666667}, {66.65, -92.79166666666667}}], 
+      LineBox[{{66.65, -92.79166666666667}, {133.3, -92.79166666666667}}], 
+      LineBox[{{133.3, -92.79166666666667}, {
+       199.95000000000002`, -92.79166666666667}}], 
+      LineBox[{{0, -111.35000000000001`}, {66.65, -111.35000000000001`}}], 
+      LineBox[{{66.65, -111.35000000000001`}, {133.3, -111.35000000000001`}}],
+       LineBox[{{133.3, -111.35000000000001`}, {
+       199.95000000000002`, -111.35000000000001`}}], 
+      LineBox[{{0, -129.90833333333333`}, {66.65, -129.90833333333333`}}], 
+      LineBox[{{66.65, -129.90833333333333`}, {133.3, -129.90833333333333`}}],
+       LineBox[{{133.3, -129.90833333333333`}, {
+       199.95000000000002`, -129.90833333333333`}}], 
+      LineBox[{{0, -148.46666666666667`}, {66.65, -148.46666666666667`}}], 
+      LineBox[{{66.65, -148.46666666666667`}, {133.3, -148.46666666666667`}}],
+       LineBox[{{133.3, -148.46666666666667`}, {
+       199.95000000000002`, -148.46666666666667`}}], 
+      LineBox[{{0, -167.025}, {66.65, -167.025}}], 
+      LineBox[{{66.65, -167.025}, {133.3, -167.025}}], 
+      LineBox[{{133.3, -167.025}, {199.95000000000002`, -167.025}}], 
+      LineBox[{{0, -185.58333333333334`}, {66.65, -185.58333333333334`}}], 
+      LineBox[{{66.65, -185.58333333333334`}, {133.3, -185.58333333333334`}}],
+       LineBox[{{133.3, -185.58333333333334`}, {
+       199.95000000000002`, -185.58333333333334`}}], 
+      LineBox[{{0, -204.14166666666668`}, {66.65, -204.14166666666668`}}], 
+      LineBox[{{66.65, -204.14166666666668`}, {133.3, -204.14166666666668`}}],
+       LineBox[{{133.3, -204.14166666666668`}, {
+       199.95000000000002`, -204.14166666666668`}}]}},
+    Antialiasing->False]},
+  ImageSize->Automatic,
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{{3.886411877642293*^9, 3.886411925987612*^9}},
+ CellLabel->
+  "Out[100]=",ExpressionUUID->"5d67f372-3d1f-42d6-abf0-1cc284fc8641"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{808, 911},
-WindowMargins->{{466, Automatic}, {176, Automatic}},
+WindowSize->{889, 1115},
+WindowMargins->{{166, Automatic}, {Automatic, 107}},
 FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (November 18, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"c1ca4062-c8da-423a-8039-4f627c6760a4"
@@ -182,14 +555,26 @@ Cell[CellGroupData[{
 Cell[580, 22, 183, 3, 98, "Title",ExpressionUUID->"e12696db-cf94-4916-996a-46d6c4c80c2a"],
 Cell[CellGroupData[{
 Cell[788, 29, 195, 3, 69, "Chapter",ExpressionUUID->"0c24f9e2-52a2-4c11-be79-081952caef65"],
-Cell[986, 34, 226, 4, 30, "Input",ExpressionUUID->"12ca6def-a78a-42ef-9b5f-d4d780f90ec9"],
+Cell[986, 34, 221, 3, 30, "Input",ExpressionUUID->"12ca6def-a78a-42ef-9b5f-d4d780f90ec9"],
 Cell[CellGroupData[{
-Cell[1237, 42, 158, 3, 32, "Item",ExpressionUUID->"aee679fa-2fa8-4fd1-9c07-025b3de94e7c"],
-Cell[1398, 47, 1953, 55, 157, "Input",ExpressionUUID->"8a53c86b-842c-40eb-a4d8-65ecddab65b6"]
+Cell[1232, 41, 158, 3, 32, "Item",ExpressionUUID->"aee679fa-2fa8-4fd1-9c07-025b3de94e7c"],
+Cell[1393, 46, 1948, 54, 136, "Input",ExpressionUUID->"8a53c86b-842c-40eb-a4d8-65ecddab65b6"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3388, 107, 158, 3, 32, "Item",ExpressionUUID->"95330343-f12c-4fd6-81d0-157f6d5fd0cf"],
-Cell[3549, 112, 1476, 46, 136, "Input",ExpressionUUID->"6f6a46e2-c8a2-4b59-90bb-b2e5aa718b2d"]
+Cell[3378, 105, 158, 3, 32, "Item",ExpressionUUID->"95330343-f12c-4fd6-81d0-157f6d5fd0cf"],
+Cell[3539, 110, 1785, 54, 157, "Input",ExpressionUUID->"6f6a46e2-c8a2-4b59-90bb-b2e5aa718b2d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5361, 169, 151, 3, 32, "Item",ExpressionUUID->"d7535115-29aa-48ff-b3d2-8978bdca3cd3"],
+Cell[5515, 174, 2315, 68, 134, "Input",ExpressionUUID->"45cfe80b-2257-4a51-9717-18a4a2223e89"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7867, 247, 163, 3, 32, "Item",ExpressionUUID->"396a6df1-895d-478e-9612-468300db3c69"],
+Cell[8033, 252, 1681, 50, 131, "Input",ExpressionUUID->"350e8c99-5012-437c-a9f4-95fb255e8447"],
+Cell[CellGroupData[{
+Cell[9739, 306, 710, 18, 73, "Input",ExpressionUUID->"0407b6f0-c3b0-4505-b9cd-168885e43477"],
+Cell[10452, 326, 12655, 204, 404, "Output",ExpressionUUID->"5d67f372-3d1f-42d6-abf0-1cc284fc8641"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
