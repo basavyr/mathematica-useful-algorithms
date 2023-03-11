@@ -150,5 +150,14 @@ CloseSQLConnection[conn]
 
 With[{mat10 = matrixGenerator[10]},
     Do[Print[mat10[[i]]], {i, 1, 10}];
-    Export["mat10.pdf", GraphicsGrid[mat10, Frame -> All]]
+    Export["mat10.pdf", GraphicsGrid[mat10, Frame -> All]];
+    (* find the eigenvalues for mat10*)
+    eigenvalues = N[#]& /@ Eigenvalues[mat10];
+    (* take each element and select only the real part*)
+    cutIm = Re[eigenvalues];
+    Print["cutIm: ", cutIm, "\n"];
+    f = ListPlot[Table[{i, cutIm[[i]]}, {i, 1, Length[cutIm]}], PlotRange
+         -> All, Frame -> True, FrameLabel -> {"i", "eigenvalue"}, ImageSize 
+        -> 350, Joined -> True, PlotStyle -> {Red, Thick},PlotMarkers -> {Automatic, 11}];
+    Export["eigenvalues.pdf", f];
 ]
