@@ -21,6 +21,13 @@ If[Not[FileExistsQ[dbDir]],
     Print["Directory already exists: ", dbDir, "\n"]
 ];
 
+(* define a function that will generate a nxn matrix*)
+
+matrixGenerator[n_] :=
+    Table[RandomInteger[{0, 1}], {i, 1, n}, {j, 1, n}];
+
+(* create a matrix of size 10x10 *)
+
 (* create the database file *)
 
 (* only create the file if it does not exist*)
@@ -140,3 +147,8 @@ Print["Size of the .db file: ", N[FileByteCount[FileNameJoin[{dbDir,
 Print["Updating the database took: ", dbUpdateTime, " seconds\n"]
 
 CloseSQLConnection[conn]
+
+With[{mat10 = matrixGenerator[10]},
+    Do[Print[mat10[[i]]], {i, 1, 10}];
+    Export["mat10.pdf", GraphicsGrid[mat10, Frame -> All]]
+]
