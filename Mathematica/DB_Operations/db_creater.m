@@ -6,11 +6,26 @@ Needs["DatabaseLink`"]
 
 Needs["JLink`"]
 
-Print["cmd args: ", $CommandLine]
+currentDir = Directory[];
 
-hardcodedPathToDB = "/Users/basavyr/Documents/Wolfram Mathematica/data";
+Print["script is running from: ", currentDir]
 
-dataPath = FileNameJoin[{Directory[], "data"}];
+dbDir = FileNameJoin[{currentDir, "data"}];
+
+(* create the data directory *)
+
+If[Not[FileExistsQ[dbDir]],
+    CreateDirectory[dbDir];
+    Print["Created directory: ", dbDir, "\n"]
+    ,
+    Print["Directory already exists: ", dbDir, "\n"]
+];
+
+(* create the database file *)
+
+(* only create the file if it does not exist*)
+
+Print["cmd args: ", $CommandLine, "\n"]
 
 min = 4; max = 69;
 
@@ -18,13 +33,13 @@ min = 4; max = 69;
 
 If[Length[$CommandLine] >= 4,
     tableSize = ToExpression[$CommandLine[[4]]];
-    Print["Using size from the command line"]
+    Print["Using size from the command line", "\n"]
     ,
-    tableSize = 3;
-    Print["Using fixed size"]
+    tableSize = 10;
+    Print["Using fixed size", "\n"]
 ];
 
-Print["tableSize: ", tableSize]
+Print["tableSize: ", tableSize, "\n"]
 
 (* get the seed from the cmd or else used a fixed size *)
 
@@ -35,7 +50,7 @@ If[Length[$CommandLine] >= 5,
     ,
     seed = 1337;
     SeedRandom[seed, Method -> "MersenneTwister"];
-    Print["Using fixed seed: ", seed]
+    Print["Using fixed seed: ", seed, "\n"]
 ]
 
 data =
@@ -47,22 +62,37 @@ data =
         tableSize
     ];
 
-conn = OpenSQLConnection[JDBC["SQLite", FileNameJoin[{hardcodedPathToDB,
-     "mydatabase.db"}]]];
+conn = OpenSQLConnection[JDBC["SQLite", FileNameJoin[{dbDir, "mydatabase.db"
+    }]]];
 
-SQLExecute[conn, "CREATE TABLE IF NOT EXISTS mytable (number INTEGER, log2 REAL)"
+SQLExecute[conn, "DROP TABLE IF EXISTS mytable"];
+
+SQLExecute[conn, "CREATE TABLE IF NOT EXISTS mytable (id INTEGER, number INTEGER, log2 REAL)"
     ];
 
-SQLExecute[conn, "DELETE FROM mytable"];
+Do[
+    SQLExecute[conn, "INSERT INTO mytable (id, number, log2) VALUES (?, ?, ?)",
+         {idx, data[[idx, 1]], data[[idx, 2]]}];
+    Print["inserted: ", data[[idx, 1]], " ", data[[idx, 2]]]
+    ,
+    {idx, 1, Length[data], 1}
+];
 
-Do[SQLExecute[conn, "INSERT INTO mytable VALUES (?, ?)", data[[i]]], 
-    {i, Length[data]}];
+(* offset will always start from 0 *)
 
-(* select the 69th item from mytable *)
+item[offset_] :=
+    SQLExecute[conn, StringTemplate["SELECT * FROM mytable LIMIT 1 OFFSET ``"
+        ][offset - 1]];
 
-item69 = SQLExecute[conn, "SELECT * FROM mytable WHERE number = 69"];
+itemNumberIs69 = SQLExecute[conn, "SELECT * FROM mytable WHERE id = 69"
+    ];
 
-(* create a function that checks if a number is prime *)
+printer[number_] :=
+    Print[StringTemplate["item`` :"][number], item[number], "\n"];
+
+printer[69];
+
+Print["itemNumberIs69: ", itemNumberIs69, "\n"]
 
 isPrimeCompiled =
     Compile[
@@ -89,8 +119,14 @@ isPrimeCompiled =
 
 allData = SQLExecute[conn, "SELECT * FROM mytable"];
 
+(* 
 selectedDataCompiled = Select[allData, isPrimeCompiled[#[[1]]]&];
 
-selectedData = Select[allData, PrimeQ[#[[1]]]&];
+selectedData = Select[allData, PrimeQ[#[[1]]]&]; *)
+
+Print["The database has been created.\n"]
+
+Print["Size of the .db file: ", N[FileByteCount[FileNameJoin[{dbDir, 
+    "mydatabase.db"}]]] / Power[1024, 2], " MB\n"]
 
 CloseSQLConnection[conn]
