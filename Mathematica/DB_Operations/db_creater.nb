@@ -1,0 +1,284 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9204,        276]
+NotebookOptionsPosition[      8502,        255]
+NotebookOutlinePosition[      8901,        271]
+CellTagsIndexPosition[      8858,        268]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<DatabaseLink`\>\"", "]"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<JLink`\>\"", "]"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "hardcodedPathToDB", "=", 
+   "\"\</Users/basavyr/Documents/Wolfram Mathematica/data\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataPath", "=", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Directory", "[", "]"}], ",", "\"\<data\>\""}], "}"}], "]"}]}],
+    ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"min", "=", "4"}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"max", "=", "69"}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "get", " ", "the", " ", "size", " ", "of", " ", "the", " ", "table", " ", 
+    "from", " ", "the", " ", "command", " ", "line"}], "*)"}]}], "\n", 
+ RowBox[{"Print", "[", "$CommandLine", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tableSize", "=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Length", "[", "$CommandLine", "]"}], "==", "4"}], ",", 
+      RowBox[{"ToExpression", "[", 
+       RowBox[{"$CommandLine", "[", 
+        RowBox[{"[", "4", "]"}], "]"}], "]"}], ",", "3"}], "]"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SeedRandom", "[", 
+    RowBox[{"1337", ",", 
+     RowBox[{"Method", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<MersenneTwister\>\"", ",", "32"}], "}"}]}]}], "]"}], 
+   ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"data", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"randInt", "=", 
+          RowBox[{"RandomInteger", "[", 
+           RowBox[{"{", 
+            RowBox[{"min", ",", "max"}], "}"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"randInt", ",", 
+          RowBox[{"N", "[", 
+           RowBox[{"Log2", "[", "randInt", "]"}], "]"}]}], "}"}]}], "]"}], 
+      ",", "tableSize"}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"conn", "=", 
+    RowBox[{"OpenSQLConnection", "[", 
+     RowBox[{"JDBC", "[", 
+      RowBox[{"\"\<SQLite\>\"", ",", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{"hardcodedPathToDB", ",", "\"\<mydatabase.db\>\""}], "}"}], 
+        "]"}]}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SQLExecute", "[", 
+    RowBox[{
+    "conn", ",", 
+     "\"\<CREATE TABLE IF NOT EXISTS mytable (number INTEGER, log2 \
+REAL)\>\""}], "]"}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SQLExecute", "[", 
+    RowBox[{"conn", ",", "\"\<DELETE FROM mytable\>\""}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Do", "[", 
+    RowBox[{
+     RowBox[{"SQLExecute", "[", 
+      RowBox[{"conn", ",", "\"\<INSERT INTO mytable VALUES (?, ?)\>\"", ",", 
+       RowBox[{"data", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"Length", "[", "data", "]"}]}], "}"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "select", " ", "the", " ", "69", "th", " ", "item", " ", "from", " ", 
+    "mytable"}], "*)"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"item69", "=", 
+    RowBox[{"SQLExecute", "[", 
+     RowBox[{"conn", ",", "\"\<SELECT * FROM mytable WHERE number = 69\>\""}],
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "create", " ", "a", " ", "function", " ", "that", " ", "checks", " ", "if",
+     " ", "a", " ", "number", " ", "is", " ", "prime"}], "*)"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"isPrimeCompiled", "=", 
+    RowBox[{"Compile", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "_Integer", ",", "0"}], "}"}], "}"}], ",", 
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", "i", "}"}], ",", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"n", "<", "2"}], ",", 
+           RowBox[{"Return", "[", "False", "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"n", "==", "2"}], ",", 
+           RowBox[{"Return", "[", "True", "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"EvenQ", "[", "n", "]"}], ",", 
+           RowBox[{"Return", "[", "False", "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "3"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Sqrt", "[", "n", "]"}]}], ",", 
+           RowBox[{"i", "+=", "2"}], ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Mod", "[", 
+               RowBox[{"n", ",", "i"}], "]"}], "==", "0"}], ",", 
+             RowBox[{"Return", "[", "False", "]"}]}], "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", "True"}]}], "]"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"allData", "=", 
+    RowBox[{"SQLExecute", "[", 
+     RowBox[{"conn", ",", "\"\<SELECT * FROM mytable\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"selectedDataCompiled", "=", 
+    RowBox[{"Select", "[", 
+     RowBox[{"allData", ",", 
+      RowBox[{
+       RowBox[{"isPrimeCompiled", "[", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}], "&"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"selectedData", "=", 
+    RowBox[{"Select", "[", 
+     RowBox[{"allData", ",", 
+      RowBox[{
+       RowBox[{"PrimeQ", "[", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}], "&"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Do", "[", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Prime pairs: \>\"", ",", "i"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "selectedData"}], "}"}]}], "]"}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"CloseSQLConnection", "[", "conn", "]"}]}], "Input",
+ CellChangeTimes->{{3.887518756765082*^9, 3.887518756766872*^9}, {
+  3.887518865499961*^9, 3.887518949575673*^9}},
+ CellLabel->
+  "In[260]:=",ExpressionUUID->"d4dd49bd-56d8-46be-9be7-112db6b570f6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"/Applications/Mathematica.app/Contents/MacOS/WolframKernel\"\>\
+", ",", "\<\"-wstp\"\>", ",", "\<\"-linkprotocol\"\>", 
+   ",", "\<\"SharedMemory\"\>", ",", "\<\"-linkconnect\"\>", 
+   ",", "\<\"-linkname\"\>", ",", "\<\"wf8xi_shm\"\>"}], "}"}]], "Print",
+ CellChangeTimes->{{3.887518915378477*^9, 3.887518950426043*^9}, 
+   3.88751898055798*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"39328f79-a404-414d-a83a-e6d0448c5fe2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime pairs: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"43", ",", "5.426264754702098`"}], "}"}]}],
+  SequenceForm["Prime pairs: ", {43, 5.426264754702098}],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.887518915378477*^9, 3.887518950426043*^9}, 
+   3.887518980561557*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"ec97e4e4-386b-45de-91ea-2d1b3c948888"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.8875189154106493`*^9, 3.887518950450324*^9}, 
+   3.8875189805627823`*^9},
+ CellLabel->
+  "Out[280]=",ExpressionUUID->"f9cca1c2-388f-4bc1-9c0d-feac14f45eff"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 815}, {235, Automatic}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (November 18, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4f6259f7-7c1c-4e24-89ba-221bec81e270"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 6694, 195, 1039, "Input",ExpressionUUID->"d4dd49bd-56d8-46be-9be7-112db6b570f6"],
+Cell[CellGroupData[{
+Cell[7299, 221, 496, 10, 44, "Print",ExpressionUUID->"39328f79-a404-414d-a83a-e6d0448c5fe2"],
+Cell[7798, 233, 449, 11, 24, "Print",ExpressionUUID->"ec97e4e4-386b-45de-91ea-2d1b3c948888"]
+}, Open  ]],
+Cell[8262, 247, 224, 5, 34, "Output",ExpressionUUID->"f9cca1c2-388f-4bc1-9c0d-feac14f45eff"]
+}, Open  ]]
+}
+]
+*)
+
