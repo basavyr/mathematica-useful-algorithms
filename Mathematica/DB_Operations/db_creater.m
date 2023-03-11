@@ -70,13 +70,21 @@ SQLExecute[conn, "DROP TABLE IF EXISTS mytable"];
 SQLExecute[conn, "CREATE TABLE IF NOT EXISTS mytable (id INTEGER, number INTEGER, log2 REAL)"
     ];
 
-Do[
-    SQLExecute[conn, "INSERT INTO mytable (id, number, log2) VALUES (?, ?, ?)",
-         {idx, data[[idx, 1]], data[[idx, 2]]}];
-    Print["inserted: ", data[[idx, 1]], " ", data[[idx, 2]]]
-    ,
-    {idx, 1, Length[data], 1}
-];
+(* need to measure the performance of the database update*)
+
+{dbUpdateTime, funcRes} =
+    AbsoluteTiming[
+        Do[
+            SQLExecute[conn, "INSERT INTO mytable (id, number, log2) VALUES (?, ?, ?)",
+                 {idx, data[[idx, 1]], data[[idx, 2]]}];
+            If[tableSize <= 100,
+                Print["inserted: ", data[[idx, 1]], " ", data[[idx, 2
+                    ]]]
+            ]
+            ,
+            {idx, 1, Length[data], 1}
+        ];
+    ];
 
 (* offset will always start from 0 *)
 
@@ -128,5 +136,7 @@ Print["The database has been created.\n"]
 
 Print["Size of the .db file: ", N[FileByteCount[FileNameJoin[{dbDir, 
     "mydatabase.db"}]]] / Power[1024, 2], " MB\n"]
+
+Print["Updating the database took: ", dbUpdateTime, " seconds\n"]
 
 CloseSQLConnection[conn]
