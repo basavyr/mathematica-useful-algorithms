@@ -17,3 +17,20 @@ Export["c_values.pdf", ListPlot[Table[{t, solC[1]}, {t, -1, 10}], Joined
      -> True, PlotRange -> All, PlotStyle -> Red, PlotLabel -> "c=1", FrameLabel
      -> {"t", "f[t]"}, Frame -> True, ImageSize -> 400, PlotMarkers -> {Automatic,
      10}, Axes -> False, PlotRange -> All]]
+
+currentWorkingDirectory = Directory[];
+
+Print["Current working directory is: " <> currentWorkingDirectory]
+
+initialDirectory = $InitialDirectory;
+
+Print["The initial directory: ", initialDirectory]
+
+(* change the current working directory one above*)
+
+newWorkingDirectory = SetDirectory[ParentDirectory[currentWorkingDirectory
+    ]];
+
+Print["Current working directory is now: " <> newWorkingDirectory]
+
+Print["The initial directory: ", initialDirectory]
