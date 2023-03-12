@@ -1,5 +1,7 @@
 (* solver for a linear ordinary differential equation *)
 
+(* This script aims at solving Eq. (1) from https://mathinsight.org/ordinary_differential_equation_linear_integrating_factor*)
+
 diffEq = f'[t] == Power[t, 2] - f[t];
 
 sol = DSolve[diffEq, f[t], t]
