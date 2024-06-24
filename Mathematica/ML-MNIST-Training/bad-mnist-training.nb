@@ -1,0 +1,210 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7292,        200]
+NotebookOptionsPosition[      6716,        182]
+NotebookOutlinePosition[      7115,        198]
+CellTagsIndexPosition[      7072,        195]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Load", " ", "MNIST", " ", "data"}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"trainingData", "=", 
+     RowBox[{"ExampleData", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<MachineLearning\>\"", ",", "\"\<MNIST\>\""}], "}"}], 
+       ",", "\"\<TrainingData\>\""}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"validationData", "=", 
+     RowBox[{"ExampleData", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<MachineLearning\>\"", ",", "\"\<MNIST\>\""}], "}"}], 
+       ",", "\"\<TestData\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"trainingData", "=", 
+     RowBox[{"RandomSample", "[", 
+      RowBox[{"trainingData", ",", "1000"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"validationData", "=", 
+     RowBox[{"RandomSample", "[", 
+      RowBox[{"validationData", ",", "100"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Preprocess", " ", "data"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"preprocessData", "[", "data_", "]"}], ":=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Rescale", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "255"}], "}"}]}], "]"}], "&"}], ",", "data", ",", 
+      
+      RowBox[{"{", "2", "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Define", " ", "a", " ", "CNN", " ", "model", " ", "with", " ", "batch", 
+     " ", "normalization"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"cnn", "=", 
+     RowBox[{"NetChain", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ConvolutionLayer", "[", 
+         RowBox[{"32", ",", 
+          RowBox[{"{", 
+           RowBox[{"5", ",", "5"}], "}"}], ",", 
+          RowBox[{"\"\<PaddingSize\>\"", "->", "2"}]}], "]"}], ",", 
+        RowBox[{"BatchNormalizationLayer", "[", "]"}], ",", "Ramp", ",", 
+        RowBox[{"PoolingLayer", "[", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "2"}], "}"}], "]"}], ",", 
+        RowBox[{"ConvolutionLayer", "[", 
+         RowBox[{"64", ",", 
+          RowBox[{"{", 
+           RowBox[{"5", ",", "5"}], "}"}], ",", 
+          RowBox[{"\"\<PaddingSize\>\"", "->", "2"}]}], "]"}], ",", 
+        RowBox[{"BatchNormalizationLayer", "[", "]"}], ",", "Ramp", ",", 
+        RowBox[{"PoolingLayer", "[", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "2"}], "}"}], "]"}], ",", 
+        RowBox[{"FlattenLayer", "[", "]"}], ",", 
+        RowBox[{"LinearLayer", "[", "128", "]"}], ",", 
+        RowBox[{"BatchNormalizationLayer", "[", "]"}], ",", "Ramp", ",", 
+        RowBox[{"LinearLayer", "[", "10", "]"}], ",", 
+        RowBox[{"SoftmaxLayer", "[", "]"}]}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Preprocess", " ", "the", " ", "training", " ", "and", " ", "validation", 
+     " ", "data"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"trainingDataProcessed", "=", 
+     RowBox[{"preprocessData", "[", 
+      RowBox[{"trainingData", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"validationDataProcessed", "=", 
+     RowBox[{"preprocessData", "[", 
+      RowBox[{"validationData", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Prepare", " ", "the", " ", "training", " ", "and", " ", "validation", 
+     " ", "datasets"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"trainingDataset", "=", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<Input\>\"", "->", "trainingDataProcessed"}], ",", 
+       RowBox[{"\"\<Output\>\"", "->", 
+        RowBox[{"trainingData", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "2"}], "]"}], "]"}]}]}], "|>"}]}], ";"}], "\n", 
+   
+   RowBox[{
+    RowBox[{"validationDataset", "=", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<Input\>\"", "->", "validationDataProcessed"}], ",", 
+       RowBox[{"\"\<Output\>\"", "->", 
+        RowBox[{"validationData", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "2"}], "]"}], "]"}]}]}], "|>"}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9282138346151667`*^9, 3.92821386128183*^9}, {
+  3.928213897500951*^9, 3.928213912125331*^9}, {3.928213967669098*^9, 
+  3.9282139684934607`*^9}, {3.92821406703091*^9, 3.928214067449202*^9}, {
+  3.928214176864708*^9, 3.928214198321752*^9}, {3.928214318133663*^9, 
+  3.9282143523436813`*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"cbda89a2-d76d-48f0-92fe-dc88f89a3d7b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Train", " ", "the", " ", "model", " ", "with", " ", "a", " ", "specified",
+     " ", "batch", " ", "size"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"trainedNet", "=", 
+     RowBox[{"NetTrain", "[", 
+      RowBox[{
+      "cnn", ",", "\[IndentingNewLine]", "trainingDataset", ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"ValidationSet", "->", "validationDataset"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"BatchSize", "->", "1"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{
+        "Specify", " ", "the", " ", "batch", " ", "size", " ", "here"}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"MaxTrainingRounds", "->", "10"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Evaluate", " ", "the", " ", "model"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"NetMeasurements", "[", 
+    RowBox[{"trainedNet", ",", "validationDataset", ",", "\"\<Accuracy\>\""}],
+     "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.928214285813137*^9, 3.9282142957697687`*^9}},
+ CellLabel->"In[86]:=",ExpressionUUID->"ceb530a8-29f2-4c5d-8735-9ceaf94e8f2f"],
+
+Cell[BoxData["0.07999999999999996`"], "Output",
+ CellChangeTimes->{{3.928214289655861*^9, 3.928214312160481*^9}, 
+   3.928214434409595*^9},
+ CellLabel->"Out[87]=",ExpressionUUID->"3964afcf-cf42-4f3b-90a5-2d79b0411dcb"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{583, Automatic}, {102, Automatic}},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"254af42d-bcb5-4938-930c-f5d471779290"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4711, 122, 451, "Input",ExpressionUUID->"cbda89a2-d76d-48f0-92fe-dc88f89a3d7b"],
+Cell[CellGroupData[{
+Cell[5294, 146, 1185, 28, 199, "Input",ExpressionUUID->"ceb530a8-29f2-4c5d-8735-9ceaf94e8f2f"],
+Cell[6482, 176, 218, 3, 34, "Output",ExpressionUUID->"3964afcf-cf42-4f3b-90a5-2d79b0411dcb"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
