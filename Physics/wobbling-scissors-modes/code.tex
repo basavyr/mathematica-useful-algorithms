@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{booktabs}
 
 
 \title{Formal analysis of the $E/A_{-}$ function}
@@ -35,8 +36,9 @@ E(r,t) &= -2\sqrt{rt(2I-r)(2S-t)} + \frac{I-1}{2S}t + \frac{S-1}{2I}r + \frac{r}
 \section{Critical Points}
 The critical points of the $E$ function are found by setting the first-order partial derivatives equal to zero:
 \begin{align}
-\frac{\partial E}{\partial r} &= \frac{-t(2I-r)(2S-t)}{2r\sqrt{rt(2I-r)(2S-t)}} + \frac{S-1}{2I} + \frac{t}{2IS} = 0\ ,\\
+\frac{\partial E}{\partial r} &= \frac{-t(2I-r)(2S-t)}{2r\sqrt{rt(2I-r)(2S-t)}} + \frac{S-1}{2I} + \frac{t}{2IS} = 0\ ,\nonumber\\
 \frac{\partial E}{\partial t} &= \frac{-r(2I-r)(2S-t)}{2t\sqrt{rt(2I-r)(2S-t)}} + \frac{I-1}{2S} + \frac{r}{2IS} = 0
+\label{system-eq}
 \end{align}
 These equations determine the critical points $(r_c, t_c)$ where the gradient of the function is zero.
 
@@ -67,5 +69,55 @@ which provides the valid regions for $r, t$ as:
 $$r\in [0, 2I]\ , \ t\in [0, 2S]$$
 
 \subsection{Critical points}
+
+We solve via \texttt{NSolve} the system of equations from Eq.\eqref{system-eq} and only consider the real solutions. The points provided by the system are denoted by $\{r_c, t_c\}$ (to emphasize the critical points). Moreover, by studying second-order partial derivatives of $E$ w.r.t to $r$ and $t$, we can finally determine if the critical points represent local minimum or maximum.
+
+\subsection*{Numerical Analysis}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        $I$ & $r_c$ & $t_c$ & $\frac{\partial^2 E}{\partial r^2}$ & $\frac{\partial^2 E}{\partial t^2}$ \\
+        \midrule
+        1  & 0.8     & 0.8     & 2.08333  & 2.08333  \\
+        2  & 1.80364 & 0.767656 & 0.986868  & 4.32622  \\
+        3  & 2.80429 & 0.761959 & 0.651659  & 6.53469  \\
+        4  & 3.80452 & 0.759986 & 0.487129  & 8.73419  \\
+        5  & 4.80462 & 0.759076 & 0.389108  & 10.9301  \\
+        6  & 5.80468 & 0.758583 & 0.323989  & 13.1241  \\
+        7  & 6.80471 & 0.758286 & 0.277566  & 15.3171  \\
+        8  & 7.80473 & 0.758093 & 0.242792  & 17.5095  \\
+        9  & 8.80475 & 0.757961 & 0.215767  & 19.7014  \\
+        10 & 9.80476 & 0.757867 & 0.19416  & 21.893  \\
+        \bottomrule
+    \end{tabular}
+    \caption{Critical points and second-order derivatives for fixed $S=1$}
+    \label{table1}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        $S$ & $r_c$ & $t_c$ & $\frac{\partial^2 E}{\partial r^2}$ & $\frac{\partial^2 E}{\partial t^2}$ \\
+        \midrule
+        1  & 0.8     & 0.8     & 2.08333  & 2.08333  \\
+        2  & 0.767656 & 1.80364 & 4.32622  & 0.986868  \\
+        3  & 0.761959 & 2.80429 & 6.53469  & 0.651659  \\
+        4  & 0.759986 & 3.80452 & 8.73419  & 0.487129  \\
+        5  & 0.759076 & 4.80462 & 10.9301  & 0.389108  \\
+        6  & 0.758583 & 5.80468 & 13.1241  & 0.323989  \\
+        7  & 0.758286 & 6.80471 & 15.3171  & 0.277566  \\
+        8  & 0.758093 & 7.80473 & 17.5095  & 0.242792  \\
+        9  & 0.757961 & 8.80475 & 19.7014  & 0.215767  \\
+        10 & 0.757867 & 9.80476 & 21.893  & 0.19416  \\
+        \bottomrule
+    \end{tabular}
+    \caption{Critical points and second-order derivatives for fixed $I=1$}
+    \label{table2}
+\end{table}
+
+As we can see from Table \ref{table1} and \ref{table2} the critical points are all \textbf{minima}, since the second derivative is positive.
 
 \end{document}
