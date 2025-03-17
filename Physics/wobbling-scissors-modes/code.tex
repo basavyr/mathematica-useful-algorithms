@@ -1,0 +1,71 @@
+
+\documentclass[a4paper]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+
+\title{Formal analysis of the $E/A_{-}$ function}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Function Definition}
+
+We will simply denote $E/A_{-}$ by $E$ throughout this document. The function is defined as:
+\begin{align}
+E(r,t,I,S) &= t_1(r,t,I,S) + t_2(r,t,I,S)\\
+\end{align}
+where:
+\begin{align}
+t_1(r,t,I,S) &= -2\sqrt{rt(2I-r)(2S-t)}\\
+t_2(r,t,I,S) &= \frac{I-1}{2S}t + \frac{S-1}{2I}r + \frac{r}{2IS}t
+\label{terms}
+\end{align}
+
+For fixed parameters $I$ and $S$, we can express the function as:
+\begin{align}
+E(r,t) &= -2\sqrt{rt(2I-r)(2S-t)} + \frac{I-1}{2S}t + \frac{S-1}{2I}r + \frac{r}{2IS}t
+\end{align}
+
+\section{Critical Points}
+The critical points of the $E$ function are found by setting the first-order partial derivatives equal to zero:
+\begin{align}
+\frac{\partial E}{\partial r} &= \frac{-t(2I-r)(2S-t)}{2r\sqrt{rt(2I-r)(2S-t)}} + \frac{S-1}{2I} + \frac{t}{2IS} = 0\ ,\\
+\frac{\partial E}{\partial t} &= \frac{-r(2I-r)(2S-t)}{2t\sqrt{rt(2I-r)(2S-t)}} + \frac{I-1}{2S} + \frac{r}{2IS} = 0
+\end{align}
+These equations determine the critical points $(r_c, t_c)$ where the gradient of the function is zero.
+
+\section{Hessian Matrix}
+
+The Hessian matrix of the $E$ function with respect to variables $r$ and $t$ (treating $I$ and $S$ as fixed parameters) is:
+
+\begin{align}
+H_{E}(r,t) = 
+\begin{pmatrix}
+\frac{\partial^2 E}{\partial r^2} & \frac{\partial^2 E}{\partial r \partial t} \\
+\frac{\partial^2 E}{\partial t \partial r} & \frac{\partial^2 E}{\partial t^2}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\frac{t(2S-t)(3r-2I)}{4r(r-2I)^2\sqrt{rt(2I-r)(2S-t)}} & \frac{1}{2IS} - \frac{(2I-r)(2S-t) + rt}{4rt\sqrt{rt(2I-r)(2S-t)}} \\
+\frac{1}{2IS} - \frac{(2I-r)(2S-t) + rt}{4rt\sqrt{rt(2I-r)(2S-t)}} & \frac{r(2I-r)(3t-2S)}{4t(t-2S)^2\sqrt{rt(2I-r)(2S-t)}}
+\end{pmatrix}
+\end{align}
+
+\section{Function Domain}
+
+It is important to have the domains for the variables $r, t$, since finding the minimum of $E$ would require some constraints. The ranges for $r$ and $t$ can be determined by analyzing the square root from $t_1$ given by Eq.\eqref{terms}.
+
+In order for the function $E$ to be real, the term in the square root must be non-negative, thus:
+$$rt(2I-r)(2S-t)\geq 0\ ,$$
+which provides the valid regions for $r, t$ as:
+$$r\in [0, 2I]\ , \ t\in [0, 2S]$$
+
+\subsection{Critical points}
+
+\end{document}
