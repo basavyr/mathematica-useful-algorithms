@@ -1,0 +1,924 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     39008,        916]
+NotebookOptionsPosition[     36741,        874]
+NotebookOutlinePosition[     37154,        890]
+CellTagsIndexPosition[     37111,        887]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Numerical Analysis of the Energy function", "Subsection",
+ CellChangeTimes->{{3.9511079537445087`*^9, 
+  3.951107968560337*^9}},ExpressionUUID->"20b7fff4-b5c2-1743-b467-\
+4a6fac943af8"],
+
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"t2", "[", 
+    RowBox[{"r_", ",", " ", "t_", ",", " ", "i_", ",", " ", "s_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox[
+      RowBox[{"i", "-", "1"}], 
+      RowBox[{"2", "s"}]], "t"}], "+", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"s", "-", "1"}], 
+      RowBox[{"2", "i"}]], "r"}], "+", 
+    RowBox[{
+     FractionBox["r", 
+      RowBox[{"2", "i", "*", "s"}]], "*", "t"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"t1", "[", 
+    RowBox[{"r_", ",", " ", "t_", ",", " ", "i_", ",", " ", "s_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"-", "2"}], 
+    SqrtBox[
+     RowBox[{"r", "*", "t", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", "i"}], "-", "r"}], ")"}], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", "s"}], "-", "t"}], ")"}]}]]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EAM", "[", 
+    RowBox[{"r_", ",", " ", "t_", ",", " ", "i_", ",", " ", "s_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"t1", "[", 
+     RowBox[{"r", ",", " ", "t", ",", " ", "i", ",", " ", "s"}], "]"}], "+", 
+    RowBox[{"t2", "[", 
+     RowBox[{"r", ",", " ", "t", ",", " ", "i", " ", ",", "s"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"IspinPairs", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", " ", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", " ", "10"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SspinPairs", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "s"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"s", ",", "1", ",", " ", "10"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.951107989469007*^9, 3.9511080024222984`*^9}, {
+  3.951122348425848*^9, 3.951122348541479*^9}},
+ CellLabel->
+  "In[498]:=",ExpressionUUID->"68c92479-ae6a-2645-a4a9-32bee42bd3a8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"EAM", "[", 
+      RowBox[{"k", ",", " ", "t", ",", " ", 
+       RowBox[{"Sequence", "@@", 
+        RowBox[{"IspinPairs", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", " ", 
+       RowBox[{"-", "10"}], ",", " ", "10"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", 
+     RowBox[{"-", "5"}], ",", "10"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"EAM", "[", 
+      RowBox[{"r", ",", " ", "k", ",", " ", 
+       RowBox[{"Sequence", "@@", 
+        RowBox[{"IspinPairs", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", " ", 
+       RowBox[{"-", "10"}], ",", " ", "10"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", 
+     RowBox[{"-", "5"}], ",", "10"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.951111972861618*^9, 3.951112033451372*^9}, {
+  3.95111208825206*^9, 3.9511121422558136`*^9}, {3.9511125640969086`*^9, 
+  3.9511126251867104`*^9}, {3.951112690329073*^9, 3.95111269161988*^9}, {
+  3.951112723041212*^9, 3.9511127286467285`*^9}, {3.9511139360094566`*^9, 
+  3.951113960522356*^9}, {3.951114218423689*^9, 3.9511142255309296`*^9}, {
+  3.951114296567494*^9, 3.951114297591219*^9}},
+ CellLabel->
+  "In[504]:=",ExpressionUUID->"7a832b82-0660-284f-9104-63d842416ae7"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = -5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], -5, 10, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {360., {109., 113.3687731630254}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = -5}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        $CellContext`EAM[$CellContext`k$$, $CellContext`t, 
+         Apply[Sequence, 
+          Part[$CellContext`IspinPairs, 1]]], {$CellContext`t, -10, 10}], 
+      "Specifications" :> {{$CellContext`k$$, -5, 10}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {152.63403309800196`, 158.36596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.9511139005175347`*^9, 3.951113906237551*^9}, {
+   3.951113938741318*^9, 3.951113967856793*^9}, {3.9511142218424387`*^9, 
+   3.9511142260856514`*^9}, {3.9511142793405094`*^9, 3.95111430129809*^9}, 
+   3.9511223362191753`*^9, 3.9511223785573387`*^9, {3.951128523416872*^9, 
+   3.951128535192463*^9}},
+ CellLabel->
+  "Out[504]=",ExpressionUUID->"738cb7c5-0f06-354a-b8ee-335e6a0e35df"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = -5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], -5, 10, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {360., {109., 113.3687731630254}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = -5}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        $CellContext`EAM[$CellContext`r, $CellContext`k$$, 
+         Apply[Sequence, 
+          Part[$CellContext`IspinPairs, 1]]], {$CellContext`r, -10, 10}], 
+      "Specifications" :> {{$CellContext`k$$, -5, 10}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {152.63403309800196`, 158.36596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.9511139005175347`*^9, 3.951113906237551*^9}, {
+   3.951113938741318*^9, 3.951113967856793*^9}, {3.9511142218424387`*^9, 
+   3.9511142260856514`*^9}, {3.9511142793405094`*^9, 3.95111430129809*^9}, 
+   3.9511223362191753`*^9, 3.9511223785573387`*^9, {3.951128523416872*^9, 
+   3.9511285352501926`*^9}},
+ CellLabel->
+  "Out[505]=",ExpressionUUID->"7ee969ef-d1a2-fd44-8483-eb9162609299"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindMinimum", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"EAM", "[", 
+      RowBox[{"r", ",", " ", "t", ",", " ", 
+       RowBox[{"Sequence", "@@", 
+        RowBox[{"IspinPairs", "[", 
+         RowBox[{"[", "3", "]"}], "]"}]}]}], "]"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", " ", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", " ", "1"}], "}"}]}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.951114135149742*^9, 3.951114189675709*^9}, 
+   3.951114271402231*^9, {3.951114689403297*^9, 3.951114716220764*^9}},
+ CellLabel->
+  "In[506]:=",ExpressionUUID->"134119f8-e5c2-8d4c-8387-f744025e783a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "4.697032282710017`"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"r", "\[Rule]", "2.804290322128936`"}], ",", 
+     RowBox[{"t", "\[Rule]", "0.7619592598800509`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.951114135526371*^9, 3.951114139552141*^9}, 
+   3.951114191121073*^9, 3.951114272136259*^9, {3.951114689851284*^9, 
+   3.9511147165420895`*^9}, {3.9511285235498447`*^9, 3.951128535304039*^9}},
+ CellLabel->
+  "Out[506]=",ExpressionUUID->"456664ed-fa1e-c04e-96a2-21f97abe209c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rrange", " ", "=", " ", "25"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"trange", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"t1", "[", 
+        RowBox[{"r", ",", " ", 
+         RowBox[{"-", "2"}], ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"t1", "[", 
+        RowBox[{"r", ",", " ", 
+         RowBox[{"-", "1"}], ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"t1", "[", 
+        RowBox[{"r", ",", " ", "0", ",", " ", 
+         RowBox[{"Sequence", "@@", "p0"}]}], "]"}], ",", 
+       RowBox[{"t1", "[", 
+        RowBox[{"r", ",", " ", "1", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"t1", "[", 
+        RowBox[{"r", ",", " ", "2", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"t1", "[", 
+        RowBox[{"r", ",", " ", "3", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", " ", 
+       RowBox[{"-", "rrange"}], ",", "rrange"}], "}"}], ",", " ", 
+     RowBox[{"AspectRatio", "->", "1"}], ",", 
+     RowBox[{"PlotLabels", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<-2\>\"", ",", " ", "\"\<-1\>\"", ",", " ", "\"\<0\>\"", ",", " ", 
+        "\"\<1\>\"", ",", " ", "\"\<2\>\"", ",", " ", "\"\<3\>\""}], "}"}]}], 
+     ",", "  ", 
+     RowBox[{"Axes", "->", "True"}], ",", " ", 
+     RowBox[{"Frame", "->", "True"}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "1", ",", " ", "10", ",", "1"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"t1", "[", " ", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"t1", "[", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", " ", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"t1", "[", " ", 
+        RowBox[{"0", ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", "p0"}]}], "]"}], ",", 
+       RowBox[{"t1", "[", 
+        RowBox[{"1", ",", " ", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"t1", "[", " ", 
+        RowBox[{"2", ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"t1", "[", 
+        RowBox[{"3", ",", " ", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", " ", 
+       RowBox[{"-", "trange"}], ",", "trange"}], "}"}], ",", " ", 
+     RowBox[{"AspectRatio", "->", "1"}], ",", 
+     RowBox[{"PlotLabels", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<-2\>\"", ",", " ", "\"\<-1\>\"", ",", " ", "\"\<0\>\"", ",", " ", 
+        "\"\<1\>\"", ",", " ", "\"\<2\>\"", ",", " ", "\"\<3\>\""}], "}"}]}], 
+     ",", "  ", 
+     RowBox[{"Axes", "->", "True"}], ",", " ", 
+     RowBox[{"Frame", "->", "True"}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "1", ",", " ", "10", ",", "1"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"t2", "[", 
+        RowBox[{"r", ",", " ", "0", ",", " ", 
+         RowBox[{"Sequence", "@@", "p0"}]}], "]"}], ",", 
+       RowBox[{"t2", "[", 
+        RowBox[{"r", ",", " ", "1", ",", " ", 
+         RowBox[{"Sequence", "@@", "p0"}]}], "]"}], ",", 
+       RowBox[{"t2", "[", 
+        RowBox[{"r", ",", " ", "2", ",", " ", 
+         RowBox[{"Sequence", "@@", "p0"}]}], "]"}], ",", 
+       RowBox[{"t2", "[", 
+        RowBox[{"r", ",", " ", "3", ",", " ", 
+         RowBox[{"Sequence", "@@", "p0"}]}], "]"}], ",", " ", 
+       RowBox[{"t2", "[", 
+        RowBox[{"r", ",", " ", "4", ",", " ", 
+         RowBox[{"Sequence", "@@", "p0"}]}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", " ", 
+       RowBox[{"-", "range"}], ",", "range"}], "}"}], ",", " ", 
+     RowBox[{"AspectRatio", "->", "1"}], ",", 
+     RowBox[{"PlotLabels", "\[Rule]", "\"\<Expressions\>\""}], ",", " ", 
+     RowBox[{"Filling", "->", "Axis"}], ",", " ", 
+     RowBox[{"Axes", "->", "True"}], ",", " ", 
+     RowBox[{"Frame", "->", "True"}]}], "]"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.951108013030323*^9, 3.9511080164117107`*^9}, {
+   3.951108052117312*^9, 3.951108279386619*^9}, {3.951108311753948*^9, 
+   3.951108415353804*^9}, {3.951108483259121*^9, 3.951108612161991*^9}, {
+   3.951108659601293*^9, 3.951108711157643*^9}, {3.9511087427988453`*^9, 
+   3.9511087577456512`*^9}, {3.9511088090060863`*^9, 3.951108821508066*^9}, {
+   3.951108889753805*^9, 3.951109069892359*^9}, {3.951109137718857*^9, 
+   3.951109141154396*^9}, {3.9511092016762066`*^9, 3.9511092151809864`*^9}, {
+   3.951111517258534*^9, 3.9511115341320305`*^9}, {3.951111567850584*^9, 
+   3.9511117646286697`*^9}, 3.9511223459130135`*^9, 3.951122434059992*^9},
+ CellLabel->
+  "In[507]:=",ExpressionUUID->"d49baca1-c6c3-234c-856f-2300bf0a7469"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 10, 1, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {360., {149., 154.45116510485553`}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`t1[$CellContext`r, -2, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`t1[$CellContext`r, -1, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`t1[$CellContext`r, 0, 
+          Apply[Sequence, $CellContext`p0]], 
+         $CellContext`t1[$CellContext`r, 1, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`t1[$CellContext`r, 2, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`t1[$CellContext`r, 3, 
+          Apply[Sequence, 
+           
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]]}, \
+{$CellContext`r, -$CellContext`rrange, $CellContext`rrange}, AspectRatio -> 1,
+         PlotLabels -> {"-2", "-1", "0", "1", "2", "3"}, Axes -> True, Frame -> 
+        True], "Specifications" :> {{$CellContext`k$$, 1, 10, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {193.13403309800196`, 198.86596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.951108667048435*^9, 3.9511087116754913`*^9}, {
+   3.951108743371336*^9, 3.951108758312777*^9}, 3.951108822919468*^9, {
+   3.9511088979029694`*^9, 3.9511089610360794`*^9}, {3.9511090325281563`*^9, 
+   3.951109037279396*^9}, 3.951109070946993*^9, 3.9511092156645336`*^9, {
+   3.951111517806643*^9, 3.951111534354349*^9}, {3.951111685702452*^9, 
+   3.9511117649109583`*^9}, {3.951128523566574*^9, 3.9511285353225346`*^9}},
+ CellLabel->
+  "Out[509]=",ExpressionUUID->"4c06ba49-cf73-2f4e-a52f-8114ddac665e"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 10, 1, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {360., {152., 157.01267421971176`}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`t1[-2, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`t1[-1, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`t1[0, $CellContext`t, 
+          Apply[Sequence, $CellContext`p0]], 
+         $CellContext`t1[1, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`t1[2, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`t1[3, $CellContext`t, 
+          Apply[Sequence, 
+           
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]]}, \
+{$CellContext`t, -$CellContext`trange, $CellContext`trange}, AspectRatio -> 1,
+         PlotLabels -> {"-2", "-1", "0", "1", "2", "3"}, Axes -> True, Frame -> 
+        True], "Specifications" :> {{$CellContext`k$$, 1, 10, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {196.13403309800196`, 201.86596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.951108667048435*^9, 3.9511087116754913`*^9}, {
+   3.951108743371336*^9, 3.951108758312777*^9}, 3.951108822919468*^9, {
+   3.9511088979029694`*^9, 3.9511089610360794`*^9}, {3.9511090325281563`*^9, 
+   3.951109037279396*^9}, 3.951109070946993*^9, 3.9511092156645336`*^9, {
+   3.951111517806643*^9, 3.951111534354349*^9}, {3.951111685702452*^9, 
+   3.9511117649109583`*^9}, {3.951128523566574*^9, 3.95112853541704*^9}},
+ CellLabel->
+  "Out[510]=",ExpressionUUID->"4b7aaf99-55e2-0843-b279-24280330dbc5"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.951111001090288*^9, 3.951111002022257*^9}},
+ CellLabel->
+  "In[511]:=",ExpressionUUID->"c7da58d9-789f-004e-b8e6-7619d0e1d9f1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"EAM", "[", 
+        RowBox[{"r", ",", " ", 
+         RowBox[{"-", "2"}], ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", 
+        RowBox[{"r", ",", 
+         RowBox[{"-", "1"}], ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", 
+        RowBox[{"r", ",", " ", "0", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", 
+        RowBox[{"r", ",", " ", "1", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", 
+        RowBox[{"r", ",", " ", "2", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", 
+        RowBox[{"r", ",", " ", "3", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", " ", 
+       RowBox[{"-", "rrange"}], ",", "rrange"}], "}"}], ",", 
+     RowBox[{"AspectRatio", "->", "1"}], ",", 
+     RowBox[{"PlotLabels", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<-2\>\"", ",", " ", "\"\<-1\>\"", ",", " ", "\"\<0\>\"", ",", " ", 
+        "\"\<1\>\"", ",", " ", "\"\<2\>\"", ",", " ", "\"\<3\>\""}], "}"}]}], 
+     ",", 
+     RowBox[{"Axes", "->", "True"}], ",", 
+     RowBox[{"Frame", "->", "True"}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "1", ",", " ", "10", ",", "1"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"EAM", "[", " ", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", " ", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", " ", 
+        RowBox[{"0", ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", " ", 
+        RowBox[{"1", ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", " ", 
+        RowBox[{"2", ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"EAM", "[", 
+        RowBox[{"3", ",", "t", ",", " ", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"IspinPairs", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", " ", 
+       RowBox[{"-", "trange"}], ",", "trange"}], "}"}], ",", 
+     RowBox[{"AspectRatio", "->", "1"}], ",", 
+     RowBox[{"PlotLabels", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<-2\>\"", ",", " ", "\"\<-1\>\"", ",", " ", "\"\<0\>\"", ",", " ", 
+        "\"\<1\>\"", ",", " ", "\"\<2\>\"", ",", " ", "\"\<3\>\""}], "}"}]}], 
+     ",", 
+     RowBox[{"Axes", "->", "True"}], ",", 
+     RowBox[{"Frame", "->", "True"}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "1", ",", " ", "10", ",", "1"}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.951110777923443*^9, 3.9511109612661*^9}, {
+  3.951110998625952*^9, 3.9511110310304813`*^9}, {3.951111384227513*^9, 
+  3.951111497643673*^9}, {3.951111789797129*^9, 3.951111867876913*^9}},
+ CellLabel->
+  "In[512]:=",ExpressionUUID->"4e78a1a7-c942-a143-89b3-f69a6bfed72d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 10, 1, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {360., {150., 153.76734772644124`}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`EAM[$CellContext`r, -2, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[$CellContext`r, -1, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[$CellContext`r, 0, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[$CellContext`r, 1, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[$CellContext`r, 2, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[$CellContext`r, 3, 
+          Apply[Sequence, 
+           
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]]}, \
+{$CellContext`r, -$CellContext`rrange, $CellContext`rrange}, AspectRatio -> 1,
+         PlotLabels -> {"-2", "-1", "0", "1", "2", "3"}, Axes -> True, Frame -> 
+        True], "Specifications" :> {{$CellContext`k$$, 1, 10, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {193.13403309800196`, 198.86596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.951111426779648*^9, {3.9511114773914437`*^9, 3.951111498153209*^9}, {
+   3.951111850452711*^9, 3.951111868182703*^9}, {3.9511285238876247`*^9, 
+   3.9511285355584564`*^9}},
+ CellLabel->
+  "Out[512]=",ExpressionUUID->"3100d437-2064-1544-b1f3-a820837c82b3"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 10, 1, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {360., {153., 158.12639990091412`}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`EAM[-2, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[-1, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[0, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[1, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[2, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[3, $CellContext`t, 
+          Apply[Sequence, 
+           
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]]}, \
+{$CellContext`t, -$CellContext`trange, $CellContext`trange}, AspectRatio -> 1,
+         PlotLabels -> {"-2", "-1", "0", "1", "2", "3"}, Axes -> True, Frame -> 
+        True], "Specifications" :> {{$CellContext`k$$, 1, 10, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {197.13403309800196`, 202.86596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.951111426779648*^9, {3.9511114773914437`*^9, 3.951111498153209*^9}, {
+   3.951111850452711*^9, 3.951111868182703*^9}, {3.9511285238876247`*^9, 
+   3.9511285356501865`*^9}},
+ CellLabel->
+  "Out[513]=",ExpressionUUID->"a60549b3-23a6-6443-b2c8-969e3a39c8db"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 10, 1, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {360., {153., 158.12639990091412`}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`EAM[-2, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[-1, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[0, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[1, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[2, $CellContext`t, 
+          Apply[Sequence, 
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]], 
+         $CellContext`EAM[3, $CellContext`t, 
+          Apply[Sequence, 
+           
+           Part[$CellContext`IspinPairs, $CellContext`k$$]]]}, \
+{$CellContext`t, -$CellContext`trange, $CellContext`trange}, AspectRatio -> 1,
+         PlotLabels -> {"-2", "-1", "0", "1", "2", "3"}, Axes -> True, Frame -> 
+        True], "Specifications" :> {{$CellContext`k$$, 1, 10, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {197.13403309800196`, 202.86596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.951111426779648*^9, {3.9511114773914437`*^9, 3.951111498153209*^9}, {
+   3.951111850452711*^9, 3.951111868285866*^9}, 
+   3.951112055184418*^9},ExpressionUUID->"318af127-6251-7c4a-aa2f-\
+12c5f050bc9d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot", "plln", 
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"-\\\", \\\"trange\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"t\\\", \\\",\\\", RowBox[{\\\"-\\\", \
+\\\"trange\\\"}], \\\",\\\", \\\"trange\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"", 2, 630, 73, 21375979854345034202, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.951115745197232*^9},
+ CellLabel->"",ExpressionUUID->"98455e0c-bf4b-fa4f-9b56-50173f6435d8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot", "plln", 
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"-\\\", \\\"trange\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"t\\\", \\\",\\\", RowBox[{\\\"-\\\", \
+\\\"trange\\\"}], \\\",\\\", \\\"trange\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"", 2, 7, 4, 21376074114604666229, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9511223461029415`*^9},
+ CellLabel->"",ExpressionUUID->"604e0403-f611-a747-86e6-45b90bb6bf67"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot", "plln", 
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"-\\\", \\\"trange\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"t\\\", \\\",\\\", RowBox[{\\\"-\\\", \
+\\\"trange\\\"}], \\\",\\\", \\\"trange\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"", 2, 13, 8, 21376074114604666229, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9511224338677254`*^9},
+ CellLabel->"",ExpressionUUID->"d9e02af7-d151-0940-bc63-df88bfb8f9f2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot", "plln", 
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"-\\\", \\\"trange\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"t\\\", \\\",\\\", RowBox[{\\\"-\\\", \
+\\\"trange\\\"}], \\\",\\\", \\\"trange\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"", 2, 481, 67, 21376074114604666229, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9511282175620136`*^9},
+ CellLabel->"",ExpressionUUID->"b4e2a9a0-661d-d442-8a7c-30514e064962"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{569.25, 624.75},
+WindowMargins->{{960, Automatic}, {Automatic, 131.25}},
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"56a0f3ed-416c-4540-957e-3ff509b8c289"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 191, 3, 54, "Subsection",ExpressionUUID->"20b7fff4-b5c2-1743-b467-4a6fac943af8"],
+Cell[774, 27, 2076, 65, 147, "Input",ExpressionUUID->"68c92479-ae6a-2645-a4a9-32bee42bd3a8"],
+Cell[CellGroupData[{
+Cell[2875, 96, 1521, 38, 86, "Input",ExpressionUUID->"7a832b82-0660-284f-9104-63d842416ae7"],
+Cell[4399, 136, 2044, 40, 330, "Output",ExpressionUUID->"738cb7c5-0f06-354a-b8ee-335e6a0e35df"],
+Cell[6446, 178, 2046, 40, 330, "Output",ExpressionUUID->"7ee969ef-d1a2-fd44-8483-eb9162609299"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8529, 223, 684, 18, 67, "Input",ExpressionUUID->"134119f8-e5c2-8d4c-8387-f744025e783a"],
+Cell[9216, 243, 557, 13, 32, "Output",ExpressionUUID->"456664ed-fa1e-c04e-96a2-21f97abe209c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9810, 261, 6064, 146, 523, "Input",ExpressionUUID->"d49baca1-c6c3-234c-856f-2300bf0a7469"],
+Cell[15877, 409, 2960, 58, 411, "Output",ExpressionUUID->"4c06ba49-cf73-2f4e-a52f-8114ddac665e"],
+Cell[18840, 469, 2957, 58, 417, "Output",ExpressionUUID->"4b7aaf99-55e2-0843-b279-24280330dbc5"]
+}, Open  ]],
+Cell[21812, 530, 175, 3, 28, "Input",ExpressionUUID->"c7da58d9-789f-004e-b8e6-7619d0e1d9f1"],
+Cell[CellGroupData[{
+Cell[22012, 537, 4380, 111, 390, "Input",ExpressionUUID->"4e78a1a7-c942-a143-89b3-f69a6bfed72d"],
+Cell[26395, 650, 2765, 57, 411, "Output",ExpressionUUID->"3100d437-2064-1544-b1f3-a820837c82b3"],
+Cell[29163, 709, 2765, 57, 419, "Output",ExpressionUUID->"a60549b3-23a6-6443-b2c8-969e3a39c8db"],
+Cell[31931, 768, 2761, 58, 419, "Output",ExpressionUUID->"318af127-6251-7c4a-aa2f-12c5f050bc9d"],
+Cell[34695, 828, 502, 9, 28, "Message",ExpressionUUID->"98455e0c-bf4b-fa4f-9b56-50173f6435d8"],
+Cell[35200, 839, 501, 9, 28, "Message",ExpressionUUID->"604e0403-f611-a747-86e6-45b90bb6bf67"],
+Cell[35704, 850, 502, 9, 28, "Message",ExpressionUUID->"d9e02af7-d151-0940-bc63-df88bfb8f9f2"],
+Cell[36209, 861, 504, 9, 28, "Message",ExpressionUUID->"b4e2a9a0-661d-d442-8a7c-30514e064962"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

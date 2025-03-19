@@ -1,0 +1,125 @@
+
+\documentclass[a4paper]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{booktabs}
+
+
+\title{Formal analysis of the $E/A_{-}$ function}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Function Definition}
+
+We will simply denote $E/A_{-}$ by $E$ throughout this document. The function is defined as:
+\begin{align}
+E(r,t,I,S) &= t_1(r,t,I,S) + t_2(r,t,I,S)
+\end{align}
+where:
+\begin{align}
+t_1(r,t,I,S) &= -2\sqrt{rt(2I-r)(2S-t)}\ ,\nonumber \\
+t_2(r,t,I,S) &= \frac{I-1}{2S}t + \frac{S-1}{2I}r + \frac{rt}{4IS}\ .
+\label{terms}
+\end{align}
+
+For fixed parameters $I$ and $S$, we can express the function as:
+\begin{align}
+E(r,t) &= -2\sqrt{rt(2I-r)(2S-t)} + \frac{I-1}{2S}t + \frac{S-1}{2I}r + \frac{rt}{4IS}
+\end{align}
+
+\section{Critical Points}
+The critical points of the $E$ function are found by setting the first-order partial derivatives equal to zero:
+\begin{align}
+\frac{\partial E}{\partial r} &= \frac{S - 1}{2I} + \frac{t}{4IS} - \frac{(2S - t)t(2I - r) - (2S - t)t r}{\sqrt{(2S - t)t(2I - r)r}} = 0\ ,\nonumber\\
+\frac{\partial E}{\partial t} &= \frac{I - 1}{2S} + \frac{r}{4IS} - \frac{(2I - r)r(2S - t) - (2I - r)r t}{\sqrt{(2I - r)r(2S - t)t}} = 0
+\label{system-eq}
+\end{align}
+These equations determine the critical points $(r_c, t_c)$ where the gradient of the function is zero.
+
+\section{Hessian Matrix}
+
+The Hessian matrix of the $E$ function with respect to variables $r$ and $t$ (treating $I$ and $S$ as fixed parameters) is:
+\begin{align}
+H_{E}(r,t) = 
+\begin{pmatrix}
+\frac{\partial^2 E}{\partial r^2} & \frac{\partial^2 E}{\partial r \partial t} \\
+\frac{\partial^2 E}{\partial t \partial r} & \frac{\partial^2 E}{\partial t^2}
+\end{pmatrix}\ ,
+\end{align}
+with the derivatives:
+\begin{align}
+    \frac{\partial^2 E}{\partial r^2} &= -2 \left( - \frac{(2S - t) t}{\sqrt{(2S - t) t (2I - r) r}} - \frac{((2S - t) t (2I - r) - (2S - t) t r)^2}{4 \left( (2S - t) t (2I - r) r \right)^{3/2}} \right) \\
+    \frac{\partial^2 E}{\partial t^2} &= -2 \left( - \frac{(2I - r) r}{\sqrt{(2I - r) r (2S - t) t}} - \frac{((2I - r) r (2S - t) - (2I - r) r t)^2}{4 \left( (2I - r) r (2S - t) t \right)^{3/2}} \right) \\
+    \frac{\partial^2 E}{\partial r \partial t} &= \frac{1}{4IS} - \frac{(2I - r)(2S - t) - r(2S - t) - (2I - r) t + rt}{\sqrt{(2I - r) r (2S - t) t}}
+\end{align}
+
+\section{Function Domain}
+
+It is important to have the domains for the variables $r, t$, since finding the minimum of $E$ would require some constraints. The ranges for $r$ and $t$ can be determined by analyzing the square root from $t_1$ given by Eq.\eqref{terms}.
+
+In order for the function $E$ to be real, the term in the square root must be non-negative, thus:
+$$rt(2I-r)(2S-t)\geq 0\ ,$$
+which provides the valid regions for $r, t$ as:
+$$r\in [0, 2I]\ , \ t\in [0, 2S]$$
+
+\subsection{Critical points}
+
+We solve via \texttt{NSolve} the system of equations from Eq.\eqref{system-eq} and only consider the real solutions. The points provided by the system are denoted by $\{r_c, t_c\}$ (to emphasize the critical points). Moreover, by studying second-order partial derivatives of $E$ w.r.t to $r$ and $t$, we can finally determine if the critical points represent local minimum or maximum.
+
+\section{Numerical Analysis}
+
+All the numerical values for the minimum points are provided below.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        $I$ & $r_c$ & $t_c$ & $\frac{\partial^2 E}{\partial r^2}$ & $\frac{\partial^2 E}{\partial t^2}$ \\
+        \midrule
+        1  & 0.888889 & 0.888889 & 2.025 & 2.025 \\
+        2  & 1.89609  & 0.81856  & 0.987397 & 4.20029 \\
+        3  & 2.89829  & 0.79726  & 0.653949 & 6.38622 \\
+        4  & 3.89935  & 0.786972 & 0.488987 & 8.57447 \\
+        5  & 4.89998  & 0.780911 & 0.390516 & 10.7636 \\
+        6  & 5.90039  & 0.776915 & 0.325067 & 12.9532 \\
+        7  & 6.90068  & 0.774083 & 0.278412 & 15.143 \\
+        8  & 7.9009   & 0.771971 & 0.24347  & 17.3329 \\
+        9  & 8.90107  & 0.770335 & 0.216321 & 19.523 \\
+        10 & 9.9012   & 0.769031 & 0.194621 & 21.7131 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Critical points and second-order derivatives for fixed $S=1$.}
+    \label{table1}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        $S$ & $r_c$ & $t_c$ & $\frac{\partial^2 E}{\partial r^2}$ & $\frac{\partial^2 E}{\partial t^2}$ \\
+        \midrule
+        1  & 0.888889 & 0.888889 & 2.025 & 2.025 \\
+        2  & 0.81856  & 1.89609  & 4.20029 & 0.987397 \\
+        3  & 0.79726  & 2.89829  & 6.38622 & 0.653949 \\
+        4  & 0.786972 & 3.89935  & 8.57447 & 0.488987 \\
+        5  & 0.780911 & 4.89998  & 10.7636 & 0.390516 \\
+        6  & 0.776915 & 5.90039  & 12.9532 & 0.325067 \\
+        7  & 0.774083 & 6.90068  & 15.143  & 0.278412 \\
+        8  & 0.771971 & 7.9009   & 17.3329 & 0.24347 \\
+        9  & 0.770335 & 8.90107  & 19.523  & 0.216321 \\
+        10 & 0.769031 & 9.9012   & 21.7131 & 0.194621 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Critical points and second-order derivatives for fixed $I=1$.}
+    \label{table2}
+\end{table}
+
+As we can see from Table \ref{table1} and \ref{table2} the critical points are all \textbf{minima}, since the second derivative is positive. The value for $(r_c, t_c)$ for fixed spin values $I,S=8, 8$ is the following tuple:
+$$(r_c, t_c;I=8,S=8)=(7.76608\ ,\ 7.76608)$$
+\end{document}
