@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1506812,      25821]
-NotebookOptionsPosition[   1504868,      25780]
-NotebookOutlinePosition[   1505284,      25797]
-CellTagsIndexPosition[   1505241,      25794]
+NotebookDataLength[   1506560,      25819]
+NotebookOptionsPosition[   1504616,      25778]
+NotebookOutlinePosition[   1505032,      25795]
+CellTagsIndexPosition[   1504989,      25792]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -37,10 +37,10 @@ Cell[BoxData[{
 
 Cell[BoxData["\<\"MacOSX-ARM64\"\>"], "Print",
  CellChangeTimes->{3.958267764778957*^9, 3.958267807473827*^9, 
-  3.958268382307518*^9, 3.958268573987048*^9},
+  3.958268382307518*^9, 3.958268573987048*^9, 3.95829666133088*^9},
  CellLabel->
   "During evaluation of \
-In[2]:=",ExpressionUUID->"7a22b10c-80df-47ba-8a91-a166bc9295aa"]
+In[2]:=",ExpressionUUID->"c73d6ccb-7b98-493c-9a3b-32a0f26d8fe2"]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -129,9 +129,7 @@ Cell[BoxData[{
        RowBox[{"Black", ",", " ", "Thick"}], "]"}]}], ",", " ", 
      RowBox[{"FrameLabel", "->", 
       RowBox[{"{", 
-       RowBox[{
-       "\"\<\!\(\*SubscriptBox[\(I\), \(p\)]\)\>\"", ",", 
-        "\"\<\!\(\*SubscriptBox[\(I\), \(n\)]\)\>\""}], "}"}]}], ",", 
+       RowBox[{"\"\<r\>\"", ",", "\"\<t\>\""}], "}"}]}], ",", 
      RowBox[{"LabelStyle", "->", 
       RowBox[{"{", 
        RowBox[{"18", ",", " ", "Black", ",", " ", 
@@ -186,7 +184,10 @@ Cell[BoxData[{
           RowBox[{"Style", "[", 
            RowBox[{
             RowBox[{
-             RowBox[{"StringTemplate", "[", "\"\<I=`` ; S=``\>\"", "]"}], "[", 
+             RowBox[{
+             "StringTemplate", "[", 
+              "\"\<\!\(\*SubscriptBox[\(I\), \(p\)]\)=`` ; \
+\!\(\*SubscriptBox[\(I\), \(n\)]\)=``\>\"", "]"}], "[", 
              RowBox[{
               RowBox[{"p", "[", 
                RowBox[{"[", "1", "]"}], "]"}], ",", 
@@ -220,7 +221,7 @@ Cell[BoxData[{
    3.9513617192566433`*^9, {3.951361781950547*^9, 3.9513617961707478`*^9}, {
    3.951361846119011*^9, 3.951362001011684*^9}, 3.951362031220777*^9, {
    3.951362106197221*^9, 3.951362117828977*^9}, {3.958267439804263*^9, 
-   3.958267467356843*^9}},
+   3.958267467356843*^9}, {3.95829664397318*^9, 3.9582966570142*^9}},
  CellLabel->"In[7]:=",ExpressionUUID->"6a7e97a6-4484-e64e-b49b-dc70aab42022"],
 
 Cell[BoxData[{
@@ -349,7 +350,7 @@ Cell[BoxData[{
    3.951360084160673*^9, 3.951360116771253*^9}, 3.9513601727950478`*^9, {
    3.951362046520729*^9, 3.951362065724432*^9}, {3.95136212377042*^9, 
    3.951362131398174*^9}, {3.951362429833103*^9, 3.951362459738876*^9}, {
-   3.951470945447197*^9, 3.951470950073656*^9}, {3.9582669268716083`*^9, 
+   3.951470945447197*^9, 3.951470950073656*^9}, {3.958266926871608*^9, 
    3.958266940049033*^9}, {3.958268224437159*^9, 3.9582682526532593`*^9}, {
    3.958268541062146*^9, 3.9582685437846107`*^9}},
  CellLabel->"In[15]:=",ExpressionUUID->"d8f33be1-8fda-8c43-9075-168568ef7b7b"],
@@ -6249,7 +6250,9 @@ j3bg
       BoxData[
        FormBox[
         FrameBox[
-         StyleBox["\"I=1 ; S=1\"", Bold, 18, 
+         StyleBox[
+         "\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)=1 ; \
+\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)=1\"", Bold, 18, 
           GrayLevel[1], FontFamily -> "Times New Roman", StripOnInput -> 
           False], BaseStyle -> {
            GrayLevel[1], 24}, StripOnInput -> False], TraditionalForm]], 
@@ -6268,19 +6271,16 @@ j3bg
           FormBox["2.`", TraditionalForm]}}, None}}, 
      GridLines -> {None, None}, AxesLabel -> {None, None}, FrameLabel -> {{
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}, {
+         TagBox["\"t\"", HoldForm], TraditionalForm], None}, {
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}}, DisplayFunction -> Identity, AspectRatio -> 
-     1, AxesLabel -> {None, None}, DisplayFunction :> Identity, Frame -> True,
-      FrameLabel -> {{
+         TagBox["\"r\"", HoldForm], TraditionalForm], None}}, DisplayFunction -> 
+     Identity, AspectRatio -> 1, AxesLabel -> {None, None}, DisplayFunction :> 
+     Identity, Frame -> True, FrameLabel -> {{
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}, {
+         TagBox["\"t\"", HoldForm], TraditionalForm], None}, {
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}}, FrameStyle -> Directive[
+         TagBox["\"r\"", HoldForm], TraditionalForm], None}}, FrameStyle -> 
+     Directive[
        GrayLevel[0], 
        Thickness[Large]], FrameTicks -> {{{{0.5, 
           FormBox["0.5`", TraditionalForm]}, {1., 
@@ -6518,8 +6518,8 @@ j3bg
    3.951362198018774*^9, 3.951362276452553*^9, {3.951362449887327*^9, 
    3.951362460835476*^9}, 3.951470976397875*^9, 3.9582669448885937`*^9, 
    3.9582674805259047`*^9, 3.958268257490954*^9, 3.958268382518744*^9, 
-   3.958268575419331*^9},
- CellLabel->"Out[20]=",ExpressionUUID->"9ce7f8cf-cfaf-435f-a32e-a61fd7ce649a"]
+   3.958268575419331*^9, 3.958296662961299*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"16043eec-03f6-41fd-a6f2-aaf663824048"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -13064,7 +13064,9 @@ fzijhD71Zu/UqZb/lh6h2Tw52CfvmLP20uP0DE3jyddTKi2gbfI7krOiV/Ty
       BoxData[
        FormBox[
         FrameBox[
-         StyleBox["\"I=1 ; S=10\"", Bold, 18, 
+         StyleBox[
+         "\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)=1 ; \
+\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)=10\"", Bold, 18, 
           GrayLevel[1], FontFamily -> "Times New Roman", StripOnInput -> 
           False], BaseStyle -> {
            GrayLevel[1], 24}, StripOnInput -> False], TraditionalForm]], 
@@ -13084,19 +13086,16 @@ fzijhD71Zu/UqZb/lh6h2Tw52CfvmLP20uP0DE3jyddTKi2gbfI7krOiV/Ty
           FormBox["2.`", TraditionalForm]}}, None}}, 
      GridLines -> {None, None}, AxesLabel -> {None, None}, FrameLabel -> {{
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}, {
+         TagBox["\"t\"", HoldForm], TraditionalForm], None}, {
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}}, DisplayFunction -> Identity, AspectRatio -> 
-     1, AxesLabel -> {None, None}, DisplayFunction :> Identity, Frame -> True,
-      FrameLabel -> {{
+         TagBox["\"r\"", HoldForm], TraditionalForm], None}}, DisplayFunction -> 
+     Identity, AspectRatio -> 1, AxesLabel -> {None, None}, DisplayFunction :> 
+     Identity, Frame -> True, FrameLabel -> {{
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}, {
+         TagBox["\"t\"", HoldForm], TraditionalForm], None}, {
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}}, FrameStyle -> Directive[
+         TagBox["\"r\"", HoldForm], TraditionalForm], None}}, FrameStyle -> 
+     Directive[
        GrayLevel[0], 
        Thickness[Large]], FrameTicks -> {{{{2, 
           FormBox["2", TraditionalForm]}, {6, 
@@ -13359,9 +13358,9 @@ fzijhD71Zu/UqZb/lh6h2Tw52CfvmLP20uP0DE3jyddTKi2gbfI7krOiV/Ty
    3.951360234766258*^9, 3.9513617403931007`*^9, {3.951361788705105*^9, 
    3.951361806774008*^9}, 3.951362201881759*^9, 3.9513622446500797`*^9, {
    3.951362283240003*^9, 3.951362325159403*^9}, {3.9513623589358635`*^9, 
-   3.9513624233472586`*^9}, 3.951470983164844*^9, 3.958268383786827*^9, 
-   3.958268578783616*^9},
- CellLabel->"Out[29]=",ExpressionUUID->"4052d353-5a90-4a69-b9b0-c15695f15a2b"]
+   3.9513624233472576`*^9}, 3.951470983164844*^9, 3.958268383786827*^9, 
+   3.958268578783616*^9, 3.958296666476653*^9},
+ CellLabel->"Out[29]=",ExpressionUUID->"d141ac49-9a0d-42f0-ac33-03c1d207fd90"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -20007,7 +20006,9 @@ Se1h59vIX/iVnE61O7BZbAvu6tkdNDn3PW7m+877Xk/6q/7/C/8Azdt1sg==
       BoxData[
        FormBox[
         FrameBox[
-         StyleBox["\"I=10 ; S=1\"", Bold, 18, 
+         StyleBox[
+         "\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)=10 ; \
+\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)=1\"", Bold, 18, 
           GrayLevel[1], FontFamily -> "Times New Roman", StripOnInput -> 
           False], BaseStyle -> {
            GrayLevel[1], 24}, StripOnInput -> False], TraditionalForm]], 
@@ -20027,19 +20028,16 @@ Se1h59vIX/iVnE61O7BZbAvu6tkdNDn3PW7m+877Xk/6q/7/C/8Azdt1sg==
           FormBox["20", TraditionalForm]}}, None}}, GridLines -> {None, None},
       AxesLabel -> {None, None}, FrameLabel -> {{
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}, {
+         TagBox["\"t\"", HoldForm], TraditionalForm], None}, {
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}}, DisplayFunction -> Identity, AspectRatio -> 
-     1, AxesLabel -> {None, None}, DisplayFunction :> Identity, Frame -> True,
-      FrameLabel -> {{
+         TagBox["\"r\"", HoldForm], TraditionalForm], None}}, DisplayFunction -> 
+     Identity, AspectRatio -> 1, AxesLabel -> {None, None}, DisplayFunction :> 
+     Identity, Frame -> True, FrameLabel -> {{
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}, {
+         TagBox["\"t\"", HoldForm], TraditionalForm], None}, {
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}}, FrameStyle -> Directive[
+         TagBox["\"r\"", HoldForm], TraditionalForm], None}}, FrameStyle -> 
+     Directive[
        GrayLevel[0], 
        Thickness[Large]], FrameTicks -> {{{{0.5, 
           FormBox["0.5`", TraditionalForm]}, {1., 
@@ -20301,9 +20299,9 @@ Se1h59vIX/iVnE61O7BZbAvu6tkdNDn3PW7m+877Xk/6q/7/C/8Azdt1sg==
    3.9512973878066406`*^9, 3.9512974068955326`*^9}, 3.9513492905224247`*^9, 
    3.951360239283611*^9, 3.951361744590912*^9, {3.951361793037556*^9, 
    3.951361811575184*^9}, 3.951362205979931*^9, {3.951362500924028*^9, 
-   3.951362569535888*^9}, 3.9514709894888325`*^9, 3.9582683851418047`*^9, 
-   3.958268581616517*^9},
- CellLabel->"Out[38]=",ExpressionUUID->"deb42d92-5425-4834-a8e6-16a75b8f3933"]
+   3.951362569535888*^9}, 3.951470989488832*^9, 3.958268385141804*^9, 
+   3.958268581616517*^9, 3.958296669363229*^9},
+ CellLabel->"Out[38]=",ExpressionUUID->"630b2ba9-3708-4054-a0d3-6457976d7a46"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -25505,7 +25503,9 @@ cpvRUO4dmjmOnfYfSP3/3/wD7o2Q0w==
       BoxData[
        FormBox[
         FrameBox[
-         StyleBox["\"I=8 ; S=8\"", Bold, 18, 
+         StyleBox[
+         "\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)=8 ; \
+\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)=8\"", Bold, 18, 
           GrayLevel[1], FontFamily -> "Times New Roman", StripOnInput -> 
           False], BaseStyle -> {
            GrayLevel[1], 24}, StripOnInput -> False], TraditionalForm]], 
@@ -25526,19 +25526,16 @@ cpvRUO4dmjmOnfYfSP3/3/wD7o2Q0w==
           FormBox["16", TraditionalForm]}}, None}}, GridLines -> {None, None},
       AxesLabel -> {None, None}, FrameLabel -> {{
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}, {
+         TagBox["\"t\"", HoldForm], TraditionalForm], None}, {
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}}, DisplayFunction -> Identity, AspectRatio -> 
-     1, AxesLabel -> {None, None}, DisplayFunction :> Identity, Frame -> True,
-      FrameLabel -> {{
+         TagBox["\"r\"", HoldForm], TraditionalForm], None}}, DisplayFunction -> 
+     Identity, AspectRatio -> 1, AxesLabel -> {None, None}, DisplayFunction :> 
+     Identity, Frame -> True, FrameLabel -> {{
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(n\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}, {
+         TagBox["\"t\"", HoldForm], TraditionalForm], None}, {
         FormBox[
-         TagBox["\"\\!\\(\\*SubscriptBox[\\(I\\), \\(p\\)]\\)\"", HoldForm], 
-         TraditionalForm], None}}, FrameStyle -> Directive[
+         TagBox["\"r\"", HoldForm], TraditionalForm], None}}, FrameStyle -> 
+     Directive[
        GrayLevel[0], 
        Thickness[Large]], FrameTicks -> {{{{1, 
           FormBox["1", TraditionalForm]}, {4, 
@@ -25773,8 +25770,9 @@ cpvRUO4dmjmOnfYfSP3/3/wD7o2Q0w==
    3.951360243626774*^9, 3.9513617488037014`*^9, {3.95136179739892*^9, 
    3.9513618160634365`*^9}, 3.951362210399391*^9, {3.951362604697147*^9, 
    3.9513626477091064`*^9}, {3.9513626781588*^9, 3.951362745993616*^9}, 
-   3.951470998215679*^9, 3.9582683863454943`*^9, 3.9582685843933573`*^9},
- CellLabel->"Out[47]=",ExpressionUUID->"79519f7b-53a1-4863-b584-8a7ebf674520"]
+   3.951470998215679*^9, 3.9582683863454943`*^9, 3.9582685843933573`*^9, 
+   3.958296672200911*^9},
+ CellLabel->"Out[47]=",ExpressionUUID->"8c04dc43-e29b-4535-ae6b-7fbfb2d688a5"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -25799,28 +25797,28 @@ Notebook[{
 Cell[558, 20, 270, 4, 30, "Input",ExpressionUUID->"65c84b9d-d1d9-3643-beaf-97e637e96c97"],
 Cell[CellGroupData[{
 Cell[853, 28, 333, 7, 52, "Input",ExpressionUUID->"70b15d30-2d88-4ea8-bb7c-fdfdd21c0171"],
-Cell[1189, 37, 261, 5, 24, "Print",ExpressionUUID->"7a22b10c-80df-47ba-8a91-a166bc9295aa"]
+Cell[1189, 37, 282, 5, 24, "Print",ExpressionUUID->"c73d6ccb-7b98-493c-9a3b-32a0f26d8fe2"]
 }, Open  ]],
-Cell[1465, 45, 1551, 45, 94, "Input",ExpressionUUID->"cb00dd33-6275-8b44-b56c-baf4ca0f8d05"],
+Cell[1486, 45, 1551, 45, 94, "Input",ExpressionUUID->"cb00dd33-6275-8b44-b56c-baf4ca0f8d05"],
 Cell[CellGroupData[{
-Cell[3041, 94, 169, 3, 54, "Subsection",ExpressionUUID->"e308c1b6-ccc8-c145-a49d-7817963ed180"],
-Cell[3213, 99, 5230, 124, 310, "Input",ExpressionUUID->"6a7e97a6-4484-e64e-b49b-dc70aab42022"],
-Cell[8446, 225, 1587, 38, 220, "Input",ExpressionUUID->"ae6e861a-ee88-ac44-a0bd-ef3ea02704ca"],
+Cell[3062, 94, 169, 3, 54, "Subsection",ExpressionUUID->"e308c1b6-ccc8-c145-a49d-7817963ed180"],
+Cell[3234, 99, 5287, 125, 312, "Input",ExpressionUUID->"6a7e97a6-4484-e64e-b49b-dc70aab42022"],
+Cell[8524, 226, 1587, 38, 220, "Input",ExpressionUUID->"ae6e861a-ee88-ac44-a0bd-ef3ea02704ca"],
 Cell[CellGroupData[{
-Cell[10058, 267, 3977, 87, 199, "Input",ExpressionUUID->"d8f33be1-8fda-8c43-9075-168568ef7b7b"],
-Cell[14038, 356, 363049, 6165, 379, "Output",ExpressionUUID->"9ce7f8cf-cfaf-435f-a32e-a61fd7ce649a"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[377124, 6526, 3163, 76, 199, "Input",ExpressionUUID->"87ffedb2-8aab-b443-a9ab-ca7c074debf3"],
-Cell[380290, 6604, 398693, 6759, 376, "Output",ExpressionUUID->"4052d353-5a90-4a69-b9b0-c15695f15a2b"]
+Cell[10136, 268, 3975, 87, 199, "Input",ExpressionUUID->"d8f33be1-8fda-8c43-9075-168568ef7b7b"],
+Cell[14114, 357, 362967, 6164, 374, "Output",ExpressionUUID->"16043eec-03f6-41fd-a6f2-aaf663824048"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[779020, 13368, 2439, 69, 199, "Input",ExpressionUUID->"a75dcf18-135f-0d46-9f77-5724481ba158"],
-Cell[781462, 13439, 405317, 6866, 376, "Output",ExpressionUUID->"deb42d92-5425-4834-a8e6-16a75b8f3933"]
+Cell[377118, 6526, 3163, 76, 199, "Input",ExpressionUUID->"87ffedb2-8aab-b443-a9ab-ca7c074debf3"],
+Cell[380284, 6604, 398611, 6758, 371, "Output",ExpressionUUID->"d141ac49-9a0d-42f0-ac33-03c1d207fd90"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1186816, 20310, 2464, 70, 220, "Input",ExpressionUUID->"8434436a-c285-1641-b9aa-16bebb4191fa"],
-Cell[1189283, 20382, 315557, 5394, 381, "Output",ExpressionUUID->"79519f7b-53a1-4863-b584-8a7ebf674520"]
+Cell[778932, 13367, 2439, 69, 199, "Input",ExpressionUUID->"a75dcf18-135f-0d46-9f77-5724481ba158"],
+Cell[781374, 13438, 405231, 6865, 371, "Output",ExpressionUUID->"630b2ba9-3708-4054-a0d3-6457976d7a46"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1186642, 20308, 2464, 70, 220, "Input",ExpressionUUID->"8434436a-c285-1641-b9aa-16bebb4191fa"],
+Cell[1189109, 20380, 315479, 5394, 399, "Output",ExpressionUUID->"8c04dc43-e29b-4535-ae6b-7fbfb2d688a5"]
 }, Open  ]]
 }, Open  ]]
 }
